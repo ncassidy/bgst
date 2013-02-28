@@ -32,10 +32,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+Route::get('/', 'home@index');
 
 /*
 |--------------------------------------------------------------------------
@@ -100,10 +97,6 @@ Route::filter('after', function($response)
 	// Do stuff after every request to your application...
 });
 
-Route::filter('csrf', function()
-{
-	if (Request::forged()) return Response::error('500');
-});
 
 Route::filter('auth', function()
 {

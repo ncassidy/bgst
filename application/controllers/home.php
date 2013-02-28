@@ -32,6 +32,10 @@ class Home_Controller extends Base_Controller {
 
 	public function action_index()
 	{
+        $users = User::find(1);
+
+        var_dump($users);
+
 		return View::make('home.index');
 	}
 
