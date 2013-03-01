@@ -1,5 +1,7 @@
 <?php
 
+//use User;
+
 class Home_Controller extends Base_Controller {
 
 	/*
@@ -32,9 +34,12 @@ class Home_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-        $users = User::find(1);
+        //$user = new UserService();
+        //$user->getUser(1);
 
-        var_dump($users);
+        //var_dump($user);
+
+        $test = new \Entities\User(1,1,1,1,1,1,1);
 
 		return View::make('home.index');
 	}
