@@ -60,10 +60,6 @@ Laravel\Autoloader::$aliases = $aliases;
 
 Autoloader::map(array(
 	'Base_Controller' => path('app').'controllers/base.php',
-
-    'UserRepository' => path('app').'repositories/user.php',
-    'User' => path('app').'entities/user.php',
-    'UserService' => path('app').'services/user.php',
 ));
 
 /*
@@ -80,10 +76,6 @@ Autoloader::map(array(
 Autoloader::directories(array(
 	path('app').'models',
 	path('app').'libraries',
-
-    path('app').'repositories',
-    path('app').'entities',
-    path('app').'services',
 ));
 
 /*
