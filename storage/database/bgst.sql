@@ -23,6 +23,7 @@ CREATE TABLE `game` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `creator_id` int(10) unsigned NOT NULL,
   `title` varchar(50) NOT NULL,
+  `session_count` int(10) unsigned NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -40,7 +41,7 @@ CREATE TABLE `player` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `creator_id` int(10) unsigned NOT NULL,
   `session_id` int(10) unsigned NOT NULL,
-  `name` varchar(25) NOT NULL,
+  `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -49,10 +50,27 @@ CREATE TABLE `player` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `result`
+-- Table structure for `user_outcome`
 -- ----------------------------
-DROP TABLE IF EXISTS `result`;
-CREATE TABLE `result` (
+DROP TABLE IF EXISTS `user_outcome`;
+CREATE TABLE `user_outcome` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `session_id` int(10) unsigned NOT NULL,
+  `score` int(10) DEFAULT NULL,
+  `win_status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_outcome
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `player_outcome`
+-- ----------------------------
+DROP TABLE IF EXISTS `player_outcome`;
+CREATE TABLE `player_outcome` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `player_id` int(10) unsigned NOT NULL,
   `session_id` int(10) unsigned NOT NULL,
@@ -62,7 +80,7 @@ CREATE TABLE `result` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of result
+-- Records of player_outcome
 -- ----------------------------
 
 -- ----------------------------
@@ -74,6 +92,7 @@ CREATE TABLE `session` (
   `creator_id` int(10) unsigned NOT NULL,
   `game_id` int(10) unsigned NOT NULL,
   `title` varchar(50) NOT NULL,
+  `date` datetime NOT NULL,
   `summary` text,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -94,6 +113,7 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
+  `city` varchar(30) DEFAULT NULL,
   `state` varchar(2) DEFAULT NULL,
   `country` varchar(30) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -104,4 +124,4 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'nicholascassidy@gmail.com', 'mary6425', 'Nicholas', 'Cassidy', 'CO', 'United States', '2013-02-27 18:10:28', '2013-02-27 18:10:33');
+INSERT INTO `user` VALUES ('1', 'nicholascassidy@gmail.com', 'mary6425', 'Nicholas', 'Cassidy', 'Broomfield', 'CO', 'United States', '2013-02-27 18:10:28', '2013-02-27 18:10:33');
