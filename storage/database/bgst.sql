@@ -120,8 +120,3 @@ CREATE TABLE `user` (
   `update_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', 'nicholascassidy@gmail.com', 'mary6425', 'Nicholas', 'Cassidy', 'Broomfield', 'CO', 'United States', '2013-02-27 18:10:28', '2013-02-27 18:10:33');
