@@ -104,6 +104,76 @@ CREATE TABLE `session` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `achievement`
+-- ----------------------------
+DROP TABLE IF EXISTS `achievement`;
+CREATE TABLE `achievement` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(25) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(25) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `update_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of achievement
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `achievement_awarded`
+-- ----------------------------
+DROP TABLE IF EXISTS `achievement_awarded`;
+CREATE TABLE `achievement_awarded` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `achievement_id` int(10) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of achievement_awarded
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `event`
+-- ----------------------------
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE `event` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `event_type_id` int(10) unsigned NOT NULL,
+  `session_id` int(10) unsigned DEFAULT NULL,
+  `processed_status` tinyint(1) NOT NULL DEFAULT '0',  
+  `created_at` datetime NOT NULL,
+  `update_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of event
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `event_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `event_type`;
+CREATE TABLE `event_type` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of event_type
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -119,4 +189,4 @@ CREATE TABLE `user` (
   `created_at` datetime NOT NULL,
   `update_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
