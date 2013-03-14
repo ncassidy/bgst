@@ -1,6 +1,6 @@
 <?php
 
-class Home_Controller extends Base_Controller {
+class Landing_Controller extends Base_Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ class Home_Controller extends Base_Controller {
 
         var_dump($result);
 
-		return View::make('home.index');
+		return View::make('landing.index');
 	}
 
 }
