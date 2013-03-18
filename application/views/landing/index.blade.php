@@ -1,57 +1,44 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Laravel: A Framework For Web Artisans</title>
-	<meta name="viewport" content="width=device-width">
-	{{ HTML::style('laravel/css/style.css') }}
-</head>
-<body>
-	<div class="wrapper">
-		<header>
-			<h1>Laravel</h1>
-			<h2>A Framework For Web Artisans</h2>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <title>BGST - Board Game Session Tracker</title>
 
-			<p class="intro-text" style="margin-top: 45px;">
-			</p>
-		</header>
-		<div role="main" class="main">
-			<div class="home">
-				<h2>Learn the terrain.</h2>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <meta charset="utf-8">
+        <meta name="description" content="Vail Resorts web standards documentation.">
 
-				<p>
-					You've landed yourself on our default home page. The route that
-					is generating this page lives at:
-				</p>
+        {{ HTML::style('css/global.css') }}
 
-				<pre>{{ path('app') }}routes.php</pre>
+        <script>
+            //JavaScript off fallback
+            document.write('<style>.example { display: none; } .demo-included:hover, .demo-included:focus { cursor: pointer; }</style>');
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
 
-				<p>And the view sitting before you can be found at:</p>
+        <div id="nav">
+            <h1>BGST</h1>
+            <ul>
+                <li><a href="#general" alt="General">General</a></li>
+            </ul>
+        </div>
 
-				<pre>{{ path('app') }}views/home/index.blade.php</pre>
+        <div id="standards-content">
 
-				<h2>Grow in knowledge.</h2>
+        </div>
 
-				<p>
-					Learning to use Laravel is amazingly simple thanks to
-					its {{ HTML::link('docs', 'wonderful documentation') }}.
-				</p>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
 
-				<h2>Create something beautiful.</h2>
-
-				<p>
-					Now that you're up and running, it's time to start creating!
-					Here are some links to help you get started:
-				</p>
-
-				<ul class="out-links">
-					<li><a href="http://laravel.com">Official Website</a></li>
-					<li><a href="http://forums.laravel.com">Laravel Forums</a></li>
-					<li><a href="http://github.com/laravel/laravel">GitHub Repository</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</body>
+            });
+        </script>
+    </body>
 </html>
