@@ -15,23 +15,34 @@
 
         <script>
             //JavaScript off fallback
-            document.write('<style>.example { display: none; } .demo-included:hover, .demo-included:focus { cursor: pointer; }</style>');
+            document.write('<style>.js-off { display: none; }</style>');
         </script>
     </head>
     <body>
+        <p class="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy BGST as intended!</p>
         <!--[if lt IE 7]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <div id="nav">
-            <h1>BGST</h1>
-            <ul>
-                <li><a href="#general" alt="General">General</a></li>
-            </ul>
+            <div>
+                <h1>BGST</h1>
+                <ul>
+                    <li><a href="#" alt="General">Sessions</a></li>
+                    <li><a href="#" alt="General">Profile</a></li>
+                    <li><a href="#" alt="General">About</a></li>
+                </ul>
+            </div>
         </div>
 
-        <div id="standards-content">
+        <div id="content">
+            <div class="sessions">
 
+            </div>
+
+            <div class="graph">
+
+            </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
