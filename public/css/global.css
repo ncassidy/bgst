@@ -45,14 +45,21 @@ table {
 /* Global Styles */
 body { background: #f6f6f6; }
 
-#nav { background: #333; height: 35px; position: fixed; top:0; width: 100%; z-index: 10; }
-#nav > div { height: 35px; margin: 0 auto; width: 900px }
-#nav h1 { color: #45b4ff; float: left; font: bold 17px Helvetica; height: 35px; line-height: 35px; padding-right: 50px; text-shadow: 0 1px 1px #000; text-transform: uppercase; }
-#nav ul { border-right: 1px solid #242424; border-left: 1px solid #464646; float: left; }
-#nav ul li { background: #333; border-left: 1px solid #242424; border-right: 1px solid #464646; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; float: left; height: 35px; line-height: 35px; padding: 0 10px; position: relative; z-index: 10; }
-#nav ul li a { color: #fff; font: bold 15px  Arial,sans-serif; padding: 10px; text-decoration: none; text-shadow: 0 1px 1px #000; }
+#nav { background: #141414; border-bottom: 2px solid #242424; border-top: 1px solid #464646; box-shadow: 0 4px 8px 0 #c8c8c8; height: 35px; left: 50%; margin-left: -480px; position: fixed; top: 0; width: 960px; z-index: 10; background: -moz-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#2c2c2c),color-stop(100%,#121212)); background: -webkit-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -o-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -ms-linear-gradient(top,#2c2c2c 0,#121212 100%); background: linear-gradient(top,#2c2c2c 0,#121212 100%); -moz-box-shadow: 0 4px 8px 0 #c8c8c8;; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8;; }
+#nav > div { height: 35px; }
+#nav #ribbon-left { background: url('/img/bkg.nav-ribbon.png') 0 0 no-repeat; bottom: -15px; height: 14px; left: 0; position: absolute;  width: 29px; z-index: 0; }
+#nav #ribbon-right { background: url('/img/bkg.nav-ribbon.png') -29px 0 no-repeat; bottom: -15px; height: 14px; position: absolute; right: 0; width: 29px; z-index: 0; }
+#nav h1 { color: #45b4ff; float: left; font: bold 17px Verdana; height: 35px; line-height: 35px; padding: 0 28px; text-shadow: 0 2px 2px #000; text-transform: uppercase; }
+#nav ul { border-right: 1px solid #464646; border-left: 1px solid #464646; float: left; }
+#nav ul li { background: #141414; border-left: 1px solid #242424; border-right: 1px solid #242424; box-sizing: border-box; float: left; height: 35px; margin-right: -1px; position: relative; z-index: 10; background: -moz-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#2c2c2c),color-stop(100%,#121212)); background: -webkit-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -o-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -ms-linear-gradient(top,#2c2c2c 0,#121212 100%); background: linear-gradient(top,#2c2c2c 0,#121212 100%); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+#nav ul li:last-child { margin: 0; }
+#nav ul li a { border-left: 1px solid #464646; border-right: 1px solid #464646; color: #fff; display: block; font: bold 15px  Arial,sans-serif; line-height: 16px; padding: 10px 20px; text-decoration: none; text-shadow: 0 1px 1px #000; transition: background-color .4s ease-out,border-top-color .4s ease-out; -webkit-transition: background-color .4s ease-out,border-top-color .4s ease-out; -moz-transition: background-color .4s ease-out,border-top-color .4s ease-out; -ms-transition: background-color .4s ease-out,border-top-color .4s ease-out; -o-transition: background-color .4s ease-out,border-top-color .4s ease-out; }
+#nav ul li.active a { border-top: 2px solid #45b4ff; line-height: 13px; }
+#nav ul li a:hover { background: #333; }
 
-#content { width: 100%; }
-#content .sessions { background: #fff; border: 1px solid #d8d8d8; height: 600px;  margin: 60px auto 30px; width: 900px; }
-#content .sessions h2 {  }
-#content .graph { background: #fff; border: 1px solid #d8d8d8; height: 300px; margin: 0 auto 30px; width: 900px; }
+#content { margin-top: 32px; position: relative; width: 100%; }
+#content .module { background: #fff; border: 1px solid #d8d8d8; border-radius: 5px; margin: 0 auto 15px; padding: 20px; width: 860px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+#content .module h2 { color: #45b4ff; font: bold 15px Verdana; }
+#content .sessions {  height: 500px; }
+#content .graph { height: 300px; margin-bottom: 0; }
+#content #copyright { color: #555; font: 10px Verdana; position: relative; left: 50%; margin: 5px 0 0 -450px; width: 272px; }

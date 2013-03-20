@@ -28,21 +28,24 @@
             <div>
                 <h1>BGST</h1>
                 <ul>
-                    <li><a href="#" alt="General">Sessions</a></li>
-                    <li><a href="#" alt="General">Profile</a></li>
-                    <li><a href="#" alt="General">About</a></li>
+                    <li class="active"><a href="#" alt="Sessions">Sessions</a></li>
+                    <li><a href="#" alt="Profile">Profile</a></li>
+                    <li><a href="#" alt="About">About</a></li>
                 </ul>
             </div>
+            <div id="ribbon-left"></div>
+            <div id="ribbon-right"></div>
         </div>
 
         <div id="content">
-            <div class="sessions">
-
+            <div class="module sessions">
+                <h2>Recent Activity</h2>
             </div>
 
-            <div class="graph">
-
+            <div class="module graph">
+                <h2>Most Played Games</h2>
             </div>
+            <p id="copyright">Copyright © 2013 BGST LLC. All rights reserved.</p>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
