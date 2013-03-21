@@ -58,8 +58,6 @@ body { background: #f6f6f6; }
 #nav ul li a:hover { background: #333; }
 
 #content { margin-top: 32px; position: relative; width: 100%; }
-#content .module { background: #fff; border: 1px solid #d8d8d8; border-radius: 5px; margin: 0 auto 15px; padding: 20px; width: 860px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
-#content .module h2 { color: #45b4ff; font: bold 15px Verdana; }
-#content .sessions {  height: 500px; }
-#content .graph { height: 300px; margin-bottom: 0; }
-#content #copyright { color: #555; font: 10px Verdana; position: relative; left: 50%; margin: 5px 0 0 -450px; width: 272px; }
+#content .section { background: #fff; border: 1px solid #d8d8d8; margin: 0 auto 5px; min-height: 800px; padding: 20px; width: 860px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; }
+#content .section h2 { color: #45b4ff; font: bold 15px Verdana; }
+#content #copyright { color: #555; font: 10px Verdana; position: relative; left: 50%; margin-left: -450px; width: 272px; }

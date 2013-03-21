@@ -31,6 +31,7 @@
                     <li class="active"><a href="#" alt="Sessions">Sessions</a></li>
                     <li><a href="#" alt="Profile">Profile</a></li>
                     <li><a href="#" alt="About">About</a></li>
+                    <li><a href="#" alt="Contact">Contact</a></li>
                 </ul>
             </div>
             <div id="ribbon-left"></div>
@@ -38,12 +39,8 @@
         </div>
 
         <div id="content">
-            <div class="module sessions">
+            <div class="section">
                 <h2>Recent Activity</h2>
-            </div>
-
-            <div class="module graph">
-                <h2>Most Played Games</h2>
             </div>
             <p id="copyright">Copyright © 2013 BGST LLC. All rights reserved.</p>
         </div>
