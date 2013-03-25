@@ -15,15 +15,10 @@
 
         <script>
             //JavaScript off fallback
-            document.write('<style>.js-off { display: none; }</style>');
+            document.write('<style>#js-off { display: none; }</style>');
         </script>
     </head>
     <body>
-        <p class="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy BGST as intended!</p>
-        <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
         <div id="nav">
             <div>
                 <h1>BGST</h1>
@@ -39,14 +34,62 @@
         </div>
 
         <div id="content">
+            <p id="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy BGST as intended!</p>
+            <!--[if lt IE 7]>
+            <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+            <![endif]-->
             <div class="section">
-                <div class="module">
+                <div class="module activity">
                     <h2>Recent Activity</h2>
                     <div>
                         <ul>
                             <li>
-                                <h3>Session Title</h3>
-                                <p>Short Session Description</p>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                </div>
                             </li>
                         </ul>
                     </div>
