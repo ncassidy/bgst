@@ -24,8 +24,7 @@
                 <h1>BGST</h1>
                 <ul>
                     <li class="active"><a href="#" alt="Sessions">Sessions</a></li>
-                    <li class=""><a href="#" alt="Leaderboards">Leaderboards</a></li>
-                    <li class=""><a href="#" alt="Tournaments">Tournaments</a></li>
+                    <li class=""><a href="#" alt="Achievements">Achievements</a></li>
                 </ul>
                 <a id="profile" href="#" title="Profile"></a>
             </div>
