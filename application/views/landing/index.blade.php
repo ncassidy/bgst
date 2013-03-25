@@ -21,7 +21,7 @@
     <body>
         <p class="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy BGST as intended!</p>
         <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <div id="nav">
@@ -29,10 +29,10 @@
                 <h1>BGST</h1>
                 <ul>
                     <li class="active"><a href="#" alt="Sessions">Sessions</a></li>
-                    <li><a href="#" alt="Profile">Profile</a></li>
-                    <li><a href="#" alt="About">About</a></li>
-                    <li><a href="#" alt="Contact">Contact</a></li>
+                    <li class=""><a href="#" alt="Leaderboards">Leaderboards</a></li>
+                    <li class=""><a href="#" alt="Tournaments">Tournaments</a></li>
                 </ul>
+                <a id="profile" href="#" title="Profile"></a>
             </div>
             <div id="ribbon-left"></div>
             <div id="ribbon-right"></div>
@@ -40,9 +40,31 @@
 
         <div id="content">
             <div class="section">
-                <h2>Recent Activity</h2>
+                <div class="module">
+                    <h2>Recent Activity</h2>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3>Session Title</h3>
+                                <p>Short Session Description</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module">
+                    <h2>Most Played Games</h2>
+                    <div>
+
+                    </div>
+                </div>
             </div>
-            <p id="copyright">Copyright © 2013 BGST LLC. All rights reserved.</p>
+            <div id="footer">
+                <ul>
+                    <li><a href="#" alt="Sessions">About</a></li>
+                    <li><a href="#" alt="Leaderboards">Contact</a></li>
+                </ul>
+                <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
+            </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
