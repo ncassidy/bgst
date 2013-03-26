@@ -73,10 +73,10 @@
                                     <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
                                 </div>
                             </li>
-                            <li class="achievement">
+                            <li class="session">
                                 <div>
-                                    <h3><a href="#" title="Achievement">Achievement</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Achievements Title</span><br/>Short Achievements Description</a></p>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
                                 </div>
                             </li>
                             <li class="session">
@@ -85,10 +85,10 @@
                                     <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
                                 </div>
                             </li>
-                            <li class="tournament">
+                            <li class="session">
                                 <div>
-                                    <h3><a href="#" title="Tournament">Tournament</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
+                                    <h3><a href="#" title="Session">Session</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -123,7 +123,7 @@
                         text: null
                     },
                     xAxis: {
-                        categories: ['Eclipse', 'The Resistence', 'Hive', 'Caylus', 'Stone Age' ],
+                        categories: ['Dominion', 'Android: Netrunner','Eclipse', 'El Grande', 'Race for the Galaxy', 'The Resistence', 'Hive', 'Caylus', 'Stone Age', 'Troyes'],
                         title: {
                             text: null
                         },
@@ -190,7 +190,7 @@
                     },
                     series: [{
                         name: null,
-                        data: [8, 5, 3, 1, 1]
+                        data: [14, 9, 8, 6, 5, 3, 3, 2, 1, 1]
                     }]
                 });
             });
