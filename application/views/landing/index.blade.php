@@ -23,8 +23,9 @@
             <div>
                 <h1>BGST</h1>
                 <ul>
-                    <li class="active"><a href="#" alt="Sessions">Sessions</a></li>
-                    <li class=""><a href="#" alt="Achievements">Achievements</a></li>
+                    <li class="sessions"><a href="#" alt="Sessions">Sessions</a></li>
+                    <li class="tournaments"><a href="#" alt="Tournaments">Tournaments</a></li>
+                    <li class="achievements"><a href="#" alt="Achievements">Achievements</a></li>
                 </ul>
                 <a id="profile" href="#" title="Profile"></a>
             </div>
@@ -42,60 +43,60 @@
                     <h2>Recent Activity</h2>
                     <div>
                         <ul>
-                            <li>
+                            <li class="session">
                                 <div>
                                     <h3><a href="#" title="Session">Session</a></h3>
                                     <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
                                 </div>
                             </li>
-                            <li>
+                            <li class="tournament">
+                                <div>
+                                    <h3><a href="#" title="Tournament">Tournament</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
+                                </div>
+                            </li>
+                            <li class="achievement">
+                                <div>
+                                    <h3><a href="#" title="Achievement">Achievement</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Achievements Title</span><br/>Short Achievements Description</a></p>
+                                </div>
+                            </li>
+                            <li class="session">
                                 <div>
                                     <h3><a href="#" title="Session">Session</a></h3>
                                     <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
                                 </div>
                             </li>
-                            <li>
+                            <li class="tournament">
+                                <div>
+                                    <h3><a href="#" title="Tournament">Tournament</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
+                                </div>
+                            </li>
+                            <li class="achievement">
+                                <div>
+                                    <h3><a href="#" title="Achievement">Achievement</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Achievements Title</span><br/>Short Achievements Description</a></p>
+                                </div>
+                            </li>
+                            <li class="session">
                                 <div>
                                     <h3><a href="#" title="Session">Session</a></h3>
                                     <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
                                 </div>
                             </li>
-                            <li>
+                            <li class="tournament">
                                 <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                    <h3><a href="#" title="Tournament">Tournament</a></h3>
+                                    <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="module">
+                <div class="module chart">
                     <h2>Most Played Games</h2>
-                    <div>
+                    <div id="chart">
 
                     </div>
                 </div>
@@ -109,10 +110,93 @@
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        {{ HTML::script('js/jquery-1.9.1.min.js') }}
+        {{ HTML::script('js/highcharts.js') }}
         <script>
-            $(document).ready(function(){
+            $(document).ready(function() {
+                new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'chart',
+                        defaultSeriesType: 'bar'
+                    },
+                    title: {
+                        text: null
+                    },
+                    xAxis: {
+                        categories: ['Eclipse', 'The Resistence', 'Hive', 'Caylus', 'Stone Age' ],
+                        title: {
+                            text: null
+                        },
+                        labels: {
+                            style: {
+                                color: '#666',
+                                fontFamily: 'Verdana'
+                            }
+                        },
+                        gridLineColor: '#e1e1e1'
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Sessions Played',
+                            align: 'high',
+                            style: {
+                                color: '#666',
+                                fontFamily: 'Verdana'
+                            }
+                        },
+                        labels: {
+                            style: {
+                                color: '#666'
+                            }
+                        },
+                        gridLineColor: '#e1e1e1'
+                    },
+                    tooltip: {
+                        borderWidth:0,
+                        formatter: function() {
+                            var unit = this.y > 1 ? ' Sessions' : ' Session';
+                            return this.y + unit + ' Played';
+                        },
+                        borderRadius: 0,
+                        style: {
+                            color: '#666',
+                            fontFamily: 'Verdana'
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: false
+                            },
+                            borderWidth: 0,
+                            borderColor: '#e1e1e1',
+                            color: '#00a2ff',
+                            shadow: true
+                        }
+                    },
+                    legend: {
+                        enabled: false,
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -100,
+                        y: 100,
+                        borderWidth: 1,
+                        backgroundColor: '#fff'
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: null,
+                        data: [8, 5, 3, 1, 1]
+                    }]
+                });
+            });
 
+            $(document).ready(function(){
+                //init
             });
         </script>
     </body>
