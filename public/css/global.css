@@ -72,8 +72,8 @@ body { background: #f6f6f6; }
 #content .section .activity ul li { border: 1px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; float: left; height: 180px; margin: 0 23px 20px 0; padding: 5px; position: relative; width: 180px; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; }
 #content .section .activity ul li div { background: #f2f2f2 url('/img/bkg.activity.sprite.png') 51px 34px no-repeat; height: 100%; width: 100%; }
 #content .section .activity ul li.session > div { background-position: 51px 34px; }
-#content .section .activity ul li.tournament > div { background-position: 51px -92px; }
-#content .section .activity ul li.achievement > div { background: #f2f2f2; }
+#content .section .activity ul li.tournament > div { background-position: 55px -92px; }
+#content .section .activity ul li.achievement > div { background-position: 67px -212px; }
 #content .section .activity ul li:nth-child(4n){ margin-right: 0; }
 #content .section .activity ul li h3 { background: #00a2ff; color: #fff; font: bold 10px Verdana; left: 5px; padding: 5px; position: absolute; top: 5px; }
 #content .section .activity ul li.session h3 { background: #00a2ff; }
