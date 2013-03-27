@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
     <head>
         <title>BGST - Board Game Session Tracker</title>
 
@@ -23,19 +23,18 @@
             <div>
                 <h1>BGST</h1>
                 <ul>
-                    <li class="sessions"><a href="#" alt="Sessions">Sessions</a></li>
-                    <li class="tournaments"><a href="#" alt="Tournaments">Tournaments</a></li>
-                    <li class="achievements"><a href="#" alt="Achievements">Achievements</a></li>
+                    <li class="sessions"><a href="#" title="Sessions">Sessions</a></li>
+                    <li class="tournaments"><a href="#" title="Tournaments">Tournaments</a></li>
+                    <li class="achievements"><a href="#" title="Achievements">Achievements</a></li>
                 </ul>
                 <a id="profile" href="#" title="Profile"></a>
             </div>
             <div id="ribbon-left"></div>
             <div id="ribbon-right"></div>
         </div>
-
         <div id="content">
             <p id="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy BGST as intended!</p>
-            <!--[if lt IE 7]>
+            <!--[if lt IE 8]>
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
             <![endif]-->
             <div class="section">
@@ -96,18 +95,24 @@
                 </div>
                 <div class="module chart">
                     <h2>Most Played Games</h2>
-                    <div id="chart">
-
-                    </div>
+                    <div id="chart"></div>
                 </div>
             </div>
             <div id="footer">
                 <ul>
-                    <li><a href="#" alt="Sessions">About</a></li>
-                    <li><a href="#" alt="Leaderboards">Contact</a></li>
+                    <li><a href="#" title="About">About</a></li>
+                    <li><a href="#" title="Contact">Contact</a></li>
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+
+        <div class="modal" id="error">
+            <h2>Oops</h2>
+            <p>I hate to admit it, but it seems that we've encountered an error. Please try again later... or tell our code monkey that the hampster has stopped running.</p>
+            <a href="#" title="OK">OK</a>
         </div>
 
         {{ HTML::script('js/jquery-1.9.1.min.js') }}
