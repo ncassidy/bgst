@@ -27,7 +27,15 @@
                     <li class="tournaments"><a href="#" title="Tournaments">Tournaments</a></li>
                     <li class="achievements"><a href="#" title="Achievements">Achievements</a></li>
                 </ul>
-                <a id="profile" href="#" title="Profile"></a>
+                <a id="profile" href="#" title="Profile">
+                    <div>
+                        <form>
+                            <p> <label for="username">Username: </label><input type="text" name="username" /></p>
+                            <p> <label for="password">Password: </label><input type="text" name="password" /></p>
+                            <p><input type="submit" value="Login" /></p>
+                        </form>
+                    </div>
+                </a>
             </div>
             <div id="ribbon-left"></div>
             <div id="ribbon-right"></div>

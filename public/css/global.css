@@ -59,8 +59,14 @@ body { background: #f6f6f6; }
 #nav ul li.tournaments a { border-top: 2px solid #9adb31; }
 #nav ul li.achievements a { border-top: 2px solid #eb1e00; }
 #nav ul li a:hover { background: #333; }
-#nav #profile { background: url('/img/bkg.profile.png') 7px 6px no-repeat; display: inline-block; float: right; height: 35px; margin-right: 29px; transition: background-color .4s ease-out; width: 35px; -moz-transition: background-color .4s ease-out; -ms-transition: background-color .4s ease-out; -o-transition: background-color .4s ease-out; -webkit-transition: background-color .4s ease-out; }
+#nav #profile { background: url('/img/bkg.profile.png') 7px 6px no-repeat; display: inline-block; float: right; height: 35px; margin-right: 29px; position: relative; transition: background-color .4s ease-out; width: 35px; -moz-transition: background-color .4s ease-out; -ms-transition: background-color .4s ease-out; -o-transition: background-color .4s ease-out; -webkit-transition: background-color .4s ease-out; }
 #nav #profile:hover { background: #333 url('/img/bkg.profile.png') 7px 6px no-repeat; }
+#nav #profile > div { background: #333; box-shadow: 0 5px 8px 0 #c8c8c8; height: 0; opacity: 0; position: absolute; right: 0; top: 35px; transition: opacity .4s ease-out; width: 0; z-index: 11; -moz-box-shadow: 0 5px 8px 0 #c8c8c8; -webkit-box-shadow: 0 5px 8px 0 #c8c8c8; -moz-transition: opacity .4s ease-out; -ms-transition: opacity .4s ease-out; -o-transition: opacity .4s ease-out; -webkit-transition: opacity .4s ease-out; }
+#nav #profile:hover > div { height: 150px; opacity: 1; width: 250px; }
+#nav #profile > div form { display: none; padding: 10px; }
+#nav #profile:hover > div form { display: block; }
+#nav #profile > div form label { color: #fff; font: bold 10px Verdana; }
+#nav #profile > div form input { color: #fff; font: bold 10px Verdana; }
 
 #content { background: #fff; border: 1px solid #d8d8d8; box-shadow: 0 4px 8px 0 #c8c8c8; margin: 34px auto 5px; position: relative; width: 900px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; }
 #content > p { background: #45b4ff; color: #fff; font: bold 10px Verdana; padding: 15px; text-align: center; }
