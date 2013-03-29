@@ -113,6 +113,13 @@
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
+            <div id="activity-item">
+                <div>
+                    <h2>Session Title</h2>
+                    <p class="author-time">March 29th, 2013 <span>| Session Author</span></p>
+                    <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. </p>
+                </div>
+            </div>
         </div>
 
         <div class="modal-overlay"></div>
