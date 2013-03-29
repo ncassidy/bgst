@@ -63,11 +63,12 @@ body { background: #f6f6f6; }
 #nav #profile:hover { background: #333 url('/img/bkg.profile.png') 7px 6px no-repeat; }
 #nav #profile > div { background: #333; box-shadow: 0 5px 8px 0 #c8c8c8; height: 0; opacity: 0; position: absolute; right: 0; top: 35px; transition: opacity .4s ease-out; width: 0; z-index: 11; -moz-box-shadow: 0 5px 8px 0 #c8c8c8; -webkit-box-shadow: 0 5px 8px 0 #c8c8c8; -moz-transition: opacity .4s ease-out; -ms-transition: opacity .4s ease-out; -o-transition: opacity .4s ease-out; -webkit-transition: opacity .4s ease-out; }
 #nav #profile:hover > div { height: 160px; opacity: 1; width: 180px; }
-#nav #profile > div form { display: none; padding: 15px; }
+#nav #profile > div form { display: none; padding: 16px; }
 #nav #profile:hover > div form { display: block; }
 #nav #profile > div form p { margin-bottom: 8px;}
 #nav #profile > div form label { color: #fff; font: 12px Verdana; }
 #nav #profile > div form input { color: #666; font: 12px Verdana; padding: 2px; }
+#nav #profile > div form #login-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #333; padding: 3px 10px; }
 
 #content { background: #fff; border: 1px solid #d8d8d8; box-shadow: 0 4px 8px 0 #c8c8c8; margin: 34px auto 5px; position: relative; width: 900px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; }
 #content > p { background: #45b4ff; color: #fff; font: bold 10px Verdana; padding: 15px; text-align: center; }
@@ -100,9 +101,8 @@ body { background: #f6f6f6; }
 #footer > p { color: #fff; display: inline-block; font: 8px Verdana; position: absolute; right: 20px; top: 9px; width: 196px; }
 
 .modal-overlay { background: #000; display: none; height: 100%; left: 0; position: fixed; opacity: 0.4; top: 0; width: 100%; z-index: 11;}
-
 .modal { background: #fff; border: 1px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; display: none; min-height: 150px; left: 50%; margin-left: -200px; position: fixed; top: 150px; width: 400px; z-index: 10; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; z-index: 12; }
 .modal h2 { background: #f2f2f2; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1; color: #666; font: bold 12px Verdana; height: 23px; padding: 10px 0 0 10px; text-shadow: 0 1px 0 #fff; }
 .modal p { color: #666; font: 12px Verdana; line-height: 18px; padding: 10px; }
 .modal a { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; display: block; font: 12px Verdana; height: 20px; line-height: 18px; margin: 20px auto; padding: 3px 27px; text-decoration: none; width: 20px; }
-.modal a:hover { background: #e1e1e1; }
+.modal a:hover { background: #eee; }

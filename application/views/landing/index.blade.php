@@ -27,12 +27,12 @@
                     <li class="tournaments"><a href="#" title="Tournaments">Tournaments</a></li>
                     <li class="achievements"><a href="#" title="Achievements">Achievements</a></li>
                 </ul>
-                <a id="profile" href="#" title="Profile">
+                <a id="profile">
                     <div>
                         <form>
-                            <p> <label for="username">Username: </label><input type="text" name="username" /></p>
-                            <p> <label for="password">Password: </label><input type="text" name="password" /></p>
-                            <p><input type="submit" value="Log in" /></p>
+                            <p> <label for="login-username">Username: </label><input type="text" id="login-username" name="username" /></p>
+                            <p> <label for="login-password">Password: </label><input type="text" id="login-password" name="password" /></p>
+                            <p><input type="submit" id="login-submit" value="Log In" /></p>
                         </form>
                     </div>
                 </a>
