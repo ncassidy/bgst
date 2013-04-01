@@ -116,7 +116,45 @@
             <div id="activity-item">
                 <div>
                     <h2>Session Title</h2>
-                    <p class="author-time">March 29th, 2013 <span>| Session Author</span></p>
+                    <p class="session-context">March 29th, 2013 <span>| Game</span></p>
+                    <table>
+                        <tr>
+                            <th class="player-name">Player</th>
+                            <th class="player-team">Team</th>
+                            <th class="player-score">Score</th>
+                            <th class="player-outcome">Winner?</th>
+                        </tr>
+                        <tr>
+                            <td class="player-name">Player 1 Name</td>
+                            <td class="player-team">Team 1</td>
+                            <td class="player-score">34</td>
+                            <td class="player-outcome">Yes</td>
+                        </tr>
+                        <tr>
+                            <td class="player-name">Player 1 Name</td>
+                            <td class="player-team">Team 1</td>
+                            <td class="player-score">34</td>
+                            <td class="player-outcome">Yes</td>
+                        </tr>
+                        <tr>
+                            <td class="player-name">Player 1 Name</td>
+                            <td class="player-team">Team 1</td>
+                            <td class="player-score">34</td>
+                            <td class="player-outcome">Yes</td>
+                        </tr>
+                        <tr>
+                            <td class="player-name">Player 1 Name</td>
+                            <td class="player-team">Team 1</td>
+                            <td class="player-score">34</td>
+                            <td class="player-outcome">Yes</td>
+                        </tr>
+                    </table>
+                    <ul>
+                        <li><img src="" /></li>
+                        <li><img src="" /></li>
+                        <li><img src="" /></li>
+                        <li><img src="" /></li>
+                    </ul>
                     <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. </p>
                 </div>
             </div>
