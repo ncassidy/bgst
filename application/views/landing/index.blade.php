@@ -31,7 +31,7 @@
                     <div>
                         <form>
                             <p> <label for="login-username">Username: </label><input type="text" id="login-username" name="username" /></p>
-                            <p> <label for="login-password">Password: </label><input type="text" id="login-password" name="password" /></p>
+                            <p> <label for="login-password">Password: </label><input type="password" id="login-password" name="password" /></p>
                             <p><input type="submit" id="login-submit" value="Log In" /></p>
                         </form>
                     </div>
@@ -163,8 +163,8 @@
             </div>
         </div>
 
-        <div class="modal-overlay-error"></div>
-        <div class="modal-error" id="error">
+        <div class="modal-overlay"></div>
+        <div class="modal error" id="error">
             <h2>Oops</h2>
             <p>I hate to admit it, but it seems that we've encountered an error. Please try again later... or tell our code monkey that the hampster has stopped running.</p>
             <a href="#" title="OK">OK</a>
