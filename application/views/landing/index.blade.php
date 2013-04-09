@@ -113,49 +113,51 @@
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
-            <div id="activity-item">
+            <div id="activity">
                 <div>
-                    <h2>Session Title</h2>
-                    <p class="session-context">March 29th, 2013 <span>| Game</span></p>
-                    <table>
-                        <tr>
-                            <th class="player-name">Player</th>
-                            <th class="player-team">Team</th>
-                            <th class="player-score">Score</th>
-                            <th class="player-outcome">Winner?</th>
-                        </tr>
-                        <tr>
-                            <td class="player-name">Player 1 Name</td>
-                            <td class="player-team">Team 1</td>
-                            <td class="player-score">34</td>
-                            <td class="player-outcome">Yes</td>
-                        </tr>
-                        <tr>
-                            <td class="player-name">Player 1 Name</td>
-                            <td class="player-team">Team 1</td>
-                            <td class="player-score">34</td>
-                            <td class="player-outcome">Yes</td>
-                        </tr>
-                        <tr>
-                            <td class="player-name">Player 1 Name</td>
-                            <td class="player-team">Team 1</td>
-                            <td class="player-score">34</td>
-                            <td class="player-outcome">Yes</td>
-                        </tr>
-                        <tr>
-                            <td class="player-name">Player 1 Name</td>
-                            <td class="player-team">Team 1</td>
-                            <td class="player-score">34</td>
-                            <td class="player-outcome">Yes</td>
-                        </tr>
-                    </table>
-                    <ul>
-                        <li><img src="" /></li>
-                        <li><img src="" /></li>
-                        <li><img src="" /></li>
-                        <li><img src="" /></li>
+                    <div class="detail">
+                        <h2>Session Title</h2>
+                        <p class="context">March 29th, 2013 <span>| Game</span></p>
+                        <table>
+                            <tr>
+                                <th class="player-name">Player</th>
+                                <th class="player-team">Team</th>
+                                <th class="player-score">Score</th>
+                                <th class="player-outcome">Winner?</th>
+                            </tr>
+                            <tr>
+                                <td class="player-name">Player 1 Name</td>
+                                <td class="player-team">Team 1</td>
+                                <td class="player-score">34</td>
+                                <td class="player-outcome">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="player-name">Player 1 Name</td>
+                                <td class="player-team">Team 1</td>
+                                <td class="player-score">34</td>
+                                <td class="player-outcome">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="player-name">Player 1 Name</td>
+                                <td class="player-team">Team 1</td>
+                                <td class="player-score">34</td>
+                                <td class="player-outcome">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="player-name">Player 1 Name</td>
+                                <td class="player-team">Team 1</td>
+                                <td class="player-score">34</td>
+                                <td class="player-outcome">Yes</td>
+                            </tr>
+                        </table>
+                        <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. </p>
+                    </div>
+                    <ul class="gallery">
+                        <li><img src="http://placehold.it/110x110" /></li>
+                        <li><img src="http://placehold.it/110x110" /></li>
+                        <li><img src="http://placehold.it/110x110" /></li>
+                        <li><img src="http://placehold.it/110x110" /></li>
                     </ul>
-                    <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. </p>
                 </div>
             </div>
         </div>
