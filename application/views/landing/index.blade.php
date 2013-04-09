@@ -163,6 +163,10 @@
             </div>
         </div>
 
+        <div id="modal-photo">
+            <img src="http://placehold.it/500x500" alt="" />
+        </div>
+
         <div class="modal-overlay"></div>
         <div class="modal error" id="error">
             <h2>Oops</h2>

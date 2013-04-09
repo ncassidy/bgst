@@ -123,6 +123,9 @@ body { background: #f6f6f6; }
 #activity .gallery li:last-child { padding-bottom: 5px; }
 #activity .gallery li img { height: 110px; width: 110px; }
 
+#modal-photo { background: #fff; border: 1px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; display: none; height: 500px; left: 50%; margin-left: -250px; overflow: hidden; padding: 20px; position: absolute; top: 100px; width: 500px; z-index: 3; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; z-index: 12; }
+#modal-photo img { height: 500px; width: 500px; }
+
 .content-overlay #nav #ribbon-left { background: url('/img/bkg.nav-ribbon-overlay.png') 0 0 no-repeat; }
 .content-overlay #nav #ribbon-right { background: url('/img/bkg.nav-ribbon-overlay.png') -29px 0 no-repeat; }
 .content-overlay .activity-overlay { display: block; }
