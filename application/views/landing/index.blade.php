@@ -113,6 +113,8 @@
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
+
+            <div class="activity-overlay"></div>
             <div id="activity">
                 <div>
                     <div class="detail">
@@ -126,7 +128,7 @@
                                 <th class="player-outcome">Winner?</th>
                             </tr>
                             <tr>
-                                <td class="player-name">Player 1 Name</td>
+                                <td class="player-name">Nicholas Cassidy</td>
                                 <td class="player-team">Team 1</td>
                                 <td class="player-score">34</td>
                                 <td class="player-outcome">Yes</td>
@@ -150,10 +152,9 @@
                                 <td class="player-outcome">Yes</td>
                             </tr>
                         </table>
-                        <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. </p>
+                        <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description.</p>
                     </div>
                     <ul class="gallery">
-                        <li><img src="http://placehold.it/110x110" /></li>
                         <li><img src="http://placehold.it/110x110" /></li>
                         <li><img src="http://placehold.it/110x110" /></li>
                         <li><img src="http://placehold.it/110x110" /></li>
@@ -162,9 +163,8 @@
             </div>
         </div>
 
-        <div class="modal-overlay"></div>
-
-        <div class="modal" id="error">
+        <div class="modal-overlay-error"></div>
+        <div class="modal-error" id="error">
             <h2>Oops</h2>
             <p>I hate to admit it, but it seems that we've encountered an error. Please try again later... or tell our code monkey that the hampster has stopped running.</p>
             <a href="#" title="OK">OK</a>
