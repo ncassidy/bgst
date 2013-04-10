@@ -174,94 +174,11 @@
             <a href="#" title="OK">OK</a>
         </div>
 
-        {{ HTML::script('js/jquery-1.9.1.min.js') }}
-        {{ HTML::script('js/highcharts.js') }}
+        <script data-main="js/main" src="js/lib/require.js"></script>
         <script>
-            $(document).ready(function() {
-                new Highcharts.Chart({
-                    chart: {
-                        renderTo: 'chart',
-                        defaultSeriesType: 'bar'
-                    },
-                    title: {
-                        text: null
-                    },
-                    xAxis: {
-                        categories: ['Dominion', 'Android: Netrunner','Eclipse', 'El Grande', 'Race for the Galaxy', 'The Resistence', 'Hive', 'Caylus', 'Stone Age', 'Troyes'],
-                        title: {
-                            text: null
-                        },
-                        labels: {
-                            style: {
-                                color: '#666',
-                                fontFamily: 'Verdana'
-                            }
-                        },
-                        gridLineColor: '#e1e1e1'
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: {
-                            text: 'Sessions Played',
-                            align: 'high',
-                            style: {
-                                color: '#666',
-                                fontFamily: 'Verdana'
-                            }
-                        },
-                        labels: {
-                            style: {
-                                color: '#666'
-                            }
-                        },
-                        gridLineColor: '#e1e1e1'
-                    },
-                    tooltip: {
-                        borderWidth:0,
-                        formatter: function() {
-                            var unit = this.y > 1 ? ' Sessions' : ' Session';
-                            return this.y + unit + ' Played';
-                        },
-                        borderRadius: 0,
-                        style: {
-                            color: '#666',
-                            fontFamily: 'Verdana'
-                        }
-                    },
-                    plotOptions: {
-                        bar: {
-                            dataLabels: {
-                                enabled: false
-                            },
-                            borderWidth: 0,
-                            borderColor: '#e1e1e1',
-                            color: '#00a2ff',
-                            shadow: true
-                        }
-                    },
-                    legend: {
-                        enabled: false,
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'top',
-                        x: -100,
-                        y: 100,
-                        borderWidth: 1,
-                        backgroundColor: '#fff'
-                    },
-                    credits: {
-                        enabled: false
-                    },
-                    series: [{
-                        name: null,
-                        data: [14, 9, 8, 6, 5, 3, 3, 2, 1, 1]
-                    }]
-                });
-            });
-
-            $(document).ready(function(){
-                //init
-            });
+            // Chart data
+            var games = ['Dominion', 'Android: Netrunner','Eclipse', 'El Grande', 'Race for the Galaxy', 'The Resistence', 'Hive', 'Caylus', 'Stone Age', 'Troyes'],
+                plays = [14, 9, 8, 6, 5, 3, 3, 2, 1, 1];
         </script>
     </body>
 </html>
