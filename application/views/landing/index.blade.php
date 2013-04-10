@@ -174,9 +174,9 @@
             <a href="#" title="OK">OK</a>
         </div>
 
-        <script data-main="js/main" src="js/lib/require-2.1.5.min.js"></script>
+        <script data-main="js/app" src="js/lib/require-2.1.5.min.js"></script>
         <script>
-            // Chart data
+            // Chart Data
             var games = ['Dominion', 'Android: Netrunner','Eclipse', 'El Grande', 'Race for the Galaxy', 'The Resistence', 'Hive', 'Caylus', 'Stone Age', 'Troyes'],
                 plays = [14, 9, 8, 6, 5, 3, 3, 2, 1, 1];
         </script>

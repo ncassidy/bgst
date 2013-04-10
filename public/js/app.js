@@ -3,17 +3,14 @@ require.config({
     baseUrl: 'js',
     paths: {
         jquery: 'lib/jquery-1.9.1.min',
-        handlebars: 'lib/handlebars-1.0.0-rc.3.min',
-        ember: 'lib/ember-1.0.0-rc.2.min',
-        app: 'app',
+        underscore: 'lib/underscore-1.4.4.min',
+        backbone: 'lib/backbone-1.0.0.min',
         highcharts: 'lib/highcharts-3.0.0.min'
     }
 });
 
 // App Init Logic
-requirejs(['jquery', 'handlebars', 'ember', 'app', 'highcharts'], function(){
-
-
+requirejs(['jquery', 'underscore', 'backbone', 'highcharts'], function(){
     // Charts Logic
     $(document).ready(function() {
         new Highcharts.Chart({
@@ -97,3 +94,4 @@ requirejs(['jquery', 'handlebars', 'ember', 'app', 'highcharts'], function(){
         });
     });
 });
+
