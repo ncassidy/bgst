@@ -3,12 +3,17 @@ require.config({
     baseUrl: 'js',
     paths: {
         jquery: 'lib/jquery-1.9.1.min',
-        highcharts: 'lib/highcharts'
+        handlebars: 'lib/handlebars-1.0.0-rc.3.min',
+        ember: 'lib/ember-1.0.0-rc.2.min',
+        app: 'app',
+        highcharts: 'lib/highcharts-3.0.0.min'
     }
 });
 
 // App Init Logic
-requirejs(['jquery', 'highcharts'], function(){
+requirejs(['jquery', 'handlebars', 'ember', 'app', 'highcharts'], function(){
+
+
     // Charts Logic
     $(document).ready(function() {
         new Highcharts.Chart({
