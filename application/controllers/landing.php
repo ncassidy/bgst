@@ -32,10 +32,6 @@ class Landing_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-        //$user = new User();
-        //$result = $user->getUserById(1);
-        //var_dump($result);
-
 		return View::make('landing.index');
 	}
 

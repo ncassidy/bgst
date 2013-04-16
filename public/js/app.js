@@ -11,7 +11,7 @@ require.config({
 
 // App Init Logic
 requirejs(['jquery', 'underscore', 'backbone', 'highcharts'], function(){
-    // Charts Logic
+    // Chart Logic
     $(document).ready(function() {
         new Highcharts.Chart({
             chart: {

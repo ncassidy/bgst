@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
         <meta charset="utf-8">
-        <meta name="description" content="Vail Resorts web standards documentation.">
+        <meta name="description" content="Board Game Session Tracker">
 
         {{ HTML::style('css/global.css') }}
 
@@ -113,65 +113,6 @@
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
-
-            <div class="activity-overlay"></div>
-            <div id="activity">
-                <div>
-                    <div class="detail">
-                        <h2>Session Title</h2>
-                        <p class="context">March 29th, 2013 <span>| Game</span></p>
-                        <table>
-                            <tr>
-                                <th class="player-name">Player</th>
-                                <th class="player-team">Team</th>
-                                <th class="player-score">Score</th>
-                                <th class="player-outcome">Winner?</th>
-                            </tr>
-                            <tr>
-                                <td class="player-name">Nicholas Cassidy</td>
-                                <td class="player-team">Team 1</td>
-                                <td class="player-score">34</td>
-                                <td class="player-outcome">Yes</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name">Player 1 Name</td>
-                                <td class="player-team">Team 1</td>
-                                <td class="player-score">34</td>
-                                <td class="player-outcome">Yes</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name">Player 1 Name</td>
-                                <td class="player-team">Team 1</td>
-                                <td class="player-score">34</td>
-                                <td class="player-outcome">Yes</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name">Player 1 Name</td>
-                                <td class="player-team">Team 1</td>
-                                <td class="player-score">34</td>
-                                <td class="player-outcome">Yes</td>
-                            </tr>
-                        </table>
-                        <p>This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description. This is a long session description.</p>
-                    </div>
-                    <ul class="gallery">
-                        <li><img src="http://placehold.it/110x110" /></li>
-                        <li><img src="http://placehold.it/110x110" /></li>
-                        <li><img src="http://placehold.it/110x110" /></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-photo">
-            <img src="http://placehold.it/500x500" alt="" />
-        </div>
-
-        <div class="modal-overlay"></div>
-        <div class="modal error" id="error">
-            <h2>Oops</h2>
-            <p>I hate to admit it, but it seems that we've encountered an error. Please try again later... or tell our code monkey that the hampster has stopped running.</p>
-            <a href="#" title="OK">OK</a>
         </div>
 
         <script data-main="js/app" src="js/lib/require-2.1.5.min.js"></script>

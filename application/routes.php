@@ -32,7 +32,12 @@
 |
 */
 
+/* Landing Route */
 Route::get('/', 'landing@index');
+
+/* Account Routes */
+Route::post('api/v1/account/login', 'account@login');
+Route::post('api/v1/account/logout', 'account@logout');
 
 /*
 |--------------------------------------------------------------------------
