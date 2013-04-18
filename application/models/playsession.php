@@ -4,13 +4,23 @@ class PlaySession extends Eloquent
 {
 
     public function getRecentSessions(){
-        $response = DB::query('SELECT id, title, summary FROM session ORDER BY created_at DESC Limit 0, 8');
+        if (Cache::has('recent_sessions')){
+            $response = Cache::get('recent_sessions');
+        } else {
+            $response = DB::query('SELECT id, title, summary FROM session ORDER BY created_at DESC Limit 0, 8');
+            Cache::put('recent_sessions', $response, 30);
+        }
 
         return $response;
     }
 
     public function getSessionsByUserId($userID){
-        $response = DB::query('SELECT session.title, session.summary FROM session INNER JOIN user ON session.user_id = user.id WHERE user.id = ? ORDER BY session.created_at DESC Limit 0, 8', array($userID));
+        if (Cache::has('user_' . $userID . '_sessions')){
+            $response = Cache::get('user_' . $userID . '_sessions');
+        } else {
+            $response = DB::query('SELECT session.title, session.summary FROM session INNER JOIN user ON session.user_id = user.id WHERE user.id = ? ORDER BY session.created_at DESC Limit 0, 8', array($userID));
+            Cache::put('user_' . $userID . '_sessions', $response, 20);
+        }
 
         return $response;
     }
