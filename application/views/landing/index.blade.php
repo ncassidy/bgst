@@ -21,11 +21,11 @@
     <body>
         <div id="nav">
             <div>
-                <h1>BGST</h1>
+                <h1><a href="#" title="Board Game Session Tracker">BGST</a></h1>
                 <ul>
-                    <li class="sessions"><a href="#" title="Sessions">Sessions</a></li>
-                    <li class="tournaments"><a href="#" title="Tournaments">Tournaments</a></li>
-                    <li class="achievements"><a href="#" title="Achievements">Achievements</a></li>
+                    <li class="sessions"><a href="#/sessions" title="Sessions">Sessions</a></li>
+                    {{--<li class="tournaments"><a href="#/tournaments" title="Tournaments">Tournaments</a></li>--}}
+                    {{--<li class="achievements"><a href="#/achievements" title="Achievements">Achievements</a></li>--}}
                 </ul>
                 <a id="profile">
                     <div>
@@ -50,54 +50,14 @@
                     <h2>Recent Activity</h2>
                     <div>
                         <ul>
+                            @foreach ($sessions as $session)
                             <li class="session">
                                 <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
+                                    <h3><a href="#/session/{{ $session->id }}" title="Session">Session</a></h3>
+                                    <p><a href="#/session/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
                                 </div>
                             </li>
-                            <li class="tournament">
-                                <div>
-                                    <h3><a href="#" title="Tournament">Tournament</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
-                                </div>
-                            </li>
-                            <li class="achievement">
-                                <div>
-                                    <h3><a href="#" title="Achievement">Achievement</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Achievements Title</span><br/>Short Achievements Description</a></p>
-                                </div>
-                            </li>
-                            <li class="session">
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li class="tournament">
-                                <div>
-                                    <h3><a href="#" title="Tournament">Tournament</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Tournament Title</span><br/>Short Tournament Description</a></p>
-                                </div>
-                            </li>
-                            <li class="session">
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li class="session">
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
-                            <li class="session">
-                                <div>
-                                    <h3><a href="#" title="Session">Session</a></h3>
-                                    <p><a href="#" title="Session Title"><span>Session Title</span><br/>Short Session Description</a></p>
-                                </div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -117,9 +77,8 @@
 
         <script data-main="js/app" src="js/lib/require-2.1.5.min.js"></script>
         <script>
-            // Chart Data
-            var games = ['Dominion', 'Android: Netrunner','Eclipse', 'El Grande', 'Race for the Galaxy', 'The Resistence', 'Hive', 'Caylus', 'Stone Age', 'Troyes'],
-                plays = [14, 9, 8, 6, 5, 3, 3, 2, 1, 1];
+            var games = [<?php foreach($games as $game):?>'<?php echo $game->title ?>',<?php endforeach; ?>],
+                plays = [<?php foreach($games as $game):?><?php echo $game->session_count ?>,<?php endforeach; ?>];
         </script>
     </body>
 </html>

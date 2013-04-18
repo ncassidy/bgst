@@ -50,6 +50,7 @@ body { background: #f6f6f6; }
 #nav #ribbon-left { background: url('/img/bkg.nav.sprite.png') 0 0 no-repeat; bottom: -15px; height: 14px; left: 0; position: absolute;  width: 29px; z-index: 0; }
 #nav #ribbon-right { background: url('/img/bkg.nav.sprite.png') -29px 0 no-repeat; bottom: -15px; height: 14px; position: absolute; right: 0; width: 29px; z-index: 0; }
 #nav h1 { color: #45b4ff; float: left; font: bold 17px Verdana; height: 35px; line-height: 33px; padding: 0 28px; text-shadow: 0 2px 2px #000; text-transform: uppercase; }
+#nav h1 a { color: #45b4ff; text-decoration: none; }
 #nav ul { border-right: 1px solid #464646; border-left: 1px solid #464646; float: left; }
 #nav ul li { background: #141414; border-left: 1px solid #242424; border-right: 1px solid #242424; box-sizing: border-box; float: left; height: 35px; margin-right: -1px; position: relative; z-index: 10; background: -moz-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#2c2c2c),color-stop(100%,#121212)); background: -webkit-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -o-linear-gradient(top,#2c2c2c 0,#121212 100%); background: -ms-linear-gradient(top,#2c2c2c 0,#121212 100%); background: linear-gradient(top,#2c2c2c 0,#121212 100%); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
 #nav ul li:last-child { margin: 0; }

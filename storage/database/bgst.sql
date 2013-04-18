@@ -1,25 +1,33 @@
-/*
-Navicat MySQL Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 3.5.2.2
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 19, 2013 at 01:22 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
-Source Server         : Local
-Source Server Version : 50508
-Source Host           : localhost:3306
-Source Database       : bgst
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-Target Server Type    : MYSQL
-Target Server Version : 50508
-File Encoding         : 65001
 
-Date: 2013-04-15 22:38:12
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-SET FOREIGN_KEY_CHECKS=0;
+--
+-- Database: `bgst`
+--
 
--- ----------------------------
--- Table structure for `achievement`
--- ----------------------------
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `achievement`
+--
+
 DROP TABLE IF EXISTS `achievement`;
-CREATE TABLE `achievement` (
+CREATE TABLE IF NOT EXISTS `achievement` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(25) NOT NULL,
   `description` text NOT NULL,
@@ -27,34 +35,32 @@ CREATE TABLE `achievement` (
   `created_at` datetime NOT NULL,
   `update_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of achievement
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `achievement_awarded`
--- ----------------------------
+--
+-- Table structure for table `achievement_awarded`
+--
+
 DROP TABLE IF EXISTS `achievement_awarded`;
-CREATE TABLE `achievement_awarded` (
+CREATE TABLE IF NOT EXISTS `achievement_awarded` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `achievement_id` int(10) unsigned NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of achievement_awarded
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `event`
--- ----------------------------
+--
+-- Table structure for table `event`
+--
+
 DROP TABLE IF EXISTS `event`;
-CREATE TABLE `event` (
+CREATE TABLE IF NOT EXISTS `event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `event_type_id` int(10) unsigned NOT NULL,
@@ -63,33 +69,31 @@ CREATE TABLE `event` (
   `created_at` datetime NOT NULL,
   `update_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of event
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `event_type`
--- ----------------------------
+--
+-- Table structure for table `event_type`
+--
+
 DROP TABLE IF EXISTS `event_type`;
-CREATE TABLE `event_type` (
+CREATE TABLE IF NOT EXISTS `event_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of event_type
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `game`
--- ----------------------------
+--
+-- Table structure for table `game`
+--
+
 DROP TABLE IF EXISTS `game`;
-CREATE TABLE `game` (
+CREATE TABLE IF NOT EXISTS `game` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `title` varchar(50) NOT NULL,
@@ -97,50 +101,56 @@ CREATE TABLE `game` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
--- ----------------------------
--- Records of game
--- ----------------------------
+--
+-- Dumping data for table `game`
+--
 
--- ----------------------------
--- Table structure for `player`
--- ----------------------------
+INSERT INTO `game` (`id`, `user_id`, `title`, `session_count`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Dominion', 1, '2013-04-18 00:00:00', '2013-04-18 00:00:00'),
+(2, 1, 'Race for the Galaxy', 3, '2013-04-18 00:00:00', '2013-04-18 00:00:00'),
+(3, 1, 'Eclipse', 6, '2013-04-18 00:00:00', '2013-04-18 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `player`
+--
+
 DROP TABLE IF EXISTS `player`;
-CREATE TABLE `player` (
+CREATE TABLE IF NOT EXISTS `player` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `session_id` int(10) unsigned NOT NULL,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of player
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `player_outcome`
--- ----------------------------
+--
+-- Table structure for table `player_outcome`
+--
+
 DROP TABLE IF EXISTS `player_outcome`;
-CREATE TABLE `player_outcome` (
+CREATE TABLE IF NOT EXISTS `player_outcome` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `player_id` int(10) unsigned NOT NULL,
   `session_id` int(10) unsigned NOT NULL,
   `score` int(10) DEFAULT NULL,
   `win_status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of player_outcome
--- ----------------------------
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `session`
--- ----------------------------
+--
+-- Table structure for table `session`
+--
+
 DROP TABLE IF EXISTS `session`;
-CREATE TABLE `session` (
+CREATE TABLE IF NOT EXISTS `session` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `game_id` int(10) unsigned NOT NULL,
@@ -150,17 +160,23 @@ CREATE TABLE `session` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
--- ----------------------------
--- Records of session
--- ----------------------------
+--
+-- Dumping data for table `session`
+--
 
--- ----------------------------
--- Table structure for `user`
--- ----------------------------
+INSERT INTO `session` (`id`, `user_id`, `game_id`, `title`, `date`, `summary`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Dominion Fest', '2013-04-18 06:00:00', 'This is a long summary. This is a long summary. This is a long summary. This is a long summary. This is a long summary. This is a long summary. This is a long summary. This is a long summary. This is a long summary. ', '2013-04-18 06:00:00', '2013-04-18 06:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL,
@@ -172,26 +188,31 @@ CREATE TABLE `user` (
   `created_at` datetime NOT NULL,
   `update_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', 'nicholascassidy@gmail.com', '$2a$08$UFdqY0haeU9jbnB4NkxNVuJotGSBzqzY6QuuQvtZUet15rTls8LRa', 'Nicholas', 'Cassidy', 'Broomfield', 'CO', 'USA', '2013-04-15 21:45:10', '2013-04-15 21:45:15');
+--
+-- Dumping data for table `user`
+--
 
--- ----------------------------
--- Table structure for `user_outcome`
--- ----------------------------
+INSERT INTO `user` (`id`, `email`, `password`, `first_name`, `last_name`, `city`, `state`, `country`, `created_at`, `update_at`) VALUES
+(1, 'nicholascassidy@gmail.com', '$2a$08$UFdqY0haeU9jbnB4NkxNVuJotGSBzqzY6QuuQvtZUet15rTls8LRa', 'Nicholas', 'Cassidy', 'Broomfield', 'CO', 'USA', '2013-04-15 21:45:10', '2013-04-15 21:45:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_outcome`
+--
+
 DROP TABLE IF EXISTS `user_outcome`;
-CREATE TABLE `user_outcome` (
+CREATE TABLE IF NOT EXISTS `user_outcome` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `session_id` int(10) unsigned NOT NULL,
   `score` int(10) DEFAULT NULL,
   `win_status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records of user_outcome
--- ----------------------------
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

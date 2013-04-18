@@ -7,11 +7,11 @@ class Account_Controller extends Base_Controller {
 	public function post_login()
 	{
         if(Input::has('email') && Input::has('password')){
-            // get user
+            //get user
             $user = new User();
-            $result = $user->loginUserByCreds(Input::get('email'));
+            $result = $user->getUserByEmail(Input::get('email'));
 
-            // validate account
+            //validate account
             if(isset($result->id) && isset($result->password) && Hash::check(Input::get('password'), $result->password)){
                 Session::put('user_id', $result->id);
                 
