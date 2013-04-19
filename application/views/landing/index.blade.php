@@ -22,11 +22,7 @@
         <div id="nav">
             <div>
                 <h1><a href="#" title="Board Game Session Tracker">BGST</a></h1>
-                <ul>
-                    <li class="sessions"><a href="#/sessions" title="Sessions">Sessions</a></li>
-                    {{--<li class="tournaments"><a href="#/tournaments" title="Tournaments">Tournaments</a></li>--}}
-                    {{--<li class="achievements"><a href="#/achievements" title="Achievements">Achievements</a></li>--}}
-                </ul>
+                <ul id="nav-options"></ul>
                 <a id="profile">
                     <div>
                         <form>
@@ -68,8 +64,8 @@
             </div>
             <div id="footer">
                 <ul>
-                    <li><a href="#" title="About">About</a></li>
-                    <li><a href="#" title="Contact">Contact</a></li>
+                    <li><a id="about" title="About">About</a></li>
+                    <li><a id="contact" title="Contact">Contact</a></li>
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
