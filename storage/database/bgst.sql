@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2013 at 01:22 AM
+-- Generation Time: Apr 23, 2013 at 01:15 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `achievement` (
   `description` text NOT NULL,
   `image` varchar(25) NOT NULL,
   `created_at` datetime NOT NULL,
-  `update_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `session_id` int(10) unsigned DEFAULT NULL,
   `processed_status` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
-  `update_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -182,20 +182,24 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(60) NOT NULL,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
-  `city` varchar(30) DEFAULT NULL,
   `state` varchar(2) DEFAULT NULL,
-  `country` varchar(30) DEFAULT NULL,
+  `country` varchar(30) NOT NULL,
   `created_at` datetime NOT NULL,
-  `update_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `first_name`, `last_name`, `city`, `state`, `country`, `created_at`, `update_at`) VALUES
-(1, 'nicholascassidy@gmail.com', '$2a$08$UFdqY0haeU9jbnB4NkxNVuJotGSBzqzY6QuuQvtZUet15rTls8LRa', 'Nicholas', 'Cassidy', 'Broomfield', 'CO', 'USA', '2013-04-15 21:45:10', '2013-04-15 21:45:15');
+INSERT INTO `user` (`id`, `email`, `password`, `first_name`, `last_name`, `state`, `country`, `created_at`, `updated_at`) VALUES
+(1, 'nicholascassidy@gmail.com', '$2a$08$UFdqY0haeU9jbnB4NkxNVuJotGSBzqzY6QuuQvtZUet15rTls8LRa', 'Nicholas', 'Cassidy', 'CO', 'USA', '2013-04-15 21:45:10', '2013-04-15 21:45:15'),
+(2, 'metalfour@hotmail.com', 'test', 'Test', 'User', NULL, 'USA', '2013-04-22 15:34:06', '2013-04-22 15:34:06'),
+(3, 'fart@fart.com', 'fart', 'Nick', 'Cass', NULL, 'USA', '2013-04-22 15:48:29', '2013-04-22 15:48:29'),
+(4, 'test@test.com', 'pass', 'first', 'last', NULL, 'USA', '2013-04-22 15:56:06', '2013-04-22 15:56:06'),
+(5, 'fart2@fart2.com', 'fart', 'Nick', 'Cass.', NULL, 'USA', '2013-04-22 16:02:23', '2013-04-22 16:02:23'),
+(6, 'fart3@fart2.com', 'fart2', 'Nick', 'Cassi', NULL, 'USA', '2013-04-22 16:03:04', '2013-04-22 16:03:04');
 
 -- --------------------------------------------------------
 

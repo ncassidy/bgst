@@ -6,11 +6,11 @@ class Landing_Controller extends Base_Controller {
 	{
         //get recent sessions
         $session = new PlaySession();
-        $sessions = $session->getRecentSessions();
+        $sessions = $session->getRecentSessions(8);
 
         //get most played games
         $game = new Game();
-        $games = $game->getMostPlayedGames();
+        $games = $game->getMostPlayedGames(10);
 
         return View::make('landing.index', array('sessions' => $sessions, 'games' => $games));
 	}

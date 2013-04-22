@@ -3,11 +3,11 @@
 class Game extends Eloquent
 {
 
-    public function getMostPlayedGames(){
+    public function getMostPlayedGames($count){
         if (Cache::has('most_played_games')){
             $response = Cache::get('most_played_games');
         } else {
-            $response = DB::query('SELECT title, session_count FROM game ORDER BY session_count DESC Limit 0, 10');
+            $response = DB::query('SELECT title, session_count FROM game ORDER BY session_count DESC Limit 0, ?', array($count));
             Cache::put('most_played_games', $response, 30);
         }
 
