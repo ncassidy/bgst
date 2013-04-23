@@ -61,6 +61,14 @@
                     <h2>Most Played Games</h2>
                     <div id="chart"></div>
                 </div>
+                <div class="module stats">
+                    <h2>BGST Stats</h2>
+                    <ul>
+                        <li>Users Registered: <span>{{ $stats['user_count'] }}</span></li>
+                        <li>Games Tracked: <span>{{ $stats['game_count'] }}</span></li>
+                        <li>Sessions Logged: <span>{{ $stats['session_count'] }}</span></li>
+                    </ul>
+                </div>
             </div>
             <div id="footer">
                 <ul>

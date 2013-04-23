@@ -25,4 +25,16 @@ class Game extends Eloquent
         return $response;
     }
 
+    public function getGameCount(){
+        if (Cache::has('game_count')){
+            $response = Cache::get('game_count');
+        } else {
+            $response = (array)DB::first('SELECT count(id) FROM game');
+            $response = $response['count(id)'];
+            Cache::put('game_count', $response, 30);
+        }
+
+        return $response;
+    }
+
 }

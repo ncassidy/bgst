@@ -31,14 +31,27 @@ class PlaySession extends Eloquent
         return $response;
     }
 
-    public function createSession($user_id, $game_id, $title, $date, $summary){
-        DB::query('INSERT INTO user (user_id, game_id, title, date, summary, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())', array($user_id, $game_id, $title, $date, $summary));
+    public function createSession($userID, $gameID, $title, $date, $summary){
+        DB::query('INSERT INTO user (user_id, game_id, title, date, summary, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())', array($userID, $gameID, $title, $date, $summary));
         $response = (array)DB::first('SELECT LAST_INSERT_ID()');
+        $response = $response['last_insert_id()'];
 
         //clear session cache
         Cache::forget('user_' . $userID . '_sessions');
 
-        return $response['last_insert_id()'];
+        return $response;
+    }
+
+    public function getSessionCount(){
+        if (Cache::has('session_count')){
+            $response = Cache::get('session_count');
+        } else {
+            $response = (array)DB::first('SELECT count(id) FROM session');
+            $response = $response['count(id)'];
+            Cache::put('session_count', $response, 30);
+        }
+
+        return $response;
     }
 
 }

@@ -12,7 +12,13 @@ class Landing_Controller extends Base_Controller {
         $game = new Game();
         $games = $game->getMostPlayedGames(10);
 
-        return View::make('landing.index', array('sessions' => $sessions, 'games' => $games));
+        //get bgst stats
+        $user = new User();
+        $stats['user_count'] = number_format($user->getUserCount());
+        $stats['game_count'] = number_format($game->getGameCount());
+        $stats['session_count'] = number_format($session->getSessionCount());
+
+        return View::make('landing.index', array('sessions' => $sessions, 'games' => $games, 'stats' => $stats));
 	}
 
 }
