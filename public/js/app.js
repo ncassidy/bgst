@@ -5,14 +5,16 @@ require.config({
         jquery: 'lib/jquery-1.9.1.min',
         underscore: 'lib/underscore-1.4.4.min',
         backbone: 'lib/backbone-1.0.0.min',
+        text: 'lib/text-2.0.6.min',
         highcharts: 'lib/highcharts-3.0.0.min'
     }
 });
 
-// App Init Logic
 requirejs(['jquery', 'underscore', 'backbone', 'highcharts'], function(){
-    // Chart Logic
     $(document).ready(function() {
+
+
+        //chart logic
         new Highcharts.Chart({
             chart: {
                 renderTo: 'chart',
