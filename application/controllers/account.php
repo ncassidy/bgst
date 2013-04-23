@@ -36,7 +36,7 @@ class Account_Controller extends Base_Controller {
         if(Input::has('email') && Input::has('password') && Input::has('password_confirm') && Input::has('first_name') && Input::has('last_name') && Input::has('country')){
             if(Input::get('password') == Input::get('password_confirm')){
                 $user = new User();
-                $isDuplicate = (bool)$user->checkEmail(Input::get('email'));
+                $isDuplicate = $user->checkDuplicate(Input::get('email'));
 
                 //check for duplicate users
                 if($isDuplicate == true){

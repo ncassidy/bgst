@@ -24,9 +24,14 @@ class Session_Controller extends Base_Controller {
 
         if(isset($session_id)){
             $session = new PlaySession();
-            $result = $session->getSessionById($session_id);
+            $users = new User();
+            $players = new Player();
 
-            return Response::Json(array('session' => $result), 200);
+            $sessionResult = (array)$session->getSessionById($session_id);
+            $sessionResult['users'] = $users->getUsersBySessionId($session_id);
+            $sessionResult['players'] = $players->getPlayersBySessionId($session_id);
+
+            return Response::Json(array('session' => $sessionResult), 200);
         } else {
             return Response::Json(array('session' => false, 'error' => 'A session_id was not supplied.'), 200);
         }

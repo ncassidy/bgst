@@ -22,10 +22,16 @@ class User extends Eloquent
         return $response['last_insert_id()'];
     }
 
-    public function checkEmail($email){
+    public function checkDuplicate($email){
         $response = (array)DB::first('SELECT count(*) FROM user WHERE email = ?', array($email));
 
-        return $response['count(*)'];
+        return $response['count(*)'] > 0 ? true : false;
+    }
+
+    public function getUsersBySessionId($sessionID){
+        $response = DB::query('SELECT user.first_name, user.last_name, user_outcome.score, user_outcome.win_status FROM user_outcome INNER JOIN user ON user_outcome.user_id = user.id WHERE user_outcome.session_id = ?', array($sessionID));
+
+        return $response;
     }
 
 }
