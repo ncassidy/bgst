@@ -45,7 +45,10 @@ class Account_Controller extends Base_Controller {
 
                 $result = $user->createUser(Input::get('email'), Input::get('password'), Input::get('first_name'), Input::get('last_name'), Input::get('country'));
 
-                return Response::Json(array('account_created' => true, 'user_id' => $result), 200);
+                //login after completed
+                Session::put('user_id', $result);
+
+                return Response::Json(array('account_created' => true, 'logged_in' => true), 200);
             } else {
                 return Response::Json(array('account_created' => false, 'error' => 'The password supplied did not match.'), 200);
             }
