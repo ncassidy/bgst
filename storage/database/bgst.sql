@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2013-04-22 18:51:52
+Date: 2013-04-22 18:57:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -175,6 +175,7 @@ CREATE TABLE `user` (
   `last_name` varchar(25) NOT NULL,
   `state` varchar(2) DEFAULT NULL,
   `country` varchar(30) NOT NULL,
+  `privacy_status` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -183,13 +184,13 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'nicholascassidy@gmail.com', '$2a$08$UFdqY0haeU9jbnB4NkxNVuJotGSBzqzY6QuuQvtZUet15rTls8LRa', 'Nicholas', 'Cassidy', 'CO', 'USA', '2013-04-15 21:45:10', '2013-04-15 21:45:15');
-INSERT INTO `user` VALUES ('2', 'metalfour@hotmail.com', 'test', 'Test', 'User', null, 'USA', '2013-04-22 15:34:06', '2013-04-22 15:34:06');
-INSERT INTO `user` VALUES ('3', 'fart@fart.com', 'fart', 'Nick', 'Cass', null, 'USA', '2013-04-22 15:48:29', '2013-04-22 15:48:29');
-INSERT INTO `user` VALUES ('4', 'test@test.com', 'pass', 'first', 'last', null, 'USA', '2013-04-22 15:56:06', '2013-04-22 15:56:06');
-INSERT INTO `user` VALUES ('5', 'fart2@fart2.com', 'fart', 'Nick', 'Cass.', null, 'USA', '2013-04-22 16:02:23', '2013-04-22 16:02:23');
-INSERT INTO `user` VALUES ('6', 'fart3@fart2.com', 'fart2', 'Nick', 'Cassi', null, 'USA', '2013-04-22 16:03:04', '2013-04-22 16:03:04');
-INSERT INTO `user` VALUES ('7', 'nicholascassidy', 'fart', 'First', 'Last', null, 'USA', '2013-04-22 18:18:05', '2013-04-22 18:18:05');
+INSERT INTO `user` VALUES ('1', 'nicholascassidy@gmail.com', '$2a$08$UFdqY0haeU9jbnB4NkxNVuJotGSBzqzY6QuuQvtZUet15rTls8LRa', 'Nicholas', 'Cassidy', 'CO', 'USA', '0', '2013-04-15 21:45:10', '2013-04-15 21:45:15');
+INSERT INTO `user` VALUES ('2', 'metalfour@hotmail.com', 'test', 'Test', 'User', null, 'USA', '0', '2013-04-22 15:34:06', '2013-04-22 15:34:06');
+INSERT INTO `user` VALUES ('3', 'fart@fart.com', 'fart', 'Nick', 'Cass', null, 'USA', '0', '2013-04-22 15:48:29', '2013-04-22 15:48:29');
+INSERT INTO `user` VALUES ('4', 'test@test.com', 'pass', 'first', 'last', null, 'USA', '0', '2013-04-22 15:56:06', '2013-04-22 15:56:06');
+INSERT INTO `user` VALUES ('5', 'fart2@fart2.com', 'fart', 'Nick', 'Cass.', null, 'USA', '0', '2013-04-22 16:02:23', '2013-04-22 16:02:23');
+INSERT INTO `user` VALUES ('6', 'fart3@fart2.com', 'fart2', 'Nick', 'Cassi', null, 'USA', '0', '2013-04-22 16:03:04', '2013-04-22 16:03:04');
+INSERT INTO `user` VALUES ('7', 'nicholascassidy', 'fart', 'First', 'Last', null, 'USA', '0', '2013-04-22 18:18:05', '2013-04-22 18:18:05');
 
 -- ----------------------------
 -- Table structure for `user_outcome`
