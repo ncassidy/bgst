@@ -43,7 +43,7 @@ class Account_Controller extends Base_Controller {
                     return Response::Json(array('account_created' => false, 'error' => 'The email address supplied is already in use.'), 200);
                 }
 
-                $result = $user->createUser(Input::get('email'), Input::get('password'), Input::get('first_name'), Input::get('last_name'), Input::get('country'));
+                $result = $user->createUser(Input::get('email'), Hash::make(Input::get('password')), Input::get('first_name'), Input::get('last_name'), Input::get('country'));
 
                 //login after completed
                 Session::put('user_id', $result);
