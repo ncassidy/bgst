@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <script data-main="js/app" src="js/lib/require-2.1.5.min.js"></script>
+        <script data-main="js/main" src="js/lib/require-2.1.5.min.js"></script>
         <script>
             var games = [<?php foreach($games as $game):?>'<?php echo $game->title ?>',<?php endforeach; ?>],
                 plays = [<?php foreach($games as $game):?><?php echo $game->session_count ?>,<?php endforeach; ?>];

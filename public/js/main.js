@@ -12,9 +12,9 @@ require.config({
 
 requirejs(['jquery', 'underscore', 'backbone', 'highcharts'], function(){
     $(document).ready(function() {
+        //start backbone
 
-
-        //chart logic
+        //landing chart logic
         new Highcharts.Chart({
             chart: {
                 renderTo: 'chart',
