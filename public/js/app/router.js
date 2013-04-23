@@ -1,7 +1,11 @@
 define([
+    'jquery',
+    'underscore',
     'backbone',
-    'app/views/landing'
-], function(Backbone){
+    'app/views/activity',
+    'app/views/about',
+    'app/views/contact'
+], function($, _, Backbone, ActivityView, AboutView, ContactView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'showLanding',
@@ -11,7 +15,9 @@ define([
             'contact': 'showContact'
         },
         showLanding: function(){
-            //stubbed
+            var sessionView = new ActivityView();
+            var aboutView = new AboutView();
+            var contactView = new ContactView();
         },
         showSessions: function(){
             //stubbed
@@ -20,7 +26,6 @@ define([
             //stubbed
         },
         showAbout: function(){
-            //stubbed
         },
         contact: function(){
             //stubbed
