@@ -2,21 +2,26 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'app/models/session',
+    'app/collections/session',
     'text!/../templates/session-template.html'
-], function($, _, Backbone, SessionTemplate){
+], function($, _, Backbone, SessionModel, SessionCollection, SessionTemplate){
     var ActivityView = Backbone.View.extend({
         el: $('body'),
         events: {
             'click .session': "showSession",
-            'click .activity-overlay': "closeSession"
+            'click .activity-overlay': "closeSession",
+            'click .close': "closeSession"
         },
+        activityCollection: new SessionCollection(),
         showSession: function(e){
             //get session data
             var $sessionID = $(e.currentTarget).data('id');
             var data = this.getSession($sessionID);
+            console.log(data);
 
             //display template
-            var compiledTemplate = _.template(SessionTemplate, data);
+            var compiledTemplate = _.template(SessionTemplate, data.toJSON());
             this.$el.addClass('content-overlay');
             this.$el.find('.section').append(compiledTemplate);
         },
@@ -25,13 +30,17 @@ define([
             this.$el.removeClass('content-overlay');
         },
         getSession: function($sessionID){
-            $.ajax({
-                type: 'GET',
-                dataType: 'json',
-                url: 'api/v1/session/' + $sessionID
-            })
-            .success(function(data){return data})
-            .error(function(data){return data});
+            var cache = this.activityCollection.where({id: $sessionID});
+
+            if(cache.length === 0){
+                var sessionModel = new SessionModel({url: 'api/v1/session/' + $sessionID});
+                sessionModel.fetch();
+                this.activityCollection.add(sessionModel);
+            } else {
+                var sessionModel = cache[0];
+            }
+
+            return sessionModel;
         }
     });
 

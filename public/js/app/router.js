@@ -15,7 +15,7 @@ define([
             'contact': 'showContact'
         },
         showLanding: function(){
-            var sessionView = new ActivityView();
+            var activityView = new ActivityView();
             var aboutView = new AboutView();
             var contactView = new ContactView();
         },

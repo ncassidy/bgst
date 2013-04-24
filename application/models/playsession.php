@@ -26,7 +26,7 @@ class PlaySession extends Eloquent
     }
 
     public function getSessionById($sessionID){
-        $response = DB::first('SELECT session.title as session_title, session.date, game.title as game_title, session.summary FROM session INNER JOIN game ON session.game_id = game.id WHERE session.id = ?', array($sessionID));
+        $response = DB::first('SELECT session.id, session.title as session_title, session.date, game.title as game_title, session.summary FROM session INNER JOIN game ON session.game_id = game.id WHERE session.id = ?', array($sessionID));
 
         return $response;
     }

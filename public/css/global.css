@@ -154,3 +154,5 @@ body { background: #f6f6f6; }
 #activity .gallery li { height: 110px; padding: 5px 5px 0 5px; width: 110px; }
 #activity .gallery li:last-child { padding-bottom: 5px; }
 #activity .gallery li img { height: 110px; width: 110px; }
+#activity .close { background: #f2f2f2; border: 1px solid #e1e1e1; color: #464646; cursor: pointer; font: bold 12px Verdana; height: 8px; line-height: 8px; margin: 0; padding: 5px; position: absolute; right: 6px; top: 14px; width: 9px; }
+#activity .close:hover { background: #464646; color: #f2f2f2; }

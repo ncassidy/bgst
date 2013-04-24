@@ -7,19 +7,19 @@ class Session_Controller extends Base_Controller {
     public function get_sessions()
     {
         if(!Session::has('user_id')){
-            return Response::Json(array('sessions' => false, 'error' => 'You are not logged in.'), 200);
+            return Response::Json(array('error' => 'You are not logged in.'), 200);
         }
 
         $session = new PlaySession();
         $result = $session->getSessionsByUserId(Session::get('user_id'));
 
-        return Response::Json(array('sessions' => $result), 200);
+        return Response::Json($result, 200);
     }
 
     public function get_session($session_id)
     {
         if(!Session::has('user_id')){
-            return Response::Json(array('session' => false, 'error' => 'You are not logged in.'), 200);
+            return Response::Json(array('error' => 'You are not logged in.'), 200);
         }
 
         if(isset($session_id)){
@@ -31,9 +31,9 @@ class Session_Controller extends Base_Controller {
             $sessionResult['users'] = $users->getUsersBySessionId($session_id);
             $sessionResult['players'] = $players->getPlayersBySessionId($session_id);
 
-            return Response::Json(array('session' => $sessionResult), 200);
+            return Response::Json($sessionResult, 200);
         } else {
-            return Response::Json(array('session' => false, 'error' => 'A session_id was not supplied.'), 200);
+            return Response::Json(array('error' => 'A session_id was not supplied.'), 200);
         }
     }
 
