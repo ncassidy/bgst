@@ -30,6 +30,7 @@ define([
         closeSession: function(){
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
+            this.unbind();
             window.history.back();
         },
         getSession: function(sessionID){

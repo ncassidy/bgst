@@ -2,24 +2,23 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'app/views/activity',
     'app/views/sessions',
     'app/views/session',
     'app/views/about',
     'app/views/contact'
-], function($, _, Backbone, ActivityView, SessionsView, SessionView, AboutView, ContactView){
+], function($, _, Backbone, SessionsView, SessionView, AboutView, ContactView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'showLanding',
             'sessions': 'showSessions',
             'sessions/:sessionID': 'showSession',
             'achievements': 'showAchievements',
-            'achievements/:achievementID': 'showAchievement'
+            'achievements/:achievementID': 'showAchievement',
+            'about': 'showAbout',
+            'contact': 'showContact'
         },
         showLanding: function(){
-            //var activityView = new ActivityView();
-            var aboutView = new AboutView();
-            var contactView = new ContactView();
+
         },
         showSessions: function(){
             var sessionsView = new SessionsView();
@@ -32,6 +31,12 @@ define([
         },
         showAchievement: function(achievementID){
 
+        },
+        showAbout: function(){
+            var aboutView = new AboutView();
+        },
+        showContact: function(){
+            var contactView = new ContactView();
         }
     });
 
