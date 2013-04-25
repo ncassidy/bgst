@@ -9,38 +9,47 @@ define([
     var ActivityView = Backbone.View.extend({
         el: $('body'),
         events: {
-            'click .session': "showSession",
+            'click .session': "selectSession",
             'click .activity-overlay': "closeSession",
             'click .close': "closeSession"
         },
-        activityCollection: new SessionCollection(),
-        showSession: function(e){
-            //get session data
-            var $sessionID = $(e.currentTarget).data('id');
-            var data = this.getSession($sessionID);
-            console.log(data);
+        activityCollection: undefined,
+        initialize: function(){
+            var _this = this;
 
-            //display template
-            var compiledTemplate = _.template(SessionTemplate, data.toJSON());
-            this.$el.addClass('content-overlay');
-            this.$el.find('.section').append(compiledTemplate);
+            this.activityCollection = new SessionCollection();
+            this.activityCollection.on('session-available', function(sessionID){
+                _this.displaySession(sessionID);
+            });
+        },
+        selectSession: function(e){
+            //get session data
+            var sessionID = $(e.currentTarget).data('id');
+            this.getSession(sessionID);
         },
         closeSession: function(){
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
         },
-        getSession: function($sessionID){
-            var cache = this.activityCollection.where({id: $sessionID});
+        getSession: function(sessionID){
+            var _this = this;
 
-            if(cache.length === 0){
-                var sessionModel = new SessionModel({url: 'api/v1/session/' + $sessionID});
-                sessionModel.fetch();
-                this.activityCollection.add(sessionModel);
+            if(this.activityCollection.where({id: sessionID}).length === 0){
+                this.activityCollection.fetch({
+                    url: 'api/v1/session/' + sessionID,
+                    success: function(){
+                        _this.activityCollection.trigger('session-available', sessionID);
+                    }
+                });
             } else {
-                var sessionModel = cache[0];
+                //self.displaySession(sessionID);
+                this.activityCollection.trigger('session-available', sessionID);
             }
-
-            return sessionModel;
+        },
+        displaySession: function(sessionID){
+            var compiledTemplate = _.template(SessionTemplate, this.activityCollection.get({id: sessionID}).toJSON());
+            this.$el.addClass('content-overlay');
+            this.$el.find('.section').append(compiledTemplate);
         }
     });
 

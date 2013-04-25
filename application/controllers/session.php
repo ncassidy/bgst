@@ -22,19 +22,21 @@ class Session_Controller extends Base_Controller {
             return Response::Json(array('error' => 'You are not logged in.'), 200);
         }
 
-        if(isset($session_id)){
-            $session = new PlaySession();
-            $users = new User();
-            $players = new Player();
+        $session = new PlaySession();
+        $users = new User();
+        $players = new Player();
 
-            $sessionResult = (array)$session->getSessionById($session_id);
-            $sessionResult['users'] = $users->getUsersBySessionId($session_id);
-            $sessionResult['players'] = $players->getPlayersBySessionId($session_id);
+        $sessionResult = (array)$session->getSessionById($session_id);
 
-            return Response::Json($sessionResult, 200);
-        } else {
-            return Response::Json(array('error' => 'A session_id was not supplied.'), 200);
+        if(count($sessionResult) < 1){
+            return Response::Json(array('error' => 'That requested session does not exist.'), 200);
         }
+
+        $sessionResult['date'] = date('F j, Y', strtotime($sessionResult['date']));
+        $sessionResult['users'] = $users->getUsersBySessionId($session_id);
+        $sessionResult['players'] = $players->getPlayersBySessionId($session_id);
+
+        return Response::Json($sessionResult, 200);
     }
 
     public function post_create()
