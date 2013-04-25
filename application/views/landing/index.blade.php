@@ -21,7 +21,7 @@
     <body>
         <div id="nav">
             <div>
-                <h1><a href="#" title="Board Game Session Tracker">BGST</a></h1>
+                <h1><a href="/" title="Board Game Session Tracker">BGST</a></h1>
                 <ul id="nav-options"></ul>
                 <a id="profile">
                     <div>
@@ -43,14 +43,14 @@
             <![endif]-->
             <div class="section">
                 <div class="module activity">
-                    <h2>Recent Activity</h2>
+                    <h2 id="activity-title">Recent Activity</h2>
                     <div>
-                        <ul>
+                        <ul class="activity-items">
                             @foreach ($sessions as $session)
                             <li class="session" data-id="{{ $session->id }}">
                                 <div>
-                                    <h3><a href="#/session/{{ $session->id }}" title="Session">Session</a></h3>
-                                    <p><a href="#/session/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
+                                    <h3><a href="#/sessions/{{ $session->id }}" title="Session">Session</a></h3>
+                                    <p><a href="#/sessions/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
                                 </div>
                             </li>
                             @endforeach

@@ -6,7 +6,7 @@ define([
 ], function($, _, Backbone, SessionModel){
     var SessionCollection = Backbone.Collection.extend({
         model: SessionModel,
-        url: '/api/v1/session'
+        url: '/api/v1/sessions'
     });
 
     return SessionCollection;

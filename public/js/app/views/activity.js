@@ -2,10 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'app/models/session',
     'app/collections/session',
     'text!/../templates/session-template.html'
-], function($, _, Backbone, SessionModel, SessionCollection, SessionTemplate){
+], function($, _, Backbone, SessionCollection, SessionTemplate){
     var ActivityView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -36,7 +35,7 @@ define([
 
             if(this.activityCollection.where({id: sessionID}).length === 0){
                 this.activityCollection.fetch({
-                    url: 'api/v1/session/' + sessionID,
+                    url: 'api/v1/sessions/' + sessionID,
                     success: function(){
                         _this.activityCollection.trigger('session-available', sessionID);
                     }

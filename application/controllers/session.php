@@ -11,9 +11,9 @@ class Session_Controller extends Base_Controller {
         }
 
         $session = new PlaySession();
-        $result = $session->getSessionsByUserId(Session::get('user_id'));
+        $results = $session->getSessionsByUserId(Session::get('user_id'));
 
-        return Response::Json($result, 200);
+        return Response::Json($results, 200);
     }
 
     public function get_session($session_id)
@@ -26,17 +26,17 @@ class Session_Controller extends Base_Controller {
         $users = new User();
         $players = new Player();
 
-        $sessionResult = (array)$session->getSessionById($session_id);
+        $result = (array)$session->getSessionById($session_id);
 
-        if(count($sessionResult) < 1){
+        if(count($result) < 1){
             return Response::Json(array('error' => 'That requested session does not exist.'), 200);
         }
 
-        $sessionResult['date'] = date('F j, Y', strtotime($sessionResult['date']));
-        $sessionResult['users'] = $users->getUsersBySessionId($session_id);
-        $sessionResult['players'] = $players->getPlayersBySessionId($session_id);
+        $result['date'] = date('F j, Y', strtotime($result['date']));
+        $result['users'] = $users->getUsersBySessionId($session_id);
+        $result['players'] = $players->getPlayersBySessionId($session_id);
 
-        return Response::Json($sessionResult, 200);
+        return Response::Json($result, 200);
     }
 
     public function post_create()

@@ -41,9 +41,9 @@ Route::post('api/v1/account/logout', 'account@logout');
 Route::post('api/v1/account/create', 'account@create');
 
 /* Session API Routes */
-Route::get('api/v1/session', 'session@sessions');
-Route::get('api/v1/session/(:num)', 'session@session');
-Route::post('api/v1/session/create', 'session@create');
+Route::get('api/v1/sessions', 'session@sessions');
+Route::get('api/v1/sessions/(:num)', 'session@session');
+Route::post('api/v1/sessions/create', 'session@create');
 
 /*
 |--------------------------------------------------------------------------
