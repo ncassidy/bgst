@@ -17,10 +17,10 @@ class Account_Controller extends Base_Controller {
                 
                 return Response::Json(array('logged_in' => true), 200);
             } else {
-                return Response::Json(array('logged_in' => false, 'error' => 'Invalid Credentials.'), 200);
+                return Response::Json(array('error' => 'Invalid Credentials.'), 403);
             }
         } else {
-            return Response::Json(array('logged_in' => false, 'error' => 'Credentials were not provided.'), 200);
+            return Response::Json(array('error' => 'Credentials were not provided.'), 404);
         }
 	}
 
@@ -40,7 +40,7 @@ class Account_Controller extends Base_Controller {
 
                 //check for duplicate users
                 if($isDuplicate == true){
-                    return Response::Json(array('account_created' => false, 'error' => 'The email address supplied is already in use.'), 200);
+                    return Response::Json(array('error' => 'The email address supplied is already in use.'), 404);
                 }
 
                 $result = $user->createUser(Input::get('email'), Hash::make(Input::get('password')), Input::get('first_name'), Input::get('last_name'), Input::get('country'));
@@ -50,10 +50,10 @@ class Account_Controller extends Base_Controller {
 
                 return Response::Json(array('account_created' => true, 'logged_in' => true), 200);
             } else {
-                return Response::Json(array('account_created' => false, 'error' => 'The password supplied did not match.'), 200);
+                return Response::Json(array('error' => 'The password supplied did not match.'), 404);
             }
         } else {
-            return Response::Json(array('account_created' => false, 'error' => 'Some of the required account details were not provided.'), 200);
+            return Response::Json(array('error' => 'Some of the required account details were not provided.'), 404);
         }
     }
 
