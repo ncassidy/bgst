@@ -11,30 +11,22 @@
                     <th class="player-score">Score</th>
                     <th class="player-outcome">Winner?</th>
                 </tr>
+                <% _.each(users, function(user){ %>
                 <tr>
-                    <td class="player-name">Nicholas Cassidy</td>
+                    <td class="player-name"><%= user.first_name %> <%= user.last_name %></td>
                     <td class="player-team">Team 1</td>
-                    <td class="player-score">34</td>
-                    <td class="player-outcome">Yes</td>
+                    <td class="player-score"><%= user.score %></td>
+                    <td class="player-outcome"><%= user.win_status %></td>
                 </tr>
+                <% }); %>
+                <% _.each(players, function(player){ %>
                 <tr>
-                    <td class="player-name">Player 1 Name</td>
+                    <td class="player-name"><%= player.name %></td>
                     <td class="player-team">Team 1</td>
-                    <td class="player-score">34</td>
-                    <td class="player-outcome">Yes</td>
+                    <td class="player-score"><%= player.score %></td>
+                    <td class="player-outcome"><%= player.win_status %></td>
                 </tr>
-                <tr>
-                    <td class="player-name">Player 1 Name</td>
-                    <td class="player-team">Team 1</td>
-                    <td class="player-score">34</td>
-                    <td class="player-outcome">Yes</td>
-                </tr>
-                <tr>
-                    <td class="player-name">Player 1 Name</td>
-                    <td class="player-team">Team 1</td>
-                    <td class="player-score">34</td>
-                    <td class="player-outcome">Yes</td>
-                </tr>
+                <% }); %>
             </table>
             <p><%= summary %></p>
         </div>
