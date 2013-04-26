@@ -18,10 +18,6 @@ class Session_Controller extends Base_Controller {
 
     public function get_session($session_id)
     {
-        if(!Session::has('user_id')){
-            return Response::Json('You are not logged in.', 403);
-        }
-
         $session = new PlaySession();
         $users = new User();
         $players = new Player();

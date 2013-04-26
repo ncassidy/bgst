@@ -5,7 +5,7 @@ define([
 ], function($, _, Backbone){
     Backbone.emulateHTTP = true;
 
-    var ProjectModel = Backbone.Model.extend({
+    var SessiontModel = Backbone.Model.extend({
         defaults: {
             id: undefined,
             session_title: undefined,
@@ -21,5 +21,5 @@ define([
         }
     });
 
-    return ProjectModel;
+    return SessiontModel;
 });

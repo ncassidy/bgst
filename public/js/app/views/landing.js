@@ -3,16 +3,18 @@ define([
     'underscore',
     'backbone',
     'app/collections/session',
-    'text!/../templates/sessions-item-template.html',
+    'app/models/user',
     'text!/../templates/session-template.html',
+    'text!/../templates/nav-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, SessionCollection, SessionsTemplate, SessionTemplate, ErrorTemplate){
-    var SessionsView = Backbone.View.extend({
+], function($, _, Backbone, SessionCollection, UserModel, SessionTemplate, NavTemplate, ErrorTemplate){
+    var LandingView = Backbone.View.extend({
         el: $('body'),
         events: {
             'click .session': 'selectSession',
             'click .close': 'closeSession',
-            'click .activity-overlay': 'closeSession'
+            'click .activity-overlay': 'closeSession',
+            'click #login-submit': 'getLoginCreds'
         },
         viewHelpers: {
             textTruncate: function(text, limit){
@@ -20,42 +22,8 @@ define([
             }
         },
         initialize: function(){
-            var _this = this;
             this.sessionsCollection = new SessionCollection();
             this.sessionCollection = new SessionCollection();
-
-            this.getSessions();
-
-            this.sessionsCollection.on('sessions-loaded', function(){
-                _this.render();
-            });
-        },
-        render: function(){
-            var data = this.sessionsCollection.toJSON();
-            _.extend(data, this.viewHelpers);
-
-            this.$el.find('#activity-title').text('Your Sessions');
-            this.$el.find('.stats').remove();
-
-
-            var compiledTemplate = _.template(SessionsTemplate, {sessions: data});
-            this.$el.find('.activity-items').empty().append(compiledTemplate);
-        },
-        getSessions: function(){
-            var _this = this;
-
-            if(this.sessionsCollection.where().length === 0){
-                this.sessionsCollection.fetch({
-                    success: function(){
-                        _this.sessionsCollection.trigger('sessions-loaded');
-                    },
-                    error: function(){
-                        _this.displayError(arguments[1].responseText.replace(/"/g,''));
-                    }
-                });
-            } else {
-                this.sessionsCollection.trigger('sessions-loaded');
-            }
         },
         selectSession: function(e){
             e.preventDefault();
@@ -89,7 +57,34 @@ define([
         closeSession: function(){
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
-            Router.navigate('sessions', {trigger: false});
+            Router.navigate('', {trigger: false});
+        },
+        getLoginCreds: function(e){
+            e.preventDefault();
+
+            var username = this.$el.find('#login-username').val();
+            var password = this.$el.find('#login-password').val();
+
+            this.loginUser(username, password);
+        },
+        loginUser: function(username, password){
+            var _this = this;
+
+            this.userModel = new UserModel();
+            this.userModel.fetch({
+                type: 'POST',
+                data:{
+                    email: username,
+                    password: password
+                },
+                success: function(){
+                    var compiledTemplate = _.template(NavTemplate);
+                    _this.$el.find('#nav-options').append(compiledTemplate);
+                },
+                error: function(){
+                    _this.displayError(arguments[1].responseText.replace(/"/g,''));
+                }
+            });
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
@@ -101,5 +96,5 @@ define([
         }
     });
 
-    return SessionsView;
+    return LandingView;
 });
