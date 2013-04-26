@@ -31,7 +31,7 @@ define([
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
             this.undelegateEvents();
-            window.history.back();
+            Router.navigate('', {trigger: true});
         },
         getSession: function(sessionID){
             var _this = this;

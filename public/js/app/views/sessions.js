@@ -73,17 +73,15 @@ define([
             }
         },
         displaySession: function(sessionID){
-            Router.navigate('sessions/' + sessionID, {trigger: false});
-
             var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
             this.$el.addClass('content-overlay');
             this.$el.find('.section').append(compiledTemplate);
+            Router.navigate('sessions/' + sessionID, {trigger: false});
         },
         closeSession: function(){
-            Router.navigate('sessions', {trigger: false});
-
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
+            Router.navigate('sessions', {trigger: false});
         }
     });
 
