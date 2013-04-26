@@ -21,7 +21,7 @@
     <body>
         <div id="nav">
             <div>
-                <h1><a href="/" title="Board Game Session Tracker">BGST</a></h1>
+                <h1><a href="#" title="Board Game Session Tracker">BGST</a></h1>
                 <ul id="nav-options"></ul>
                 <a id="profile">
                     <div>
