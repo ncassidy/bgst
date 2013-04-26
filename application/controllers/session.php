@@ -7,7 +7,7 @@ class Session_Controller extends Base_Controller {
     public function get_sessions()
     {
         if(!Session::has('user_id')){
-            return Response::Json(array('error' => 'You are not logged in.'), 403);
+            return Response::Json('You are not logged in.', 403);
         }
 
         $session = new PlaySession();
@@ -19,7 +19,7 @@ class Session_Controller extends Base_Controller {
     public function get_session($session_id)
     {
         if(!Session::has('user_id')){
-            return Response::Json(array('error' => 'You are not logged in.'), 403);
+            return Response::Json('You are not logged in.', 403);
         }
 
         $session = new PlaySession();
@@ -29,7 +29,7 @@ class Session_Controller extends Base_Controller {
         $result = (array)$session->getSessionById($session_id);
 
         if(count($result) < 1){
-            return Response::Json(array('error' => 'That requested session does not exist.'), 404);
+            return Response::Json('The requested session does not exist.', 404);
         }
 
         $result['date'] = date('F j, Y', strtotime($result['date']));
@@ -42,7 +42,7 @@ class Session_Controller extends Base_Controller {
     public function post_create()
     {
         if(!Session::has('user_id')){
-            return Response::Json(array('error' => 'You are not logged in.'), 403);
+            return Response::Json('You are not logged in.', 403);
         }
 
         if(Input::has('game_id') && Input::has('title') && Input::has('date') && Input::has('summary')){
@@ -51,7 +51,7 @@ class Session_Controller extends Base_Controller {
 
             return Response::Json(array('session_created' => true, 'session_id' => $result), 200);
         } else {
-            return Response::Json(array('error' => 'Some of the required session details were not provided.'), 404);
+            return Response::Json('Some of the required session details were not provided.', 404);
         }
     }
 

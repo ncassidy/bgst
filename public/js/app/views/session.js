@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     'app/collections/session',
-    'text!/../templates/session-template.html'
-], function($, _, Backbone, SessionCollection, SessionTemplate){
+    'text!/../templates/session-template.html',
+    'text!/../templates/error-modal-template.html'
+], function($, _, Backbone, SessionCollection, SessionTemplate, ErrorTemplate){
     var SessionView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -42,12 +43,21 @@ define([
                     success: function(){
                         _this.sessionCollection.trigger('session-loaded', sessionID);
                     },
-                    error: function(msg){
+                    error: function(){
+                        _this.displayError(arguments[1].responseText.replace(/"/g,''));
                     }
                 });
             } else {
                 this.sessionCollection.trigger('session-loaded', sessionID);
             }
+        },
+        displayError: function(errorMessage){
+            var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
+            this.$el.append(compiledTemplate);
+
+            this.$el.find('.error-ok, .error-close').on('click', function(){
+                window.location = '/';
+            });
         }
     });
 

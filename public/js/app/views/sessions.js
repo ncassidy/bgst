@@ -46,6 +46,9 @@ define([
                 this.sessionsCollection.fetch({
                     success: function(){
                         _this.sessionsCollection.trigger('sessions-loaded');
+                    },
+                    error: function(){
+
                     }
                 });
             } else {

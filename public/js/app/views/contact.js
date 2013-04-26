@@ -19,7 +19,7 @@ define([
         },
         modalClose: function(){
             this.$el.find('.modal, .modal-overlay').remove();
-            this.unbind();
+            this.undelegateEvents();
             window.history.back();
         }
     });
