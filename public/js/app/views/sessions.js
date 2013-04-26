@@ -4,8 +4,9 @@ define([
     'backbone',
     'app/collections/session',
     'text!/../templates/sessions-item-template.html',
-    'text!/../templates/session-template.html'
-], function($, _, Backbone, SessionCollection, SessionsTemplate, SessionTemplate){
+    'text!/../templates/session-template.html',
+    'text!/../templates/error-modal-template.html'
+], function($, _, Backbone, SessionCollection, SessionsTemplate, SessionTemplate, ErrorTemplate){
     var SessionsView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -48,7 +49,7 @@ define([
                         _this.sessionsCollection.trigger('sessions-loaded');
                     },
                     error: function(){
-
+                        _this.displayError(arguments[1].responseText.replace(/"/g,''));
                     }
                 });
             } else {
@@ -69,6 +70,9 @@ define([
                     url: 'api/v1/sessions/' + sessionID,
                     success: function(){
                         _this.displaySession(sessionID);
+                    },
+                    error: function(){
+                        _this.displayError(arguments[1].responseText.replace(/"/g,''));
                     }
                 });
             } else {
@@ -85,6 +89,14 @@ define([
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
             Router.navigate('sessions', {trigger: false});
+        },
+        displayError: function(errorMessage){
+            var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
+            this.$el.append(compiledTemplate);
+
+            this.$el.find('.error-ok, .error-close').on('click', function(){
+                window.location = '/';
+            });
         }
     });
 
