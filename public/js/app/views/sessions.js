@@ -3,10 +3,17 @@ define([
     'underscore',
     'backbone',
     'app/collections/session',
-    'text!/../templates/sessions-item-template.html'
-], function($, _, Backbone, SessionCollection, SessionsTemplate){
+    'text!/../templates/sessions-item-template.html',
+    'text!/../templates/session-template.html'
+], function($, _, Backbone, SessionCollection, SessionsTemplate, SessionTemplate){
     var SessionsView = Backbone.View.extend({
         el: $('body'),
+        events: {
+            'click .session': 'selectSession',
+            'click .close': 'closeSession',
+            'click .activity-overlay': 'closeSession'
+        },
+        sessionsCollection: undefined,
         sessionCollection: undefined,
         viewHelpers: {
             textTruncate: function(text, limit){
@@ -15,15 +22,17 @@ define([
         },
         initialize: function(){
             var _this = this;
-
+            this.sessionsCollection = new SessionCollection();
             this.sessionCollection = new SessionCollection();
+
             this.getSessions();
-            this.sessionCollection.on('sessions-loaded', function(){
+
+            this.sessionsCollection.on('sessions-loaded', function(){
                 _this.render();
             });
         },
         render: function(){
-            var data = this.sessionCollection.toJSON();
+            var data = this.sessionsCollection.toJSON();
             _.extend(data, this.viewHelpers);
 
             this.$el.find('#activity-title').text('Sessions');
@@ -33,15 +42,48 @@ define([
         getSessions: function(){
             var _this = this;
 
-            if(this.sessionCollection.where().length === 0){
-                this.sessionCollection.fetch({
+            if(this.sessionsCollection.where().length === 0){
+                this.sessionsCollection.fetch({
                     success: function(){
-                        _this.sessionCollection.trigger('sessions-loaded');
+                        _this.sessionsCollection.trigger('sessions-loaded');
                     }
                 });
             } else {
-                this.sessionCollection.trigger('sessions-loaded');
+                this.sessionsCollection.trigger('sessions-loaded');
             }
+        },
+        selectSession: function(e){
+            e.preventDefault();
+
+            var sessionID = $(e.currentTarget).data('id');
+            this.getSession(sessionID);
+        },
+        getSession: function(sessionID){
+            var _this = this;
+
+            if(this.sessionCollection.where({id: sessionID}).length === 0){
+                this.sessionCollection.fetch({
+                    url: 'api/v1/sessions/' + sessionID,
+                    success: function(){
+                        _this.displaySession(sessionID);
+                    }
+                });
+            } else {
+                this.displaySession(sessionID);
+            }
+        },
+        displaySession: function(sessionID){
+            Router.navigate('sessions/' + sessionID, {trigger: false});
+
+            var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
+            this.$el.addClass('content-overlay');
+            this.$el.find('.section').append(compiledTemplate);
+        },
+        closeSession: function(){
+            Router.navigate('sessions', {trigger: false});
+
+            this.$el.find('#activity, .activity-overlay').remove();
+            this.$el.removeClass('content-overlay');
         }
     });
 

@@ -30,7 +30,7 @@ define([
         closeSession: function(){
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
-            this.unbind();
+            this.undelegateEvents();
             window.history.back();
         },
         getSession: function(sessionID){
@@ -41,6 +41,8 @@ define([
                     url: 'api/v1/sessions/' + sessionID,
                     success: function(){
                         _this.sessionCollection.trigger('session-loaded', sessionID);
+                    },
+                    error: function(msg){
                     }
                 });
             } else {

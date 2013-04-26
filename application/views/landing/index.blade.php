@@ -49,8 +49,8 @@
                             @foreach ($sessions as $session)
                             <li class="session" data-id="{{ $session->id }}">
                                 <div>
-                                    <h3><a href="#/sessions/{{ $session->id }}" title="Session">Session</a></h3>
-                                    <p><a href="#/sessions/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
+                                    <h3><a href="#sessions/{{ $session->id }}" title="Session">Session</a></h3>
+                                    <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
                                 </div>
                             </li>
                             @endforeach
@@ -72,8 +72,8 @@
             </div>
             <div id="footer">
                 <ul>
-                    <li><a id="about" href="/#/about" title="About">About</a></li>
-                    <li><a id="contact" href="/#/contact" title="Contact">Contact</a></li>
+                    <li><a id="about" href="/#about" title="About">About</a></li>
+                    <li><a id="contact" href="/#contact" title="Contact">Contact</a></li>
                 </ul>
                 <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
             </div>
