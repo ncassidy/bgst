@@ -40,6 +40,6 @@ define([
         }
     });
 
-    var app_router = new AppRouter;
+    Router = new AppRouter;
     Backbone.history.start();
 });

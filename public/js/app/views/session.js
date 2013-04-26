@@ -15,7 +15,6 @@ define([
         initialize: function(sessionID){
             var _this = this,
                 sessionID = sessionID.sessionID;
-
             this.sessionCollection = new SessionCollection();
             this.getSession(sessionID);
             this.sessionCollection.on('session-loaded', function(sessionID){
@@ -44,7 +43,6 @@ define([
                     }
                 });
             } else {
-                //self.displaySession(sessionID);
                 this.sessionCollection.trigger('session-loaded', sessionID);
             }
         }
