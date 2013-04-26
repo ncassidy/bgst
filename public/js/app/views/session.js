@@ -12,7 +12,6 @@ define([
             'click .activity-overlay': "closeSession",
             'click .close': "closeSession"
         },
-        sessionCollection: undefined,
         initialize: function(sessionID){
             var _this = this,
                 sessionID = sessionID.sessionID;

@@ -14,8 +14,6 @@ define([
             'click .close': 'closeSession',
             'click .activity-overlay': 'closeSession'
         },
-        sessionsCollection: undefined,
-        sessionCollection: undefined,
         viewHelpers: {
             textTruncate: function(text, limit){
                 return text.substr(0, limit).substr(0, Math.min(text.length, text.lastIndexOf(" "))) + '...';
