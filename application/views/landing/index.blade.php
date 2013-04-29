@@ -76,7 +76,7 @@
                     <li><a id="about" href="/#about" title="About">About</a></li>
                     <li><a id="contact" href="/#contact" title="Contact">Contact</a></li>
                 </ul>
-                <p>Copyright © 2013 BGST LLC. All rights reserved.</p>
+                <p>Copyright © {{ date('Y', time()) }} BGST LLC. All rights reserved.</p>
             </div>
         </div>
 
