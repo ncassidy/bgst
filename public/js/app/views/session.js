@@ -12,31 +12,21 @@ define([
             'click .activity-overlay': "closeSession",
             'click .close': "closeSession"
         },
-        initialize: function(sessionID){
-            var _this = this,
-                sessionID = sessionID.sessionID;
-
+        initialize: function(){
+            var _this = this;
             this.sessionCollection = new SessionCollection();
-            this.getSession(sessionID);
+
             this.sessionCollection.on('session-loaded', function(sessionID){
-                _this.render(sessionID);
+                _this.displaySession(sessionID);
             });
         },
         render: function(sessionID){
-            var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
-            this.$el.addClass('content-overlay');
-            this.$el.find('.section').append(compiledTemplate);
-        },
-        closeSession: function(){
-            this.$el.find('#activity, .activity-overlay').remove();
-            this.$el.removeClass('content-overlay');
-            this.undelegateEvents();
-            Router.navigate('', {trigger: true});
+            this.getSession(sessionID);
         },
         getSession: function(sessionID){
             var _this = this;
 
-            if(this.sessionCollection.where({id: sessionID}).length === 0){
+            if(typeof this.sessionCollection.get({id: sessionID}) === 'undefined'){
                 this.sessionCollection.fetch({
                     url: 'api/v1/sessions/' + sessionID,
                     success: function(){
@@ -49,6 +39,16 @@ define([
             } else {
                 this.sessionCollection.trigger('session-loaded', sessionID);
             }
+        },
+        displaySession: function(sessionID){
+            var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
+            this.$el.addClass('content-overlay');
+            this.$el.find('.section').append(compiledTemplate);
+        },
+        closeSession: function(){
+            this.$el.find('#activity, .activity-overlay').remove();
+            this.$el.removeClass('content-overlay');
+            window.history.back();
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});

@@ -7,19 +7,15 @@ define([
     var AboutView = Backbone.View.extend({
         el: $('body'),
         events: {
-            'click .modal-overlay' : "modalClose",
-            'click .close' : "modalClose"
-        },
-        initialize: function(){
-            this.render();
+            'click .modal-overlay' : 'closeAbout',
+            'click .close' : 'closeAbout'
         },
         render: function(){
             var compiledTemplate = _.template(AboutTemplate);
             this.$el.append(compiledTemplate);
         },
-        modalClose: function(){
+        closeAbout: function(){
             this.$el.find('.modal, .modal-overlay').remove();
-            this.unbind();
             window.history.back();
         }
     });

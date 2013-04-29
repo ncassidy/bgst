@@ -7,19 +7,15 @@ define([
     var ContactView = Backbone.View.extend({
         el: $('body'),
         events: {
-            'click .modal-overlay' : "modalClose",
-            'click .close' : "modalClose"
-        },
-        initialize: function(){
-            this.render();
+            'click .modal-overlay' : 'closeContact',
+            'click .close' : 'closeContact'
         },
         render: function(){
             var compiledTemplate = _.template(ContactTemplate);
             this.$el.append(compiledTemplate);
         },
-        modalClose: function(){
+        closeContact: function(){
             this.$el.find('.modal, .modal-overlay').remove();
-            this.undelegateEvents();
             window.history.back();
         }
     });

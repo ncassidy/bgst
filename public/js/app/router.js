@@ -18,14 +18,21 @@ define([
             'about': 'showAbout',
             'contact': 'showContact'
         },
+        initialize: function(){
+            this.landingView = new LandingView();
+            this.sessionsView = new SessionsView();
+            this.sessionView = new SessionView();
+            this.aboutView = new AboutView();
+            this.contactView = new ContactView();
+        },
         showLanding: function(){
-            landingView = new LandingView();
+            this.landingView.render();
         },
         showSessions: function(){
-            var sessionsView = new SessionsView();
+            this.sessionsView.render();
         },
         showSession: function(sessionID){
-            var sessionView = new SessionView({sessionID: sessionID});
+            this.sessionView.render(sessionID);
         },
         showAchievements: function(){
 
@@ -34,10 +41,10 @@ define([
 
         },
         showAbout: function(){
-            var aboutView = new AboutView();
+            this.aboutView.render();
         },
         showContact: function(){
-            var contactView = new ContactView();
+            this.contactView.render();
         }
     });
 
