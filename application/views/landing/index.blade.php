@@ -49,7 +49,8 @@
                             @foreach ($sessions as $session)
                             <li class="session">
                                 <div>
-                                    <h3><a href="#sessions/{{ $session->id }}" title="Session">Session</a></h3>
+                                    <h3><a href="#sessions" title="Session">Session</a></h3>
+                                    <a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"></a>
                                     <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
                                 </div>
                             </li>
