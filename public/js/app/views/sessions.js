@@ -3,9 +3,10 @@ define([
     'underscore',
     'backbone',
     'app/collections/session',
-    'text!/../templates/session-template.html',
+    'text!/../templates/nav-template.html',
+    'text!/../templates/sessions-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, SessionCollection, SessionsTemplate, ErrorTemplate){
+], function($, _, Backbone, SessionCollection, NavTemplate, SessionsTemplate, ErrorTemplate){
     var SessionsView = Backbone.View.extend({
         el: $('body'),
         viewHelpers: {
@@ -19,9 +20,11 @@ define([
         render: function(){
             var _this = this;
 
+            this.displayNav();
             this.getSessions();
+
             this.sessionsCollection.on('sessions-loaded', function(){
-                _this.displayView();
+                _this.displaySessions();
             });
         },
         getSessions: function(){
@@ -40,15 +43,16 @@ define([
                 this.sessionsCollection.trigger('sessions-loaded');
             }
         },
-        displayView : function(){
+        displayNav: function(){
+            var compiledTemplate = _.template(NavTemplate);
+            this.$el.find('#nav-options').append(compiledTemplate);
+        },
+        displaySessions : function(){
             var data = this.sessionsCollection.toJSON();
             _.extend(data, this.viewHelpers);
 
-            this.$el.find('#activity-title').text('Your Sessions');
-            this.$el.find('.stats').remove();
-
             var compiledTemplate = _.template(SessionsTemplate, {sessions: data});
-            this.$el.find('.activity-items').empty().append(compiledTemplate);
+            this.$el.find('.section').empty().append(compiledTemplate);
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});

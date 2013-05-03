@@ -82,8 +82,18 @@
 
         <script data-main="js/main" src="js/lib/require-2.1.5.min.js"></script>
         <script>
-            var games = [<?php foreach($games as $game):?>'<?php echo $game->title ?>',<?php endforeach; ?>],
-                plays = [<?php foreach($games as $game):?><?php echo $game->session_count ?>,<?php endforeach; ?>];
+            var BGST = BGST || {};
+
+            BGST.MostPlayedGames = {
+                games: [<?php foreach($games as $game):?>'<?php echo $game->title ?>',<?php endforeach; ?>],
+                sessions: [<?php foreach($games as $game):?><?php echo $game->session_count ?>,<?php endforeach; ?>]
+            };
+
+            BGST.Stats = {
+                users: <?php echo $stats['user_count'] ?>,
+                games: <?php echo $stats['game_count'] ?>,
+                sessions: <?php echo $stats['session_count'] ?>
+            };
         </script>
     </body>
 </html>
