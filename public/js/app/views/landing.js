@@ -3,11 +3,11 @@ define([
     'underscore',
     'backbone',
     'highcharts',
-    'app/collections/session',
+    'app/collections/activity',
     'app/models/user',
     'text!/../templates/nav-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, Highcharts, SessionCollection, UserModel, NavTemplate, ErrorTemplate){
+], function($, _, Backbone, Highcharts, ActivityCollection, UserModel, NavTemplate, ErrorTemplate){
     var LandingView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -19,10 +19,10 @@ define([
             }
         },
         initialize: function(){
-            this.sessionsCollection = new SessionCollection();
-            this.displayLandingChart();
+            this.activityCollection = new ActivityCollection();
+            this.displayChart();
         },
-        displayLandingChart: function(){
+        displayChart: function(){
             new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart',

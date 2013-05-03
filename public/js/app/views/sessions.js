@@ -45,7 +45,7 @@ define([
         },
         displayNav: function(){
             var compiledTemplate = _.template(NavTemplate);
-            this.$el.find('#nav-options').append(compiledTemplate);
+            this.$el.find('#nav-options').empty().append(compiledTemplate);
         },
         displaySessions : function(){
             var data = this.sessionsCollection.toJSON();

@@ -5,15 +5,12 @@ define([
 ], function($, _, Backbone){
     Backbone.emulateHTTP = true;
 
-    var SessionModel = Backbone.Model.extend({
+    var ActivityModel = Backbone.Model.extend({
         defaults: {
             id: undefined,
             session_title: undefined,
             date: undefined,
-            game_title: undefined,
-            summary: undefined,
-            users: undefined,
-            players: undefined
+            summary: undefined
         },
         url: '',
         initialize: function(params){
@@ -21,5 +18,5 @@ define([
         }
     });
 
-    return SessionModel;
+    return ActivityModel;
 });
