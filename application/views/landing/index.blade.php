@@ -42,7 +42,7 @@
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
             <![endif]-->
             <div class="section">
-                <div class="module activity">
+                <div class="module activity landing-view">
                     <h2 id="activity-title">Recent Activity</h2>
                     <div>
                         <ul class="activity-items">
@@ -58,11 +58,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="module chart">
+                <div class="module chart landing-view">
                     <h2>Most Played Games</h2>
                     <div id="chart"></div>
                 </div>
-                <div class="module stats">
+                <div class="module stats landing-view">
                     <h2>BGST Stats</h2>
                     <ul>
                         <li>Users Registered: <span>{{ $stats['user_count'] }}</span></li>

@@ -45,9 +45,6 @@ Route::get('api/v1/sessions', 'session@sessions');
 Route::get('api/v1/sessions/(:num)', 'session@session');
 Route::post('api/v1/sessions/create', 'session@create');
 
-/* Activity API Routes */
-Route::get('api/v1/activity/recent', 'activity@recentActivity');
-
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
