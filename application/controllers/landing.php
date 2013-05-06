@@ -21,7 +21,12 @@ class Landing_Controller extends Base_Controller {
         //get login status
         $loginStatus = Session::has('user_id') ? true : false;
 
-        return View::make('landing.index', array('sessions' => $sessions, 'games' => $games, 'stats' => $stats, 'loginStatus' => $loginStatus));
+        //get user details
+        if($loginStatus){
+            $user = $user->getUserById(Session::get('user_id'));
+        }
+
+        return View::make('landing.index', array('sessions' => $sessions, 'games' => $games, 'stats' => $stats, 'loginStatus' => $loginStatus, 'user' => $user));
 	}
 
 }

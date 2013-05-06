@@ -7,9 +7,11 @@ define([
 
     var UserModel = Backbone.Model.extend({
         defaults: {
-            id: undefined,
-            name: undefined,
-            login_status : undefined
+            email: undefined,
+            first_name: undefined,
+            last_name: undefined,
+            state: undefined,
+            country: undefined
         },
         url: 'api/v1/account/login',
         data: {

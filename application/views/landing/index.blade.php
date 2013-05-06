@@ -30,7 +30,7 @@
                 <div id="profile">
                     <div>
                         @if ($loginStatus)
-                        <h3>Nicholas Cassidy</h3>
+                        <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
                         <p><a href="/#profile">Edit Profile</a></p>
                         <p><a href="/#logout">Log Out</a></p>
                         @else
@@ -59,7 +59,7 @@
                             @foreach ($sessions as $session)
                             <li class="session">
                                 <div>
-                                    <h3><a href="#sessions" title="Session">Session</a></h3>
+                                    <h3><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}">Session</a></h3>
                                     <a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"></a>
                                     <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
                                 </div>

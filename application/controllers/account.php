@@ -14,8 +14,10 @@ class Account_Controller extends Base_Controller {
             //validate account
             if(isset($result->id) && isset($result->password) && Hash::check(Input::get('password'), $result->password)){
                 Session::put('user_id', $result->id);
+
+                $userData = $user->getUserById($result->id);
                 
-                return Response::Json(array('logged_in' => true), 200);
+                return Response::Json($userData, 200);
             } else {
                 return Response::Json('Invalid Credentials.', 403);
             }

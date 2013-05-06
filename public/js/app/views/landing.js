@@ -129,11 +129,13 @@ define([
                     password: password
                 },
                 success: function(){
+                    var data = _this.userModel.toJSON();
+
+                    var compiledTemplate = _.template(LoginTemplate, {user: data});
+                    _this.$el.find('#profile').find('div').empty().append(compiledTemplate);
+
                     var compiledTemplate = _.template(NavTemplate);
                     _this.$el.find('#nav-options').append(compiledTemplate);
-
-                    var compiledTemplate = _.template(LoginTemplate);
-                    _this.$el.find('#profile').find('div').empty().append(compiledTemplate);
                 },
                 error: function(){
                     _this.displayError(arguments[1].responseText.replace(/"/g,''));
