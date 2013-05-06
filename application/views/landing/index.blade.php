@@ -22,7 +22,11 @@
         <div id="nav">
             <div>
                 <h1><a href="#" title="Board Game Session Tracker">BGST</a></h1>
-                <ul id="nav-options"></ul>
+                <ul id="nav-options">
+                    @if ($loginStatus)
+                    <li class="sessions"><a href="/#sessions" title="Sessions">Sessions</a></li>
+                    @endif
+                </ul>
                 <a id="profile">
                     <div>
                         <form>
@@ -66,8 +70,8 @@
                     <h2>BGST Stats</h2>
                     <ul>
                         <li>Users Registered: <span>{{ $stats['user_count'] }}</span></li>
-                        <li>Games Tracked: <span>{{ $stats['game_count'] }}</span></li>
                         <li>Sessions Logged: <span>{{ $stats['session_count'] }}</span></li>
+                        <li>Games Tracked: <span>{{ $stats['game_count'] }}</span></li>
                     </ul>
                 </div>
             </div>
@@ -87,12 +91,6 @@
             BGST.MostPlayedGames = {
                 games: [<?php foreach($games as $game):?>'<?php echo $game->title ?>',<?php endforeach; ?>],
                 sessions: [<?php foreach($games as $game):?><?php echo $game->session_count ?>,<?php endforeach; ?>]
-            };
-
-            BGST.Stats = {
-                users: <?php echo $stats['user_count'] ?>,
-                games: <?php echo $stats['game_count'] ?>,
-                sessions: <?php echo $stats['session_count'] ?>
             };
         </script>
     </body>

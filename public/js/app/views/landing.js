@@ -26,6 +26,7 @@ define([
         },
         displayLanding: function(){
             this.$el.find('.section').empty().append(this.landingViewCapture);
+            this.$el.find('#nav-options').find('li').removeClass('active');
         },
         displayChart: function(){
             new Highcharts.Chart({

@@ -18,7 +18,10 @@ class Landing_Controller extends Base_Controller {
         $stats['game_count'] = number_format($game->getGameCount());
         $stats['session_count'] = number_format($session->getSessionCount());
 
-        return View::make('landing.index', array('sessions' => $sessions, 'games' => $games, 'stats' => $stats));
+        //get login status
+        $loginStatus = Session::has('user_id') ? true : false;
+
+        return View::make('landing.index', array('sessions' => $sessions, 'games' => $games, 'stats' => $stats, 'loginStatus' => $loginStatus));
 	}
 
 }
