@@ -27,21 +27,27 @@
                     <li class="sessions"><a href="/#sessions" title="Sessions">Sessions</a></li>
                     @endif
                 </ul>
-                <a id="profile">
+                <div id="profile">
                     <div>
+                        @if ($loginStatus)
+                        <h3>Nicholas Cassidy</h3>
+                        <p><a href="/#profile">Edit Profile</a></p>
+                        <p><a href="/#logout">Log Out</a></p>
+                        @else
                         <form>
-                            <p> <label for="login-username">Username: </label><input type="text" id="login-username" name="username" /></p>
-                            <p> <label for="login-password">Password: </label><input type="password" id="login-password" name="password" /></p>
+                            <p><label for="login-username">Username: </label><input type="text" id="login-username" name="username" /></p>
+                            <p><label for="login-password">Password: </label><input type="password" id="login-password" name="password" /></p>
                             <p><input type="submit" id="login-submit" value="Log In" /></p>
                         </form>
+                        @endif
                     </div>
-                </a>
+                </div>
             </div>
             <div id="ribbon-left"></div>
             <div id="ribbon-right"></div>
         </div>
         <div id="content">
-            <p id="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy BGST as intended!</p>
+            <p id="js-off">You do not have JavaScript enabled. Please enable JavaScript to enjoy the BGST as intended!</p>
             <!--[if lt IE 8]>
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
             <![endif]-->

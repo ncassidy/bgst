@@ -5,8 +5,9 @@ define([
     'highcharts',
     'app/models/user',
     'text!/../templates/nav-template.html',
+    'text!/../templates/login-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, Highcharts, UserModel, NavTemplate, ErrorTemplate){
+], function($, _, Backbone, Highcharts, UserModel, NavTemplate, LoginTemplate, ErrorTemplate){
     var LandingView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -130,6 +131,9 @@ define([
                 success: function(){
                     var compiledTemplate = _.template(NavTemplate);
                     _this.$el.find('#nav-options').append(compiledTemplate);
+
+                    var compiledTemplate = _.template(LoginTemplate);
+                    _this.$el.find('#profile').find('div').empty().append(compiledTemplate);
                 },
                 error: function(){
                     _this.displayError(arguments[1].responseText.replace(/"/g,''));
