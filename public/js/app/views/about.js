@@ -10,11 +10,15 @@ define([
             'click .modal-overlay' : 'closeAbout',
             'click .close' : 'closeAbout'
         },
+        initialize: function(){
+            this.render();
+        },
         render: function(){
             var compiledTemplate = _.template(AboutTemplate);
             this.$el.append(compiledTemplate);
         },
         closeAbout: function(){
+            this.undelegateEvents();
             this.$el.find('.modal, .modal-overlay').remove();
             window.history.back();
         }

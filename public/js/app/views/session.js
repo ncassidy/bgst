@@ -46,6 +46,7 @@ define([
             this.$el.find('.section').append(compiledTemplate);
         },
         closeSession: function(){
+            this.undelegateEvents();
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
             window.history.back();

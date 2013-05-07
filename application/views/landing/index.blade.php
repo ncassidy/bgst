@@ -31,8 +31,8 @@
                     <div>
                         @if ($loginStatus)
                         <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
-                        <p><a href="/#profile">Edit Profile</a></p>
-                        <p><a href="/#logout">Log Out</a></p>
+                        <p><a href="/#profile" title="Edit Profile">Edit Profile</a></p>
+                        <p><a href="/#logout" title="Log Out">Log Out</a></p>
                         @else
                         <form>
                             <p><label for="login-username">Username: </label><input type="text" id="login-username" name="username" /></p>

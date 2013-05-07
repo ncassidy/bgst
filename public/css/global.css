@@ -76,7 +76,7 @@ body { background: #f6f6f6; }
 #nav #profile > div form input { color: #666; font: 12px Verdana; padding: 2px; }
 #nav #profile > div form #login-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #333; font-weight: bold; padding: 3px 10px; }
 #nav #profile > div h3 { color: #00a2ff; font: bold 12px Verdana; margin: 16px 0 10px 16px; }
-#nav #profile > div > p { font: 12px Verdana; margin: 0 0 2px 16px; }
+#nav #profile > div > p { font: 12px Verdana; margin: 0 0 3px 16px; }
 #nav #profile > div > p a { color: #fff; text-decoration: none; }
 
 #content { background: #fff; border: 1px solid #d8d8d8; box-shadow: 0 4px 8px 0 #c8c8c8; margin: 34px auto 5px; position: relative; width: 900px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; }
@@ -86,7 +86,7 @@ body { background: #f6f6f6; }
 #content .section .module > div { min-height: 200px; padding: 15px 20px; }
 
 #content .section .activity { position: relative; }
-#content .section .activity #session-add { background: #fff; border: 1px solid  #e1e1e1; color: #666; font-weight: bold; line-height: 15px; padding: 0 3px; position: absolute; right: 20px; text-decoration: none; top: 10px; }
+#content .section .activity #session-add { background: #fff; border: 1px solid  #e1e1e1; color: #666; font-family: verdana; line-height: 15px; padding: 0 3px; position: absolute; right: 20px; text-decoration: none; top: 10px; }
 #content .section .activity #session-add:hover { background: #666; color: #fff; }
 #content .section .activity ul { overflow: auto; padding: 11px; }
 #content .section .activity ul li { border: 1px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; float: left; height: 180px; margin: 0 23px 20px 0; padding: 5px; position: relative; width: 180px; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; }
@@ -138,11 +138,18 @@ body { background: #f6f6f6; }
 .modal .close { background: #fff; font-weight: bold; height: 8px; line-height: 8px; margin: 0; padding: 5px; position: absolute; right: 7px; top: 7px; width: 9px; }
 .modal .close:hover { background: #666; color: #fff; }
 .modal .message { margin-top: 10px; }
+.modal label { float: left; margin-right: 5px; text-align: right; width: 73px; }
 
 #modal-photo { background: #fff; border: 1px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; height: 500px; left: 50%; margin-left: -250px; overflow: hidden; padding: 20px; position: absolute; top: 100px; width: 500px; z-index: 3; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; z-index: 12; }
 #modal-photo img { height: 500px; width: 500px; }
 #modal-about { margin-left: -302px; width: 600px; }
 #modal-contact { margin-left: -302px; width: 600px; }
+#modal-profile { margin-left: -130px; width: 256px; }
+#modal-profile p {line-height: 22px; }
+#modal-profile input,
+#modal-profile select { color: #666; font: 12px Verdana; width: 152px; }
+#modal-profile #profile-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; font: 12px Verdana; line-height: 19px; margin-left: 79px; width: 110px; }
+#modal-profile h2 { margin-bottom: 10px; }
 
 /* Activity Styles */
 #activity { background: #f2f2f2; border-bottom: 2px solid #e1e1e1; border-right: 2px solid #e1e1e1; box-shadow: 3px 1px 10px 0 #c8c8c8; left: 0; position: absolute; top: -5px; z-index: 2; -moz-box-shadow: 3px 1px 10px 0 #c8c8c8; -webkit-box-shadow: 3px 1px 10px 0 #c8c8c8; }

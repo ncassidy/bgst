@@ -11,6 +11,7 @@ define([
 
         },
         initialize: function(){
+            this.render();
         },
         render: function(){
         },

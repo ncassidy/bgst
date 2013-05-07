@@ -129,18 +129,20 @@ define([
                     password: password
                 },
                 success: function(){
-                    var data = _this.userModel.toJSON();
-
-                    var compiledTemplate = _.template(LoginTemplate, {user: data});
-                    _this.$el.find('#profile').find('div').empty().append(compiledTemplate);
-
-                    var compiledTemplate = _.template(NavTemplate);
-                    _this.$el.find('#nav-options').append(compiledTemplate);
+                    _this.displayLoggedIn();
                 },
                 error: function(){
                     _this.displayError(arguments[1].responseText.replace(/"/g,''));
                 }
             });
+        },
+        displayLoggedIn: function(){
+            var data = this.userModel.toJSON(),
+                compiledTemplate = _.template(LoginTemplate, {user: data});
+            this.$el.find('#profile').find('div').empty().append(compiledTemplate);
+
+            var compiledTemplate = _.template(NavTemplate);
+            this.$el.find('#nav-options').append(compiledTemplate);
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});

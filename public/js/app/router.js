@@ -7,8 +7,9 @@ define([
     'app/views/session-add',
     'app/views/session',
     'app/views/about',
-    'app/views/contact'
-], function($, _, Backbone, LandingView, SessionsView, SessionAddView, SessionView, AboutView, ContactView){
+    'app/views/contact',
+    'app/views/profile'
+], function($, _, Backbone, LandingView, SessionsView, SessionAddView, SessionView, AboutView, ContactView, ProfileView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'showLanding',
@@ -25,10 +26,7 @@ define([
         initialize: function(){
             this.landingView = new LandingView();
             this.sessionsView = new SessionsView();
-            this.sessionAddView = new SessionAddView();
             this.sessionView = new SessionView();
-            this.aboutView = new AboutView();
-            this.contactView = new ContactView();
         },
         showLanding: function(){
             this.landingView.render();
@@ -37,7 +35,7 @@ define([
             this.sessionsView.render();
         },
         addSession: function(){
-            this.sessionAddView.render();
+            this.sessionAddView = new SessionAddView();
         },
         showSession: function(sessionID){
             this.sessionView.render(sessionID);
@@ -49,15 +47,21 @@ define([
 
         },
         showAbout: function(){
-            this.aboutView.render();
+            this.aboutView = new AboutView();
         },
         showContact: function(){
-            this.contactView.render();
+            this.contactView = new ContactView();
         },
         showProfile: function(){
-
+            this.profileView = new ProfileView();
         },
         logout: function(){
+            $.ajax({
+                url: 'api/v1/account/logout',
+                type: 'POST'
+            }).done(function(){
+                window.location = '/';
+            });
         }
     });
 
