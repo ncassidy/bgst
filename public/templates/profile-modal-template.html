@@ -1,18 +1,17 @@
 <div class="modal-overlay"></div>
 <div class="modal" id="modal-profile">
-    <a class="close" title="Close">X</a>
     <h2>Edit Profile</h2>
     <p>
         <label for="profile-firstname">First Name: </label>
-        <input type="text" id="profile-firstname" name="firstname" />
+        <input type="text" id="profile-firstname" name="firstname" value="<%= user.first_name %>" />
     </p>
     <p>
         <label for="profile-lastname">Last Name: </label>
-        <input type="text" id="profile-lastname" name="lastname" />
+        <input type="text" id="profile-lastname" name="lastname" value="<%= user.last_name %>" />
     </p>
     <p>
         <label for="profile-email">Email: </label>
-        <input type="text" id="profile-email" name="email" />
+        <input type="text" id="profile-email" name="email" value="<%= user.email %>" />
     </p>
     <p>
         <label for="profile-country">Country: </label>
@@ -324,4 +323,5 @@
     <p>
         <input type="submit" id="profile-submit" value="Save Changes" />
     </p>
+    <a class="close" title="Close">X</a>
 </div>

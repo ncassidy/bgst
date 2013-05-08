@@ -9,7 +9,7 @@ define([
     var ProfileView = Backbone.View.extend({
         el: $('body'),
         events: {
-            'click #profile-submit': 'getProfileDetails',
+            'click #profile-submit': 'updateProfileDetails',
             'click .modal-overlay' : 'closeProfile',
             'click .close' : 'closeProfile'
         },
@@ -17,14 +17,33 @@ define([
             this.render();
         },
         render: function(){
-            this.displayProfile();
+            this.getProfileDetails();
         },
         getProfileDetails: function(){
+            var _this = this;
 
+            this.userModel = new UserModel();
+            this.userModel.fetch({
+                url: 'api/v1/account',
+                type: 'GET',
+                success: function(){
+                    _this.displayProfile();
+                },
+                error: function(){
+                    _this.displayError(arguments[1].responseText.replace(/"/g,''));
+                }
+            });
         },
         displayProfile: function(){
-            var compiledTemplate = _.template(ProfileTemplate);
-            this.$el.append(compiledTemplate);
+            var data = this.userModel.toJSON(),
+                $compiledTemplate = $(_.template(ProfileTemplate, {user: data}));
+
+            //set select inputs
+            $compiledTemplate.find('#profile-country').find('option[value="' + data.country + '"]').attr('selected', 'selected');
+            $compiledTemplate.find('#profile-state').find('option[value="' + data.state + '"]').attr('selected', 'selected');
+            if(data.country !== 'US'){ $compiledTemplate.find('#profile-state').attr('disabled', 'disabled'); }
+
+            this.$el.append($compiledTemplate);
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});

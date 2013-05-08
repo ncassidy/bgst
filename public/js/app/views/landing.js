@@ -123,6 +123,7 @@ define([
 
             this.userModel = new UserModel();
             this.userModel.fetch({
+                url: 'api/v1/account/login',
                 type: 'POST',
                 data:{
                     email: username,

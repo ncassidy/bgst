@@ -36,14 +36,15 @@
 Route::get('/', 'landing@index');
 
 /* Account API Routes */
+Route::post('api/v1/account/create', 'account@create');
 Route::post('api/v1/account/login', 'account@login');
 Route::post('api/v1/account/logout', 'account@logout');
-Route::post('api/v1/account/create', 'account@create');
+Route::get('api/v1/account', 'account@account');
 
 /* Session API Routes */
+Route::post('api/v1/sessions/create', 'session@create');
 Route::get('api/v1/sessions', 'session@sessions');
 Route::get('api/v1/sessions/(:num)', 'session@session');
-Route::post('api/v1/sessions/create', 'session@create');
 
 /*
 |--------------------------------------------------------------------------

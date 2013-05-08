@@ -13,12 +13,7 @@ define([
             'click .close': "closeSession"
         },
         initialize: function(){
-            var _this = this;
             this.sessionCollection = new SessionCollection();
-
-            this.sessionCollection.on('session-loaded', function(sessionID){
-                _this.displaySession(sessionID);
-            });
         },
         render: function(sessionID){
             this.getSession(sessionID);
@@ -30,14 +25,14 @@ define([
                 this.sessionCollection.fetch({
                     url: 'api/v1/sessions/' + sessionID,
                     success: function(){
-                        _this.sessionCollection.trigger('session-loaded', sessionID);
+                        _this.displaySession(sessionID);
                     },
                     error: function(){
                         _this.displayError(arguments[1].responseText.replace(/"/g,''));
                     }
                 });
             } else {
-                this.sessionCollection.trigger('session-loaded', sessionID);
+                this.displaySession(sessionID);
             }
         },
         displaySession: function(sessionID){
@@ -46,7 +41,6 @@ define([
             this.$el.find('.section').append(compiledTemplate);
         },
         closeSession: function(){
-            this.undelegateEvents();
             this.$el.find('#activity, .activity-overlay').remove();
             this.$el.removeClass('content-overlay');
             window.history.back();

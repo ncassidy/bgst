@@ -59,4 +59,16 @@ class Account_Controller extends Base_Controller {
         }
     }
 
+    public function get_account()
+    {
+        if(!Session::has('user_id')){
+            return Response::Json('You are not logged in.', 403);
+        }
+
+        $user = new User();
+        $result = $user->getUserById(Session::get('user_id'));
+
+        return Response::Json($result, 200);
+    }
+
 }

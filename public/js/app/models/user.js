@@ -13,7 +13,7 @@ define([
             state: undefined,
             country: undefined
         },
-        url: 'api/v1/account/login',
+        url: '',
         data: {
             username: undefined,
             password: undefined

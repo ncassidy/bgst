@@ -18,14 +18,12 @@ define([
             this.sessionsCollection = new SessionCollection();
         },
         render: function(){
-            var _this = this;
-
             this.displayNav();
             this.getSessions();
-
-            this.sessionsCollection.on('sessions-loaded', function(){
-                _this.displaySessions();
-            });
+        },
+        displayNav: function(){
+            var compiledTemplate = _.template(NavTemplate);
+            this.$el.find('#nav-options').empty().append(compiledTemplate).find('.sessions').addClass('active');
         },
         getSessions: function(){
             var _this = this;
@@ -33,19 +31,15 @@ define([
             if(this.sessionsCollection.length === 0){
                 this.sessionsCollection.fetch({
                     success: function(){
-                        _this.sessionsCollection.trigger('sessions-loaded');
+                        _this.displaySessions();
                     },
                     error: function(){
                         _this.displayError(arguments[1].responseText.replace(/"/g,''));
                     }
                 });
             } else {
-                this.sessionsCollection.trigger('sessions-loaded');
+                this.displaySessions();
             }
-        },
-        displayNav: function(){
-            var compiledTemplate = _.template(NavTemplate);
-            this.$el.find('#nav-options').empty().append(compiledTemplate).find('.sessions').addClass('active');
         },
         displaySessions : function(){
             var data = this.sessionsCollection.toJSON();
