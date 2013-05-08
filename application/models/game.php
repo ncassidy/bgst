@@ -14,6 +14,12 @@ class Game extends Eloquent
         return $response;
     }
 
+    public function getMostPlayedGamesById($id, $count){
+        $response = DB::query('SELECT game.title, COUNT(game.title) FROM game INNER JOIN session ON game.id = session.game_id INNER JOIN user ON session.user_id = user.id WHERE user.id = ? GROUP BY game.title ORDER BY COUNT(game.title) DESC LIMIT 0, ?', array($id, $count));
+
+        return $response;
+    }
+
     public function getGameList(){
         if (Cache::has('games_list')){
             $response = Cache::get('games_list');
