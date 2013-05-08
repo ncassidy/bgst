@@ -147,7 +147,7 @@ body { background: #f6f6f6; }
 #modal-profile { margin-left: -130px; width: 256px; }
 #modal-profile p {line-height: 22px; }
 #modal-profile input,
-#modal-profile select { color: #666; font: 12px Verdana; width: 152px; }
+#modal-profile select { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 1px; width: 152px; }
 #modal-profile #profile-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; font: 12px Verdana; line-height: 19px; margin-left: 79px; width: 110px; }
 #modal-profile #profile-submit:hover { background: #eee; }
 #modal-profile h2 { margin-bottom: 10px; }
