@@ -15,17 +15,17 @@ class User extends Eloquent
         return $response;
     }
 
-    public function createUser($email, $password, $firstName, $lastName, $country){
-        DB::query('INSERT INTO user (email, password, first_name, last_name, country, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())', array($email, $password, $firstName, $lastName, $country));
+    public function createUser($email, $password, $firstName, $lastName, $country, $state){
+        DB::query('INSERT INTO user (email, password, first_name, last_name, country, state, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())', array($email, $password, $firstName, $lastName, $country, $state));
         $response = (array)DB::first('SELECT LAST_INSERT_ID()');
 
         return $response['last_insert_id()'];
     }
 
-    public function checkDuplicate($email){
-        $response = (array)DB::first('SELECT count(id) FROM user WHERE email = ?', array($email));
+    public function updateUser($id, $firstName, $lastName, $email, $country, $state){
+        $response = DB::query('UPDATE user SET first_name = ?, last_name = ?, email = ?, country = ?, state = ?, updated_at = NOW() WHERE id = ?', array($firstName, $lastName, $email, $country, $state, $id));
 
-        return $response['count(id)'] > 0 ? true : false;
+        return $response;
     }
 
     public function getUsersBySessionId($sessionID){

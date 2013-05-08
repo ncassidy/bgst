@@ -37,6 +37,7 @@ Route::get('/', 'landing@index');
 
 /* Account API Routes */
 Route::post('api/v1/account/create', 'account@create');
+Route::post('api/v1/account/update', 'account@update');
 Route::post('api/v1/account/login', 'account@login');
 Route::post('api/v1/account/logout', 'account@logout');
 Route::get('api/v1/account', 'account@account');
