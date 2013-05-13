@@ -47,8 +47,8 @@ define([
 
             var compiledTemplate = _.template(SessionsTemplate, {sessions: data});
             this.$el.find('#section').empty().append(compiledTemplate);
-            this.$el.find('#section').find('.module').css('opacity', 0).each(function(index){
-                $(this).delay(index * 500).animate({opacity: 1}, 500);
+            this.$el.find('#section').find('.activity-items').find('li').each(function(index){
+                $(this).delay(index * 200).animate({opacity: 1}, 200);
             });
         },
         displayError: function(errorMessage){
