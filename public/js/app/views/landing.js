@@ -22,10 +22,10 @@ define([
             this.landingViewCapture = this.$el.find('#section').html();
         },
         render: function(){
-            this.displayLanding();
+            this.displayActivity();
             this.displayChart();
         },
-        displayLanding: function(){
+        displayActivity: function(){
             this.$el.find('#section').empty().append(this.landingViewCapture);
             this.$el.find('#section').find('.activity-items').find('li').each(function(index){
                 $(this).delay(index * 250).animate({opacity: 1}, 250);
