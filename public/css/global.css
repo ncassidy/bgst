@@ -100,8 +100,9 @@ body { background: #f6f6f6; }
 #content .section .activity ul li.session h3 { background: #00a2ff; }
 #content .section .activity ul li.tournament h3 { background: #9adb31; }
 #content .section .activity ul li.achievement h3 { background: #eb1e00; }
-#content .section .activity ul li p { background: #000;  bottom: 5px; color: #fff; font: 10px Verdana; height: 45px; left: 5px; opacity: 0.8; overflow: hidden; padding: 5px; position: absolute; width: 170px; }
-#content .section .activity ul li p span { font-weight: bold; }
+#content .section .activity ul li p { background: #000;  bottom: 5px; color: #fff; font: 10px Verdana; height: 48px; left: 5px; opacity: 0.8; overflow: hidden; padding: 5px; position: absolute; width: 170px; }
+#content .section .activity ul li p .title { font-weight: bold; }
+#content .section .activity ul li p .date { font-size: 9px; font-style: italic; }
 #content .section .activity ul li h3 a,
 #content .section .activity ul li p a { color: #fff; text-decoration: none; }
 

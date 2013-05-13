@@ -13,6 +13,11 @@ class Session_Controller extends Base_Controller {
         $session = new PlaySession();
         $results = $session->getSessionsByUserId(Session::get('user_id'));
 
+        //adjust dates
+        foreach($results as $result){
+            $result->date = date('F j, Y', strtotime($result->date));
+        }
+
         return Response::Json($results, 200);
     }
 

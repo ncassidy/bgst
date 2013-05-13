@@ -14,7 +14,6 @@
         {{ HTML::style('css/global.css') }}
 
         <script>
-            //JavaScript off fallback
             document.write('<style>#js-off { display: none; }</style>');
         </script>
     </head>
@@ -61,7 +60,7 @@
                                 <div>
                                     <h3><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}">Session</a></h3>
                                     <a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"></a>
-                                    <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span>{{ $session->title }}</span><br/>{{ Str::limit($session->summary, 55) }}</a></p>
+                                    <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span class="title">{{ $session->title }}</span><br/><span class="date">{{ date('F j, Y', strtotime($session->date)) }}</span><br/>{{ Str::limit($session->summary, 40) }}</a></p>
                                 </div>
                             </li>
                             @endforeach
