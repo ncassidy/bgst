@@ -38,7 +38,7 @@ define([
         displaySession: function(sessionID){
             var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
             this.$el.addClass('content-overlay');
-            this.$el.find('.section').append(compiledTemplate);
+            this.$el.find('#section').append(compiledTemplate);
         },
         closeSession: function(){
             this.$el.find('#activity, .activity-overlay').remove();

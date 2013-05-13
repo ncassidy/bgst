@@ -46,7 +46,10 @@ define([
             _.extend(data, this.viewHelpers);
 
             var compiledTemplate = _.template(SessionsTemplate, {sessions: data});
-            this.$el.find('.section').empty().append(compiledTemplate);
+            this.$el.find('#section').empty().append(compiledTemplate);
+            this.$el.find('#section').find('.module').css('opacity', 0).each(function(index){
+                $(this).delay(index * 500).animate({opacity: 1}, 500);
+            });
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
