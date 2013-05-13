@@ -28,7 +28,7 @@ define([
         displayLanding: function(){
             this.$el.find('#section').empty().append(this.landingViewCapture);
             this.$el.find('#section').find('.activity-items').find('li').each(function(index){
-                $(this).delay(index * 200).animate({opacity: 1}, 200);
+                $(this).delay(index * 250).animate({opacity: 1}, 250);
             });
             this.$el.find('#nav-options').find('li').removeClass('active');
         },
