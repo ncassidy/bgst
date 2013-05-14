@@ -27,6 +27,7 @@ define([
         },
         getSessions: function(){
             var _this = this;
+            this.$el.find('#section').empty().append('<div class="loading"></div>');
 
             if(this.sessionsCollection.length === 0){
                 this.sessionsCollection.fetch({
