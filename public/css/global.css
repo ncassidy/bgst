@@ -82,7 +82,7 @@ body { background: #f6f6f6; }
 #content { background: #fff; border: 1px solid #d8d8d8; box-shadow: 0 4px 8px 0 #c8c8c8; margin: 34px auto 5px; position: relative; width: 900px; z-index: 1; -moz-box-shadow: 0 4px 8px 0 #c8c8c8; -webkit-box-shadow: 0 4px 8px 0 #c8c8c8; }
 #content > p { background: #45b4ff; color: #fff; font: bold 10px Verdana; padding: 15px; text-align: center; }
 #content > p > a { color: #fff; }
-#content #section .module >  h2 { background: #f2f2f2; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1; box-sizing: border-box; color: #666; font: bold 12px Verdana; height: 35px; padding: 10px 0 0 20px; text-shadow: 0 1px 0 #fff; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+#content #section .module >  h2 { background: #f2f2f2; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1; box-sizing: border-box; color: #666; font: bold 12px Verdana; height: 32px; padding: 8px 0 0 20px; text-shadow: 0 1px 0 #fff; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
 #content #section .module > div { min-height: 200px; padding: 15px 20px; }
 #content #section .loading { background: url('/img/bkg.loading.gif') center no-repeat;  min-height: 500px; }
 
