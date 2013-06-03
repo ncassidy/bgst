@@ -8,11 +8,16 @@ define([
 ], function($, _, Backbone, SessionCollection, SessionTemplate, ErrorTemplate){
     var SessionView = Backbone.View.extend({
         el: $('body'),
+        dom: {
+            $content: null
+        },
         events: {
             'click .activity-overlay': "closeSession",
             'click .close': "closeSession"
         },
         initialize: function(){
+            this.dom.$content = this.$el.find('#content');
+
             this.sessionCollection = new SessionCollection();
         },
         render: function(sessionID){
@@ -38,7 +43,7 @@ define([
         displaySession: function(sessionID){
             var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
             this.$el.addClass('content-overlay');
-            this.$el.find('#section').append(compiledTemplate);
+            this.dom.$content.append(compiledTemplate);
             this.$el.find('#activity').animate({opacity: 1}, 200);
         },
         closeSession: function(){
