@@ -33,14 +33,14 @@ define([
             this.dom.$landing = this.$el.find('#landing');
         },
         render: function(){
+            this.displayNav();
             this.displayActivity();
             this.displayChart();
         },
-        displayActivity: function(){
+        displayNav: function(){
             this.dom.$nav.find('li').removeClass('active');
-            this.dom.$sections.find('> li').hide();
-            this.dom.$landing.show();
-
+        },
+        displayActivity: function(){
             if(!this.state.hasRendered){
                 this.dom.$landing.find('.activity-items').find('li').each(function(index){
                     $(this).delay(index * 250).animate({opacity: 1}, 250);
@@ -48,6 +48,9 @@ define([
 
                 this.state.hasRendered = true;
             }
+
+            this.dom.$sections.find('> li').hide();
+            this.dom.$landing.show();
         },
         displayChart: function(){
             this.state.chart = this.state.chart || new Highcharts.Chart({

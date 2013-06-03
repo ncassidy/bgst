@@ -18,6 +18,9 @@ define([
             hasRendered: false,
             chart: null
         },
+        templates: {
+            nav: null
+        },
         viewHelpers: {
             textTruncate: function(text, limit){
                 return text.substr(0, limit).substr(0, Math.min(text.length, text.lastIndexOf(" "))) + '...';
@@ -35,7 +38,7 @@ define([
             this.getSessions();
         },
         displayNav: function(){
-            var compiledTemplate = _.template(NavTemplate);
+            var compiledTemplate = this.templates.nav || _.template(NavTemplate);
             this.dom.$nav.empty().append(compiledTemplate).find('.sessions').addClass('active');
         },
         getSessions: function(){
@@ -56,9 +59,6 @@ define([
             }
         },
         displaySessions : function(){
-            this.dom.$sections.find('> li').hide();
-            this.dom.$sessions.show();
-
             if(!this.state.hasRendered){
                 var data = this.sessionsCollection.toJSON();
                 _.extend(data, this.viewHelpers);
@@ -71,6 +71,9 @@ define([
 
                 this.state.hasRendered = true;
             }
+
+            this.dom.$sections.find('> li').hide();
+            this.dom.$sessions.show();
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
