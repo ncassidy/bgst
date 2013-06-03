@@ -50,36 +50,41 @@
             <!--[if lt IE 8]>
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
             <![endif]-->
-            <div id="section" class="landing">
-                <div class="module activity landing-view">
-                    <h2 id="activity-title">Recent Activity</h2>
-                    <div>
-                        <ul class="activity-items">
-                            @foreach ($sessions as $session)
-                            <li class="session">
-                                <div>
-                                    <h3><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}">Session</a></h3>
-                                    <a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"></a>
-                                    <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span class="title">{{ $session->title }}</span><br/><span class="date">{{ date('F j, Y', strtotime($session->date)) }}</span><br/>{{ Str::limit($session->summary, 40) }}</a></p>
-                                </div>
-                            </li>
-                            @endforeach
+            <ul id="sections">
+                <li id="landing">
+                    <div class="module activity landing-view">
+                        <h2 id="activity-title">Recent Activity</h2>
+                        <div>
+                            <ul class="activity-items">
+                                @foreach ($sessions as $session)
+                                <li class="session">
+                                    <div>
+                                        <h3><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}">Session</a></h3>
+                                        <a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"></a>
+                                        <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span class="title">{{ $session->title }}</span><br/><span class="date">{{ date('F j, Y', strtotime($session->date)) }}</span><br/>{{ Str::limit($session->summary, 40) }}</a></p>
+                                    </div>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="module chart landing-view">
+                        <h2>Most Played Games</h2>
+                        <div id="chart"></div>
+                    </div>
+                    <div class="module stats landing-view">
+                        <h2>BGST Stats</h2>
+                        <ul>
+                            <li>Users Registered: <span>{{ $stats['user_count'] }}</span></li>
+                            <li>Sessions Logged: <span>{{ $stats['session_count'] }}</span></li>
+                            <li>Games Tracked: <span>{{ $stats['game_count'] }}</span></li>
                         </ul>
                     </div>
-                </div>
-                <div class="module chart landing-view">
-                    <h2>Most Played Games</h2>
-                    <div id="chart"></div>
-                </div>
-                <div class="module stats landing-view">
-                    <h2>BGST Stats</h2>
-                    <ul>
-                        <li>Users Registered: <span>{{ $stats['user_count'] }}</span></li>
-                        <li>Sessions Logged: <span>{{ $stats['session_count'] }}</span></li>
-                        <li>Games Tracked: <span>{{ $stats['game_count'] }}</span></li>
-                    </ul>
-                </div>
-            </div>
+                </li>
+                <li id="sessions">
+
+                </li>
+            </ul>
             <div id="footer">
                 <ul>
                     <li><a id="about" href="/#about" title="About">About</a></li>

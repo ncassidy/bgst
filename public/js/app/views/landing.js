@@ -18,22 +18,30 @@ define([
                 return text.substr(0, limit).substr(0, Math.min(text.length, text.lastIndexOf(" "))) + '...';
             }
         },
-        initialize: function(){
-            this.landingViewCapture = this.$el.find('#section').html();
+        state: {
+            hasRendered: false,
+            chart: null
         },
         render: function(){
             this.displayActivity();
             this.displayChart();
         },
         displayActivity: function(){
-            this.$el.find('#section').empty().append(this.landingViewCapture);
-            this.$el.find('#section').find('.activity-items').find('li').each(function(index){
-                $(this).delay(index * 250).animate({opacity: 1}, 250);
-            });
+            this.$el.find('#sections').find('> li').hide();
+            this.$el.find('#landing').show();
+
+            if(!this.state.hasRendered){
+                this.$el.find('#landing').find('.activity-items').find('li').each(function(index){
+                    $(this).delay(index * 250).animate({opacity: 1}, 250);
+                });
+
+                this.state.hasRendered = true;
+            }
+
             this.$el.find('#nav-options').find('li').removeClass('active');
         },
         displayChart: function(){
-            new Highcharts.Chart({
+            this.state.chart = this.state.chart || new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart',
                     defaultSeriesType: 'bar'
