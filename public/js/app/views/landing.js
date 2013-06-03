@@ -32,6 +32,8 @@ define([
             this.dom.$nav = this.$el.find('#nav-options');
             this.dom.$sections = this.$el.find('#sections');
             this.dom.$landing = this.$el.find('#landing');
+
+            this.state.height = this.dom.$landing.css('height');
         },
         render: function(){
             this.displayNav();
@@ -50,10 +52,6 @@ define([
                 });
 
                 this.state.hasRendered = true;
-            }
-
-            if(this.state.height === null){
-                this.state.height = this.dom.$landing.css('height');
             }
 
             this.dom.$landing.show().animate({height: this.state.height}, 300, function(){
