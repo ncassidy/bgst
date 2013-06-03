@@ -10,35 +10,44 @@ define([
 ], function($, _, Backbone, Highcharts, UserModel, NavTemplate, LoginTemplate, ErrorTemplate){
     var LandingView = Backbone.View.extend({
         el: $('body'),
+        dom: {
+            $nav: null,
+            $sections: null,
+            $landing: null
+        },
         events: {
             'click #login-submit': 'getLoginCreds'
+        },
+        state: {
+            hasRendered: false,
+            chart: null
         },
         viewHelpers: {
             textTruncate: function(text, limit){
                 return text.substr(0, limit).substr(0, Math.min(text.length, text.lastIndexOf(" "))) + '...';
             }
         },
-        state: {
-            hasRendered: false,
-            chart: null
+        initialize: function(){
+            this.dom.$nav = this.$el.find('#nav-options');
+            this.dom.$sections = this.$el.find('#sections');
+            this.dom.$landing = this.$el.find('#landing');
         },
         render: function(){
             this.displayActivity();
             this.displayChart();
         },
         displayActivity: function(){
-            this.$el.find('#sections').find('> li').hide();
-            this.$el.find('#landing').show();
+            this.dom.$nav.find('li').removeClass('active');
+            this.dom.$sections.find('> li').hide();
+            this.dom.$landing.show();
 
             if(!this.state.hasRendered){
-                this.$el.find('#landing').find('.activity-items').find('li').each(function(index){
+                this.dom.$landing.find('.activity-items').find('li').each(function(index){
                     $(this).delay(index * 250).animate({opacity: 1}, 250);
                 });
 
                 this.state.hasRendered = true;
             }
-
-            this.$el.find('#nav-options').find('li').removeClass('active');
         },
         displayChart: function(){
             this.state.chart = this.state.chart || new Highcharts.Chart({
@@ -154,7 +163,7 @@ define([
             this.$el.find('#profile').find('div').empty().append(compiledTemplate);
 
             var compiledTemplate = _.template(NavTemplate);
-            this.$el.find('#nav-options').append(compiledTemplate);
+            this.dom.$nav.append(compiledTemplate);
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
