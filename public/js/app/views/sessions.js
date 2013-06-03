@@ -16,7 +16,6 @@ define([
         },
         state: {
             hasRendered: false,
-            chart: null,
             height: null
         },
         templates: {
