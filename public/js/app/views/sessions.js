@@ -16,7 +16,8 @@ define([
         },
         state: {
             hasRendered: false,
-            chart: null
+            chart: null,
+            height: null
         },
         templates: {
             nav: null
@@ -30,7 +31,6 @@ define([
             this.dom.$nav = this.$el.find('#nav-options');
             this.dom.$sections = this.$el.find('#sections');
             this.dom.$sessions = this.$el.find('#sessions');
-
             this.sessionsCollection = new SessionCollection();
         },
         render: function(){
@@ -59,6 +59,8 @@ define([
             }
         },
         displaySessions : function(){
+            var _this = this;
+
             if(!this.state.hasRendered){
                 var data = this.sessionsCollection.toJSON();
                 _.extend(data, this.viewHelpers);
@@ -72,8 +74,19 @@ define([
                 this.state.hasRendered = true;
             }
 
-            this.dom.$sections.find('> li').hide();
             this.dom.$sessions.show();
+
+            if(this.state.height === null){
+                this.dom.$sessions.find('.module').each(function(){
+                    _this.state.height += parseInt($(this).css('height'));
+                });
+            }
+
+            this.dom.$sections.find('> li').not('#sessions').animate({height: 0}, 300, function(){
+                _this.dom.$sections.animate({height: _this.state.height}, 300);
+                $(this).hide();
+            });
+
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});

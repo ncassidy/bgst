@@ -20,7 +20,8 @@ define([
         },
         state: {
             hasRendered: false,
-            chart: null
+            chart: null,
+            height: null
         },
         viewHelpers: {
             textTruncate: function(text, limit){
@@ -41,6 +42,8 @@ define([
             this.dom.$nav.find('li').removeClass('active');
         },
         displayActivity: function(){
+            var _this = this;
+
             if(!this.state.hasRendered){
                 this.dom.$landing.find('.activity-items').find('li').each(function(index){
                     $(this).delay(index * 250).animate({opacity: 1}, 250);
@@ -49,8 +52,14 @@ define([
                 this.state.hasRendered = true;
             }
 
-            this.dom.$sections.find('> li').hide();
-            this.dom.$landing.show();
+            if(this.state.height === null){
+                this.state.height = this.dom.$landing.css('height');
+            }
+
+            this.dom.$landing.show().animate({height: this.state.height}, 300, function(){
+                _this.dom.$sections.animate({height: _this.state.height}, 300);
+                _this.dom.$sections.find('> li').not('#landing').css('height', '0').hide();
+            });
         },
         displayChart: function(){
             this.state.chart = this.state.chart || new Highcharts.Chart({
