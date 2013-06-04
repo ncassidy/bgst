@@ -20,6 +20,7 @@ define([
         },
         state: {
             hasRendered: false,
+            chart: null,
             height: null
         },
         viewHelpers: {
@@ -65,7 +66,7 @@ define([
             });
         },
         displayChart: function(){
-            this.state.chart = new Highcharts.Chart({
+            this.state.chart = this.state.chart || new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart',
                     defaultSeriesType: 'bar'
