@@ -64,13 +64,7 @@ define([
                 var data = this.sessionsCollection.toJSON();
                 _.extend(data, this.viewHelpers);
                 var compiledTemplate = _.template(SessionsTemplate, {sessions: data});
-
                 this.dom.$sessions.empty().append(compiledTemplate);
-                this.dom.$sessions.find('.activity-items').find('li').each(function(index){
-                    $(this).delay(index * 250).animate({opacity: 1}, 250);
-                });
-
-                this.state.hasRendered = true;
             }
 
             this.dom.$sessions.show();
@@ -84,8 +78,15 @@ define([
             this.dom.$sections.find('> li').not('#sessions').animate({height: 0}, 300, function(){
                 _this.dom.$sections.animate({height: _this.state.height}, 300);
                 $(this).hide();
-            });
 
+                if(!_this.state.hasRendered){
+                    _this.dom.$sessions.find('.activity-items').find('li').each(function(index){
+                        $(this).delay(index * 250).animate({opacity: 1}, 250);
+                    });
+                    
+                    _this.state.hasRendered = true;
+                }
+            });
         },
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});

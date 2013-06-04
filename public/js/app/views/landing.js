@@ -49,13 +49,19 @@ define([
                 this.dom.$landing.find('.activity-items').find('li').each(function(index){
                     $(this).delay(index * 250).animate({opacity: 1}, 250);
                 });
-
-                this.state.hasRendered = true;
             }
 
             this.dom.$landing.show().animate({height: this.state.height}, 300, function(){
                 _this.dom.$sections.animate({height: _this.state.height}, 300);
                 _this.dom.$sections.find('> li').not('#landing').css('height', '0').hide();
+
+                if(!_this.state.hasRendered){
+                    _this.dom.$landing.find('.activity-items').find('li').each(function(index){
+                        $(this).delay(index * 250).animate({opacity: 1}, 250);
+                    });
+
+                    _this.state.hasRendered = true;
+                }
             });
         },
         displayChart: function(){
