@@ -44,6 +44,7 @@ define([
             var compiledTemplate = _.template(SessionTemplate, this.sessionCollection.get({id: sessionID}).toJSON());
             this.$el.addClass('content-overlay');
             this.dom.$content.append(compiledTemplate);
+            this.$el.find('.activity-overlay').animate({opacity: .5}, 150);
             this.$el.find('#activity').animate({opacity: 1}, 150);
         },
         closeSession: function(){
@@ -54,6 +55,8 @@ define([
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
             this.$el.append(compiledTemplate);
+            this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
+            this.$el.find('#modal-error').animate({opacity: 1}, 150);
 
             this.$el.find('.error-ok, .error-close').on('click', function(){
                 window.location = '/';

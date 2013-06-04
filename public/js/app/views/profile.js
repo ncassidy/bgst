@@ -60,6 +60,7 @@ define([
             if(data.country !== 'US'){ $compiledTemplate.find('#profile-state').attr('disabled', 'disabled'); }
 
             this.$el.append($compiledTemplate);
+            this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
             this.$el.find('#modal-profile').animate({opacity: 1}, 150);
         },
         selectCountry: function(){
@@ -132,6 +133,8 @@ define([
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
             this.$el.append(compiledTemplate);
+            this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
+            this.$el.find('#modal-error').animate({opacity: 1}, 150);
 
             this.$el.find('.error-ok, .error-close').on('click', function(){
                 window.location = '/';
