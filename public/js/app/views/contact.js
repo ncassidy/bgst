@@ -16,6 +16,7 @@ define([
         render: function(){
             var compiledTemplate = _.template(ContactTemplate);
             this.$el.append(compiledTemplate);
+            this.$el.find('#modal-contact').animate({opacity: 1}, 150);
         },
         closeContact: function(){
             this.undelegateEvents();

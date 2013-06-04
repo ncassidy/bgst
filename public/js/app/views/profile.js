@@ -60,6 +60,7 @@ define([
             if(data.country !== 'US'){ $compiledTemplate.find('#profile-state').attr('disabled', 'disabled'); }
 
             this.$el.append($compiledTemplate);
+            this.$el.find('#modal-profile').animate({opacity: 1}, 150);
         },
         selectCountry: function(){
             var $country = this.$el.find('#profile-country');

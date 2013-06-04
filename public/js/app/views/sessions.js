@@ -83,7 +83,7 @@ define([
                     _this.dom.$sessions.find('.activity-items').find('li').each(function(index){
                         $(this).delay(index * 250).animate({opacity: 1}, 250);
                     });
-                    
+
                     _this.state.hasRendered = true;
                 }
             });
