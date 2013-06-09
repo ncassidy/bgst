@@ -14,6 +14,9 @@ define([
             this.render();
         },
         render: function(){
+            this.displayAbout();
+        },
+        displayAbout: function(){
             var compiledTemplate = _.template(AboutTemplate);
             this.$el.append(compiledTemplate);
             this.$el.find('.modal-overlay').animate({opacity: .5}, 150);

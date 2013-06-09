@@ -3,21 +3,30 @@ define([
     'underscore',
     'backbone',
     'app/collections/session',
+    'text!/../templates/session-add-modal-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, SessionCollection, ErrorTemplate){
+], function($, _, Backbone, SessionCollection, SessionAddTemplate, ErrorTemplate){
     var SessionView = Backbone.View.extend({
         el: $('body'),
         events: {
-
+            'click .modal-overlay' : 'closeSessionAdd',
+            'click .close' : 'closeSessionAdd'
         },
         initialize: function(){
             this.render();
         },
         render: function(){
+            this.displaySessionAdd();
         },
-        closeSession: function(){
-            this.$el.find('#activity, .activity-overlay').remove();
-            this.$el.removeClass('content-overlay');
+        displaySessionAdd: function(){
+            var compiledTemplate = _.template(SessionAddTemplate);
+            this.$el.append(compiledTemplate);
+            this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
+            this.$el.find('#modal-session').animate({opacity: 1}, 150);
+        },
+        closeSessionAdd: function(){
+            this.undelegateEvents();
+            this.$el.find('.modal, .modal-overlay').remove();
             window.history.back();
         },
         displayError: function(errorMessage){

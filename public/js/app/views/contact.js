@@ -14,6 +14,9 @@ define([
             this.render();
         },
         render: function(){
+            this.displayContact();
+        },
+        displayContact: function(){
             var compiledTemplate = _.template(ContactTemplate);
             this.$el.append(compiledTemplate);
             this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
