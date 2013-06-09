@@ -3,11 +3,45 @@
     <h2>Create Session</h2>
     <p>
         <label for="session-title">Session Title: </label>
-        <input type="text" id="session-title" name="firstname" />
+        <input type="text" id="session-title" name="title" />
     </p>
-
     <p>
-        <input type="submit" id="session-submit" value="Save Changes" />
+        <label for="session-date">Date: </label>
+        <input type="text" id="session-date" name="date" />
+    </p>
+    <p>
+        <label for="session-game">Game: </label>
+        <select id="session-game" name="game">
+            <option value="NONE">Select Game</option>
+            <option value="gameID">Game Name</option>
+        </select>
+    </p>
+    <ul id="session-players">
+        <li>
+            <input type="text" class="player-name" name="playername" />
+            <select id="player-team" name="playerteam">
+                <option value="NONE">Select Team</option>
+                <option value="1">Team 1</option>
+                <option value="2">Team 2</option>
+                <option value="3">Team 3</option>
+                <option value="4">Team 4</option>
+                <option value="5">Team 5</option>
+                <option value="6">Team 6</option>
+                <option value="7">Team 7</option>
+                <option value="8">Team 8</option>
+                <option value="9">Team 9</option>
+                <option value="10">Team 10</option>
+            </select>
+            <input type="text" class="player-score" name="playescore" />
+            <input type="checkbox" name="player-outcome" value="playeroutcome">winner?<br>
+        </li>
+    </ul>
+    <p>
+        <label for="session-summary">Summary: </label>
+        <textarea id="session-summary" name="date"></textarea>
+    </p>
+    <p>
+        <input type="submit" id="session-submit" value="Create Session" />
     </p>
     <a class="close" title="Close">X</a>
 </div>

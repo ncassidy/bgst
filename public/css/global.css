@@ -152,13 +152,15 @@ body { background: #f6f6f6; }
 #modal-profile { margin-left: -130px; opacity: 0; width: 256px; }
 #modal-session p,
 #modal-profile p {line-height: 22px; }
+#modal-session label { width: 86px; }
 #modal-session input,
 #modal-session select,
 #modal-profile input,
 #modal-profile select { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 1px; width: 152px; }
 #modal-session #session-submit,
-#modal-session #session-submit:hover,
 #modal-profile #profile-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; font: 12px Verdana; line-height: 19px; margin-left: 79px; width: 110px; }
+#modal-session #session-submit { margin-left: 93px; }
+#modal-session #session-submit:hover,
 #modal-profile #profile-submit:hover { background: #eee; }
 #modal-session h2,
 #modal-profile h2 { margin-bottom: 10px; }
