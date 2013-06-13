@@ -16,29 +16,43 @@
             <option value="gameID">Game Name</option>
         </select>
     </p>
-    <ul id="session-players">
-        <li>
-            <input type="text" class="player-name" name="playername" />
-            <select id="player-team" name="playerteam">
-                <option value="NONE">Select Team</option>
-                <option value="1">Team 1</option>
-                <option value="2">Team 2</option>
-                <option value="3">Team 3</option>
-                <option value="4">Team 4</option>
-                <option value="5">Team 5</option>
-                <option value="6">Team 6</option>
-                <option value="7">Team 7</option>
-                <option value="8">Team 8</option>
-                <option value="9">Team 9</option>
-                <option value="10">Team 10</option>
-            </select>
-            <input type="text" class="player-score" name="playescore" />
-            <input type="checkbox" name="player-outcome" value="playeroutcome">winner?<br>
-        </li>
-    </ul>
+    <table>
+        <tr>
+            <th class="player-name">Player</th>
+            <th class="player-team">Team</th>
+            <th class="player-score">Score</th>
+            <th class="player-outcome">Winner?</th>
+        </tr>
+        <tr>
+            <td class="player-name">
+                <input type="text" />
+            </td>
+            <td class="player-team">
+                <select>
+                    <option value="NONE">Select Team</option>
+                    <option value="1">Team 1</option>
+                    <option value="2">Team 2</option>
+                    <option value="3">Team 3</option>
+                    <option value="4">Team 4</option>
+                    <option value="5">Team 5</option>
+                    <option value="6">Team 6</option>
+                    <option value="7">Team 7</option>
+                    <option value="8">Team 8</option>
+                    <option value="9">Team 9</option>
+                    <option value="10">Team 10</option>
+                </select>
+            </td>
+            <td class="player-score">
+                <input type="text" />
+            </td>
+            <td class="player-outcome">
+                <input type="checkbox" />
+            </td>
+        </tr>
+    </table>
     <p>
         <label for="session-summary">Summary: </label>
-        <textarea id="session-summary" name="date"></textarea>
+        <textarea id="session-summary"></textarea>
     </p>
     <p>
         <input type="submit" id="session-submit" value="Create Session" />
