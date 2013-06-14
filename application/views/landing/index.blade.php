@@ -61,7 +61,7 @@
                                     <div>
                                         <h3><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}">Session</a></h3>
                                         <a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"></a>
-                                        <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span class="title">{{ $session->title }}</span><br/><span class="date">{{ date('F j, Y', strtotime($session->date)) }}</span><br/>{{ Str::limit($session->summary, 40) }}</a></p>
+                                        <p><a href="#sessions/{{ $session->id }}" title="{{ $session->title }}"><span class="title">{{ $session->title }}</span><br/><span class="date">{{ date('M j, Y', strtotime($session->date)) }}</span> | {{ Str::limit($session->game_title, 15) }}<br/>{{ Str::limit($session->summary, 40) }}</a></p>
                                     </div>
                                 </li>
                                 @endforeach

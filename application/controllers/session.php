@@ -15,7 +15,7 @@ class Session_Controller extends Base_Controller {
 
         //adjust dates
         foreach($results as $result){
-            $result->date = date('F j, Y', strtotime($result->date));
+            $result->date = date('M j, Y', strtotime($result->date));
         }
 
         return Response::Json($results, 200);

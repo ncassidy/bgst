@@ -7,7 +7,7 @@ class PlaySession extends Eloquent
         if (Cache::has('recent_sessions')){
             $response = Cache::get('recent_sessions');
         } else {
-            $response = DB::query('SELECT id, title, date, summary FROM session ORDER BY created_at DESC Limit 0, ?', array($count));
+            $response = DB::query('SELECT session.id, session.title, session.date, game.title as game_title, session.summary FROM session INNER JOIN game ON session.game_id = game.id ORDER BY session.created_at DESC Limit 0, ?', array($count));
             Cache::put('recent_sessions', $response, 30);
         }
 
@@ -18,7 +18,7 @@ class PlaySession extends Eloquent
         if (Cache::has('user_' . $userID . '_sessions')){
             $response = Cache::get('user_' . $userID . '_sessions');
         } else {
-            $response = DB::query('SELECT session.id, session.title, session.date, session.summary FROM session INNER JOIN user ON session.user_id = user.id WHERE user.id = ? ORDER BY session.created_at DESC Limit 0, 8', array($userID));
+            $response = DB::query('SELECT session.id, session.title, session.date, game.title as game_title, session.summary FROM session INNER JOIN user ON session.user_id = user.id INNER JOIN game ON session.game_id = game.id WHERE user.id = ? ORDER BY session.created_at DESC Limit 0, 8', array($userID));
             Cache::put('user_' . $userID . '_sessions', $response, 20);
         }
 
