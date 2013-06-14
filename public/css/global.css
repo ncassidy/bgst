@@ -165,11 +165,10 @@ body { background: #f6f6f6; }
 #modal-session textarea { height: 70px; width: 310px }
 #modal-session table { border: 1px solid #e1e1e1; color: #666; font: 12px Verdana; line-height: 17px; margin: 0 0 15px 34px; }
 #modal-session table tr { background: #f2f2f2; display: block; padding: 5px 10px; }
-#modal-session table tr:first-child { background: #464646; color: #fff; }
+#modal-session table tr:first-child { color: #666; }
 #modal-session table tr:nth-child(2n) { background: #fff; }
 #modal-session table th,
 #modal-session table td { text-align: left; }
-#modal-session table th { font-weight: bold; }
 #modal-session table .player-name { min-width: 138px; }
 #modal-session table .player-name input { width: 120px; }
 #modal-session table .player-team { min-width: 108px; }

@@ -17,7 +17,6 @@ define([
         },
         initialize: function(){
             this.dom.$content = this.$el.find('#content');
-
             this.sessionCollection = new SessionCollection();
         },
         render: function(sessionID){

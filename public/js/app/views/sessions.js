@@ -44,6 +44,7 @@ define([
         getSessions: function(){
             if(this.sessionsCollection.length === 0){
                 var _this = this;
+
                 this.dom.$sessions.append('<div class="loading"></div>');
 
                 this.sessionsCollection.fetch({
