@@ -3,19 +3,19 @@
     <h2>Edit Profile</h2>
     <p>
         <label for="profile-firstname">First Name: </label>
-        <input type="text" id="profile-firstname" name="firstname" value="<%= user.first_name %>" />
+        <input type="text" id="profile-firstname" value="<%= user.first_name %>" />
     </p>
     <p>
         <label for="profile-lastname">Last Name: </label>
-        <input type="text" id="profile-lastname" name="lastname" value="<%= user.last_name %>" />
+        <input type="text" id="profile-lastname" value="<%= user.last_name %>" />
     </p>
     <p>
         <label for="profile-email">Email: </label>
-        <input type="text" id="profile-email" name="email" value="<%= user.email %>" />
+        <input type="text" id="profile-email" value="<%= user.email %>" />
     </p>
     <p>
         <label for="profile-country">Country: </label>
-        <select id="profile-country" name="country">
+        <select id="profile-country">
             <option value="NONE">Select Country</option>
             <option value="AF">Afghanistan</option>
             <option value="AL">Albania</option>
@@ -265,7 +265,7 @@
     </p>
     <p>
         <label for="profile-state">State: </label>
-        <select id="profile-state" name="state">
+        <select id="profile-state">
             <option value="IT">Select State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>

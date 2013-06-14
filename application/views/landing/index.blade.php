@@ -34,8 +34,8 @@
                         <p><a href="/#logout" title="Log Out">Log Out</a></p>
                         @else
                         <form>
-                            <p><label for="login-username">Username: </label><input type="text" id="login-username" name="username" /></p>
-                            <p><label for="login-password">Password: </label><input type="password" id="login-password" name="password" /></p>
+                            <p><label for="login-username">Username: </label><input type="text" id="login-username" /></p>
+                            <p><label for="login-password">Password: </label><input type="password" id="login-password" /></p>
                             <p><input type="submit" id="login-submit" value="Log In" /></p>
                         </form>
                         @endif
