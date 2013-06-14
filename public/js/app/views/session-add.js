@@ -34,7 +34,8 @@ define([
             });
         },
         displayAddSession: function(){
-            var compiledTemplate = _.template(SessionAddTemplate);
+            var data = this.userModel.toJSON(),
+                compiledTemplate = _.template(SessionAddTemplate, {user: data});
             this.$el.append(compiledTemplate);
             this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
             this.$el.find('#modal-session').animate({opacity: 1}, 150);
