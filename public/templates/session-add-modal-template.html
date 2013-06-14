@@ -24,7 +24,7 @@
             <th class="player-score">Score</th>
             <th class="player-outcome">Winner?</th>
         </tr>
-        <tr>
+        <tr class="player" data-user-id="<%= user.id %>">
             <td class="player-name">
                 <input type="text" value="<%= user.first_name + ' ' + user.last_name %>" />
             </td>
@@ -50,7 +50,7 @@
                 <input type="checkbox" />
             </td>
         </tr>
-        <tr>
+        <tr class="player">
             <td class="player-name">
                 <input type="text" />
             </td>

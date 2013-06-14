@@ -10,7 +10,7 @@ class User extends Eloquent
     }
 
     public function getUserById($userID){
-        $response = DB::first('SELECT email, first_name, last_name, state, country, created_at FROM user WHERE id = ?', array($userID));
+        $response = DB::first('SELECT id, email, first_name, last_name, state, country, created_at FROM user WHERE id = ?', array($userID));
 
         return $response;
     }
