@@ -2,23 +2,39 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'tiny',
     'app/models/user',
     'text!/../templates/session-add-modal-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, UserModel, SessionAddTemplate, ErrorTemplate){
+], function($, _, Backbone, Tiny, UserModel, SessionAddTemplate, ErrorTemplate){
     var SessionView = Backbone.View.extend({
         el: $('body'),
         events: {
+            'click #session-submit': 'getSessionDetails',
             'click .modal-overlay' : 'closeAddSession',
             'click .close' : 'closeAddSession'
+        },
+        viewHelpers: {
+            validateTitle: function(name){
+                var titlePattern = /^([a-zA-Zb]){1,25}$/;
+                return titlePattern.test(name);
+            },
+            validateDate: function(name){
+                var datePattern = /^([a-zA-Zb]){1,25}$/;
+                return datePattern.test(name);
+            },
+            validateGame: function(name){
+                var gamePattern = /^[0-9]{1,}$/;
+                return gamePattern.test(name);
+            }
         },
         initialize: function(){
             this.render();
         },
         render: function(){
-            this.getAddSessionDetails();
+            this.getAddSessionModalDetails();
         },
-        getAddSessionDetails: function(){
+        getAddSessionModalDetails: function(){
             var _this = this;
 
             this.userModel = new UserModel();
@@ -26,19 +42,51 @@ define([
                 url: 'api/v1/account',
                 type: 'GET',
                 success: function(){
-                    _this.displayAddSession();
+                    _this.displayAddSessionModal();
                 },
                 error: function(){
                     _this.displayError(arguments[1].responseText.replace(/"/g,''));
                 }
             });
         },
-        displayAddSession: function(){
+        displayAddSessionModal: function(){
             var data = this.userModel.toJSON(),
                 compiledTemplate = _.template(SessionAddTemplate, {user: data});
             this.$el.append(compiledTemplate);
             this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
             this.$el.find('#modal-session').animate({opacity: 1}, 150);
+
+            this.displaySessionEditors();
+        },
+        displaySessionEditors: function(){
+            //summary
+            tinymce.init({
+                selector: '#session-summary',
+                toolbar: 'undo redo | bold italic'
+            });
+        },
+        getSessionDetails: function(){
+            var title = this.$el.find('#session-title').val(),
+                date = this.$el.find('#session-date').val(),
+                game = this.$el.find('#session-game').val(),
+                summary = this.$el.find('#session-summary').val(),
+                $players = this.$el.find('.player');
+
+            //validate session details
+            if(this.viewHelpers.validateName(title) && this.viewHelpers.validateDate(date) && this.viewHelpers.validateGame(game)){
+                this.addSession(title, date, game, summary, $players);
+            } else {
+                var error = '';
+
+                if(!this.viewHelpers.validateTitle(title)){
+                    error = error + 'The supplied first or last name either didn\'t meet the length requirements or included invalid characters.<br/><br/>'
+                }
+
+                this.displayError(error);
+            }
+        },
+        addSession: function(title, date, game, summary, $players){
+
         },
         closeAddSession: function(){
             this.undelegateEvents();
@@ -48,6 +96,8 @@ define([
         displayError: function(errorMessage){
             var compiledTemplate = _.template(ErrorTemplate, {error: errorMessage});
             this.$el.append(compiledTemplate);
+            this.$el.find('.modal-overlay').animate({opacity: .5}, 150);
+            this.$el.find('#modal-error').animate({opacity: 1}, 150);
 
             this.$el.find('.error-ok, .error-close').on('click', function(){
                 window.location = '/';

@@ -5,7 +5,8 @@ require.config({
         underscore: 'lib/underscore-1.4.4.min',
         backbone: 'lib/backbone-1.0.0.min',
         text: 'lib/text-2.0.6.min',
-        highcharts: 'lib/highcharts-3.0.0.min'
+        highcharts: 'lib/highcharts-3.0.0.min',
+        tiny: 'lib/tinymce-4.0.0.min'
     },
     shim: {
         'jquery': {
@@ -22,6 +23,10 @@ require.config({
         'highcharts': {
             deps: ['jquery'],
             exports: 'Highcharts'
+        },
+        'tiny': {
+            deps: ['jquery'],
+            exports: 'Tiny'
         }
     }
 });

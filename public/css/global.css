@@ -171,7 +171,7 @@ body { background: #f6f6f6; }
 #modal-session table td { text-align: left; }
 #modal-session table .player-name { min-width: 138px; }
 #modal-session table .player-name input { width: 120px; }
-#modal-session table .player-team { min-width: 108px; }
+#modal-session table .player-team { min-width: 86px; }
 #modal-session table .player-score { min-width: 58px; text-align: center; }
 #modal-session table .player-score input { width: 25px; }
 #modal-session table .player-outcome { min-width: 55px; text-align: center; }
