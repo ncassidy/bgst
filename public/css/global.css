@@ -130,7 +130,7 @@ body { background: #f6f6f6; }
 .modal-overlay { background: #000; height: 100%; left: 0; position: fixed; opacity: 0; top: 0; width: 100%; z-index: 11; }
 
 /* Modal Styles */
-.modal { background: #fff; border: 2px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; min-height: 150px; left: 50%; margin-left: -202px; opacity: 0; padding-bottom: 2px; position: fixed; top: 100px; width: 400px; z-index: 10; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; z-index: 12; }
+.modal { background: #fff; border: 2px solid #e1e1e1; box-shadow: 0 1px 8px 0 #c8c8c8; min-height: 130px; left: 50%; margin-left: -202px; opacity: 0; padding-bottom: 2px; position: fixed; top: 100px; width: 400px; z-index: 10; -moz-box-shadow: 0 1px 8px 0 #c8c8c8; -webkit-box-shadow: 0 1px 8px 0 #c8c8c8; z-index: 12; }
 .modal h2 { background: #f2f2f2; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1; color: #666; font: bold 12px Verdana; height: 23px; padding: 10px 0 0 10px; text-shadow: 0 1px 0 #fff; }
 .modal h3,
 .modal p { color: #666; font: 12px Verdana; line-height: 19px; }
@@ -138,8 +138,8 @@ body { background: #f6f6f6; }
 .modal table,
 .modal p { margin-bottom: 10px; padding: 0 10px; }
 .modal p span { font-style: italic; font-weight: bold; }
-.modal a { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; display: block; font: 12px Verdana; height: 20px; line-height: 18px; margin: 20px auto; padding: 3px 27px; text-decoration: none; width: 20px; }
-.modal a:hover { background: #eee; }
+.modal > a { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; display: block; font: 12px Verdana; height: 20px; line-height: 18px; margin: 20px auto; padding: 3px 27px; text-decoration: none; width: 20px; }
+.modal > a:hover { background: #eee; }
 .modal .close { background: #fff; font-weight: bold; height: 8px; line-height: 8px; margin: 0; padding: 5px; position: absolute; right: 7px; top: 7px; width: 9px; }
 .modal .close:hover { background: #666; color: #fff; }
 .modal .message { margin-top: 10px; }
@@ -150,7 +150,7 @@ body { background: #f6f6f6; }
 #modal-about { margin-left: -302px; width: 600px; }
 #modal-contact { margin-left: -302px; width: 600px; }
 #modal-profile { margin-left: -130px; width: 256px; }
-#modal-profile p {line-height: 22px; }
+#modal-profile p { line-height: 22px; }
 #modal-profile input,
 #modal-profile select { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 2px; width: 152px; }
 #modal-profile #profile-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; font: 12px Verdana; line-height: 19px; margin-left: 79px; width: 110px; }
@@ -162,6 +162,9 @@ body { background: #f6f6f6; }
 #modal-session input,
 #modal-session select,
 #modal-session textarea { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 2px; }
+#modal-session .session-summary { overflow: auto; }
+#modal-session .session-summary #tinymce { color: #666; }
+#modal-session .session-summary > div { border-color: #e1e1e1; float: left; }
 #modal-session textarea { height: 70px; width: 310px }
 #modal-session table { border: 1px solid #e1e1e1; color: #666; font: 12px Verdana; line-height: 17px; margin: 0 0 15px 34px; }
 #modal-session table tr { background: #fff; border-bottom: solid 1px #f2f2f2; display: block; padding: 5px 10px; }
@@ -175,6 +178,9 @@ body { background: #f6f6f6; }
 #modal-session table .player-score { min-width: 58px; text-align: center; }
 #modal-session table .player-score input { width: 25px; }
 #modal-session table .player-outcome { min-width: 55px; text-align: center; }
+#modal-session table .player-edit { font-size: 15px; font-weight: bold; text-align: center; width: 20px; }
+#modal-session table .player-edit a { display: block; cursor: pointer; height: 16px; text-decoration: none; width: 20px; }
+#modal-session table .player-edit a:hover { color: #000; }
 #modal-session #session-submit { background: #f2f2f2; border: 1px solid #e1e1e1; color: #666; cursor: pointer; font: 12px Verdana; line-height: 19px; margin-left: 97px; width: 110px; }
 #modal-session #session-submit:hover { background: #eee; }
 

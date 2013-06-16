@@ -61,8 +61,12 @@ define([
         displaySessionEditors: function(){
             //summary
             tinymce.init({
-                selector: '#session-summary',
-                toolbar: 'undo redo | bold italic'
+                selector: "#session-summary",
+                width: 314,
+                convert_fonts_to_spans : false,
+                menubar: false,
+                statusbar: false,
+                toolbar: 'none'
             });
         },
         getSessionDetails: function(){

@@ -6,7 +6,7 @@ require.config({
         backbone: 'lib/backbone-1.0.0.min',
         text: 'lib/text-2.0.6.min',
         highcharts: 'lib/highcharts-3.0.0.min',
-        tiny: 'lib/tinymce-4.0.0.min'
+        tiny: 'lib/tinymce/tinymce-4.0.0.min'
     },
     shim: {
         'jquery': {
@@ -26,7 +26,12 @@ require.config({
         },
         'tiny': {
             deps: ['jquery'],
-            exports: 'Tiny'
+            exports: 'Tiny',
+            init: function () {
+                this.tinyMCE.baseURL = 'js/lib/tinymce';
+                this.tinyMCE.DOM.events.domLoaded = true;
+                return this.tinyMCE;
+            }
         }
     }
 });

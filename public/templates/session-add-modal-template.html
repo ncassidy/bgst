@@ -13,7 +13,7 @@
         <label for="session-game">Game: </label>
         <input type="text" id="session-game" />
     </p>
-    <p>
+    <p class="session-summary">
         <label for="session-summary">Summary: </label>
         <textarea id="session-summary"></textarea>
     </p>
@@ -49,7 +49,7 @@
             <td class="player-outcome">
                 <input class="session-player-outcome" type="checkbox" />
             </td>
-            <td class="player-edit">-</td>
+            <td class="player-edit remove"><a title="Remove">-</a></td>
         </tr>
         <tr class="player">
             <td class="player-name">
@@ -76,6 +76,7 @@
             <td class="player-outcome">
                 <input class="session-player-outcome" type="checkbox" />
             </td>
+            <td class="player-edit add"><a title="Add">+</a></td>
         </tr>
     </table>
     <p>
