@@ -1,12 +1,13 @@
 define([
     'jquery',
+    'jqueryui',
     'underscore',
     'backbone',
     'tiny',
     'app/models/user',
     'text!/../templates/session-add-modal-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, _, Backbone, Tiny, UserModel, SessionAddTemplate, ErrorTemplate){
+], function($, UI, _, Backbone, Tiny, UserModel, SessionAddTemplate, ErrorTemplate){
     var SessionView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -63,6 +64,8 @@ define([
             this.displaySessionEditors();
         },
         displaySessionEditors: function(){
+            $('#session-date').datepicker();
+
             this.state.summary = tinymce.init({
                 selector: "#session-summary",
                 width: 312,

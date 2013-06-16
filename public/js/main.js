@@ -2,6 +2,7 @@ require.config({
     baseUrl: 'js',
     paths: {
         jquery: 'lib/jquery-1.9.1.min',
+        jqueryui: 'lib/jquery-ui-1.10.3.min',
         underscore: 'lib/underscore-1.4.4.min',
         backbone: 'lib/backbone-1.0.0.min',
         text: 'lib/text-2.0.6.min',
@@ -11,6 +12,9 @@ require.config({
     shim: {
         'jquery': {
             exports: '$'
+        },
+        'jqueryui': {
+            deps: ['jquery']
         },
         'underscore': {
             deps: ['jquery'],
