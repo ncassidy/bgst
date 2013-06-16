@@ -14,6 +14,10 @@ define([
             'click .modal-overlay' : 'closeAddSession',
             'click .close' : 'closeAddSession'
         },
+        state: {
+            date: null,
+            summary: null
+        },
         viewHelpers: {
             validateTitle: function(name){
                 var titlePattern = /^([a-zA-Zb]){1,25}$/;
@@ -59,14 +63,14 @@ define([
             this.displaySessionEditors();
         },
         displaySessionEditors: function(){
-            //summary
-            tinymce.init({
+            this.state.summary = tinymce.init({
                 selector: "#session-summary",
-                width: 314,
-                convert_fonts_to_spans : false,
+                width: 312,
                 menubar: false,
                 statusbar: false,
-                toolbar: 'none'
+                toolbar: false,
+                forced_root_block: false,
+                browser_spellcheck: true
             });
         },
         getSessionDetails: function(){

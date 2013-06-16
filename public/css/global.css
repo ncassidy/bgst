@@ -163,8 +163,8 @@ body { background: #f6f6f6; }
 #modal-session select,
 #modal-session textarea { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 2px; }
 #modal-session .session-summary { overflow: auto; }
-#modal-session .session-summary #tinymce { color: #666; }
-#modal-session .session-summary > div { border-color: #e1e1e1; float: left; }
+#modal-session .session-summary #mce_2 { border: 0; }
+#modal-session .session-summary > div { border-color: #e1e1e1; float: left; margin-left: 2px; }
 #modal-session textarea { height: 70px; width: 310px }
 #modal-session table { border: 1px solid #e1e1e1; color: #666; font: 12px Verdana; line-height: 17px; margin: 0 0 15px 34px; }
 #modal-session table tr { background: #fff; border-bottom: solid 1px #f2f2f2; display: block; padding: 5px 10px; }
