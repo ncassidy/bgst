@@ -11,6 +11,8 @@ define([
     var SessionView = Backbone.View.extend({
         el: $('body'),
         events: {
+            'click .add-player': 'addPlayer',
+            'click .remove-player': 'removePlayer',
             'click #session-submit': 'getSessionDetails',
             'click .modal-overlay' : 'closeAddSession',
             'click .close' : 'closeAddSession'
@@ -95,6 +97,15 @@ define([
 
                 this.displayError(error);
             }
+        },
+        removePlayer: function(e){
+            $(e.currentTarget).closest('tr').remove();
+        },
+        addPlayer: function(e){
+            $(e.currentTarget).closest('tr').clone().removeAttr('id').insertBefore('#player-template').find('.player-edit').empty().append('<a class="remove-player" title="Remove">-</a>');
+            this.$el.find('#player-template').not().find('input, select').each(function(){
+                $(this).val('').removeAttr('checked');
+            })
         },
         addSession: function(title, date, game, summary, $players){
 
