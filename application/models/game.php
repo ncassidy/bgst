@@ -20,13 +20,8 @@ class Game extends Eloquent
         return $response;
     }
 
-    public function getGameList(){
-        if (Cache::has('games_list')){
-            $response = Cache::get('games_list');
-        } else {
-            $response = DB::query('SELECT id, title FROM game ORDER BY title ASC');
-            Cache::put('games_list', $response, 30);
-        }
+    public function getGameListByTitle($title, $count){
+        $response = DB::query('SELECT id, title FROM game WHERE title LIKE ? ORDER BY title ASC LIMIT 0, ?', array($title . '%', $count));
 
         return $response;
     }

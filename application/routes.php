@@ -47,6 +47,9 @@ Route::post('api/v1/sessions/create', 'session@create');
 Route::get('api/v1/sessions', 'session@sessions');
 Route::get('api/v1/sessions/(:num)', 'session@session');
 
+/* Game API Routes */
+Route::get('api/v1/games/(:any)', 'game@games');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
