@@ -164,7 +164,7 @@ body { background: #f6f6f6; }
 #modal-session input,
 #modal-session select,
 #modal-session textarea { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 2px; }
-#modal-session #game-list { background: #fff; border: solid 1px #e1e1e1; left: 102px; position: absolute; top: 134px; width: 142px; z-index: 13; }
+#modal-session #game-list { background: #fff; border: solid 1px #e1e1e1; display: none; left: 102px; position: absolute; top: 134px; width: 142px; z-index: 13; }
 #modal-session #game-list li { border-bottom: dashed 1px #e1e1e1; color: #666; font: 12px Verdana; padding: 2px; }
 #modal-session #game-list li:last-child { border-bottom: 0; }
 #modal-session .session-summary { overflow: auto; }
@@ -178,7 +178,7 @@ body { background: #f6f6f6; }
 #modal-session table th,
 #modal-session table td { text-align: left; }
 #modal-session table .player-name { min-width: 138px; position: relative; }
-#modal-session table .player-name #player-list { background: #fff; border: solid 1px #e1e1e1; position: absolute; top: 22px; width: 124px; z-index: 13; }
+#modal-session table .player-name #player-list { background: #fff; border: solid 1px #e1e1e1; display: none; position: absolute; top: 22px; width: 124px; z-index: 13; }
 #modal-session table .player-name #player-list li { border-bottom: dashed 1px #e1e1e1; padding: 2px; }
 #modal-session table .player-name #player-list li:last-child { border-bottom: 0; }
 #modal-session table .player-name input { width: 120px; }
