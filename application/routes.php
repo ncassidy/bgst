@@ -50,6 +50,9 @@ Route::get('api/v1/sessions/(:num)', 'session@session');
 /* Game API Routes */
 Route::get('api/v1/games/(:any)', 'game@games');
 
+/* Player API Routes */
+Route::get('api/v1/players', 'player@players');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
@@ -112,7 +115,6 @@ Route::filter('after', function($response)
 {
 	// Do stuff after every request to your application...
 });
-
 
 Route::filter('auth', function()
 {

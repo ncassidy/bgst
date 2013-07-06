@@ -9,4 +9,10 @@ class Player extends Eloquent
         return $response;
     }
 
+    public function getPlayersByUserId($userID){
+        $response = DB::query('SELECT id, name FROM player WHERE  user_id = ?', array($userID));
+
+        return $response;
+    }
+
 }

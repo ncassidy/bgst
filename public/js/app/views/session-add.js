@@ -5,9 +5,11 @@ define([
     'backbone',
     'tiny',
     'app/models/user',
+    'app/collections/game',
+    'app/collections/player',
     'text!/../templates/session-add-modal-template.html',
     'text!/../templates/error-modal-template.html'
-], function($, UI, _, Backbone, Tiny, UserModel, SessionAddTemplate, ErrorTemplate){
+], function($, UI, _, Backbone, Tiny, UserModel, GameCollection, PlayerCollection, SessionAddTemplate, ErrorTemplate){
     var SessionView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -36,6 +38,8 @@ define([
             }
         },
         initialize: function(){
+            this.gameCollection = new GameCollection();
+            this.playerCollection = new PlayerCollection();
             this.render();
         },
         render: function(){
@@ -78,6 +82,41 @@ define([
                 browser_spellcheck: true
             });
         },
+        removePlayer: function(e){
+            $(e.currentTarget).closest('tr').remove();
+        },
+        addPlayer: function(e){
+            $(e.currentTarget).closest('tr').clone().removeAttr('id').insertBefore('#player-template').find('.player-edit').empty().append('<a class="remove-player" title="Remove">-</a>');
+            this.$el.find('#player-template').not().find('input, select').each(function(){
+                $(this).val('').removeAttr('checked');
+            })
+        },
+        getGameList: function(gameSearchTerm){
+            var _this = this;
+
+            this.gameCollection.fetch({
+                url: 'api/v1/games/' + gameSearchTerm,
+                success: function(){
+                    //_this.displaySession();
+                },
+                error: function(){
+                    _this.displayError(arguments[1].responseText.replace(/"/g,''));
+                }
+            });
+        },
+        getPlayerList: function(playerSearchTerm){
+            var _this = this;
+
+            this.playerCollection.fetch({
+                url: 'api/v1/players/' + playerSearchTerm,
+                success: function(){
+                    //_this.displaySession();
+                },
+                error: function(){
+                    _this.displayError(arguments[1].responseText.replace(/"/g,''));
+                }
+            });
+        },
         getSessionDetails: function(){
             var title = this.$el.find('#session-title').val(),
                 date = this.$el.find('#session-date').val(),
@@ -98,16 +137,7 @@ define([
                 this.displayError(error);
             }
         },
-        removePlayer: function(e){
-            $(e.currentTarget).closest('tr').remove();
-        },
-        addPlayer: function(e){
-            $(e.currentTarget).closest('tr').clone().removeAttr('id').insertBefore('#player-template').find('.player-edit').empty().append('<a class="remove-player" title="Remove">-</a>');
-            this.$el.find('#player-template').not().find('input, select').each(function(){
-                $(this).val('').removeAttr('checked');
-            })
-        },
-        addSession: function(title, date, game, summary, $players){
+        addSession: function(title, date, game, summary, players){
 
         },
         closeAddSession: function(){

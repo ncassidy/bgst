@@ -5,10 +5,10 @@ define([
 ], function($, _, Backbone){
     Backbone.emulateHTTP = true;
 
-    var GameModel = Backbone.Model.extend({
+    var PlayerModel = Backbone.Model.extend({
         defaults: {
             id: undefined,
-            title: undefined
+            name: undefined
         },
         url: '',
         initialize: function(params){
@@ -16,5 +16,5 @@ define([
         }
     });
 
-    return GameModel;
+    return PlayerModel;
 });

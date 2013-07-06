@@ -164,6 +164,9 @@ body { background: #f6f6f6; }
 #modal-session input,
 #modal-session select,
 #modal-session textarea { color: #666; border: solid 1px #e1e1e1; font: 12px Verdana; padding: 2px; }
+#modal-session #game-list { background: #fff; border: solid 1px #e1e1e1; left: 102px; position: absolute; top: 134px; width: 142px; z-index: 13; }
+#modal-session #game-list li { border-bottom: dashed 1px #e1e1e1; color: #666; font: 12px Verdana; padding: 2px; }
+#modal-session #game-list li:last-child { border-bottom: 0; }
 #modal-session .session-summary { overflow: auto; }
 #modal-session .session-summary #mce_2 { border: 0; }
 #modal-session .session-summary > div { border-color: #e1e1e1; float: left; margin-left: 2px; }
@@ -174,7 +177,10 @@ body { background: #f6f6f6; }
 #modal-session table tr:last-child { border-bottom: 0; }
 #modal-session table th,
 #modal-session table td { text-align: left; }
-#modal-session table .player-name { min-width: 138px; }
+#modal-session table .player-name { min-width: 138px; position: relative; }
+#modal-session table .player-name #player-list { background: #fff; border: solid 1px #e1e1e1; position: absolute; top: 22px; width: 124px; z-index: 13; }
+#modal-session table .player-name #player-list li { border-bottom: dashed 1px #e1e1e1; padding: 2px; }
+#modal-session table .player-name #player-list li:last-child { border-bottom: 0; }
 #modal-session table .player-name input { width: 120px; }
 #modal-session table .player-team { min-width: 86px; }
 #modal-session table .player-score { min-width: 58px; text-align: center; }
@@ -212,7 +218,7 @@ body { background: #f6f6f6; }
 #activity .close { background: #f2f2f2; border: 1px solid #e1e1e1; color: #464646; cursor: pointer; font: bold 12px Verdana; height: 8px; line-height: 8px; margin: 0; padding: 5px; position: absolute; right: 6px; top: 14px; width: 9px; }
 #activity .close:hover { background: #464646; color: #f2f2f2; }
 
-/* UI Styles */
+/* jUI Styles */
 .ui-icon { background-repeat: no-repeat; display: block; overflow: hidden; text-indent: -99999px; }
 .ui-widget-overlay { height: 100%; left: 0; position: fixed; top: 0; width: 100%; }
 .ui-datepicker { display: none; padding: .2em .2em 0; width: 17em; }
